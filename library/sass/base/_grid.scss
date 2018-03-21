@@ -1,0 +1,92 @@
+body{
+    &.page-template-template-maintenance{
+        min-height:100vH;
+        position:relative;
+         main{
+            position:relative;
+            padding:0 5vW;
+            
+        article{
+            @include clearfix;
+            @include display(flex);
+            @include justify-content(space-between);
+            @media screen and (max-width:$screen-sm - 1) and (orientation:portrait){
+                @include flex-direction(column);
+            }
+
+            @media screen and (max-width:$screen-sm) and (orientation:landscape){
+                @include flex-direction(row);
+            }
+            > div {
+
+                @media screen and (orientation:portrait){
+                    margin-bottom:1rem;
+                }
+                @media screen and (orientation:landscape){
+               
+                @include flex-basis(50%);
+                    &:first-child {
+                    margin-right:2vW;
+                }
+                }
+                @media screen and (min-width:$screen-sm) and (orientation:landscape){
+                    float:left;
+                    width:calc(50%-2vW);
+                }
+            }
+
+        }
+    }
+    }
+    
+}
+.wrapper{
+    min-height:100vH;
+    @media screen and (min-width:$screen-md){
+        @include outer-container(65%);
+    }
+    @media screen and (min-width:$screen-wide){
+        @include outer-container(1170px);
+    }
+    > main, > header{
+        padding:0 5vW 5vH 5vW;
+    }
+    article > section{
+        @media screen and (min-width:$screen-md){
+            @include display(flex);
+            aside{
+                @include flex-basis(35%);
+                margin-left:5%;
+            }
+        }
+       
+    }
+
+
+}
+/* header */
+.header {
+
+}
+/* logo */
+.logo {
+@media screen and (min-width:$screen-sm){
+            width:75%;
+            margin:7.5vH auto 0 auto;
+        }
+}
+.logo-img {
+
+}
+/* nav */
+.nav {
+
+}
+/* sidebar */
+.sidebar {
+
+}
+/* footer */
+.footer {
+
+}

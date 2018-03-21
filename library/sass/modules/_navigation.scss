@@ -1,0 +1,59 @@
+/**** Languages ****/
+#languages-menu{
+    margin: 0;
+    z-index: 99999;
+    float: none;
+    position: absolute;
+    background-color:$brand_primary;
+    
+    * {color:#fff;}
+    
+     right: -5px;
+     bottom:-1em;
+
+/*    @media screen and (max-width:$screen-sm){
+        left: 0;
+        top:0;
+    }
+    @media screen and (min-width:$screen-md + 1) and (orientation:portrait){
+        top:0;
+        right: 2em;
+        position: absolute;
+    }
+    @media screen and (min-width:$screen-md + 1) and (orientation:landscape){
+       
+
+    }*/
+
+    ul{margin:0;padding:.5em 0;}
+
+    .lang-item{
+        list-style:none;
+        display:inline-block;
+        border-right:1px solid currentColor;
+        &:last-child{border:0;}
+        a {
+            letter-spacing: .05em;
+            padding: 0 1em;
+            margin:0;
+        }
+        span{
+            width: 0;
+            overflow:hidden;
+            text-indent: -999999px;
+            display: inline-block;
+        }
+        span:after{
+            text-transform: uppercase;
+        }
+    }
+    .lang-item-de a:after{
+        content:'DE';
+    }
+    .lang-item-en a:after{
+        content:'EN';
+    }
+    .lang-item-zh a:after{
+        content:'文';
+    }
+}
