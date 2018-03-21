@@ -1016,12 +1016,8 @@ gallery
 @import 'modules/_carousel';
 @import 'modules/_widgets';
 */
-#wpadminbar {
-  display: none; }
-
-html {
-  margin-top: 0 !important; }
-
+/*#wpadminbar{display:none;}
+html{margin-top:0!important;}*/
 .widget-acf {
   margin-bottom: 1rem;
   border-bottom: 1px solid #ccc; }
