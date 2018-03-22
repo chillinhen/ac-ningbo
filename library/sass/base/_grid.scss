@@ -54,6 +54,9 @@ body{
     article > section{
         @media screen and (min-width:$screen-md){
             @include display(flex);
+            .main-content{
+                @include flex-basis(60%);
+            }
             aside{
                 @include flex-basis(35%);
                 margin-left:5%;
