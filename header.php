@@ -37,6 +37,13 @@
     <body <?php body_class(); ?>>
         <!-- wrapper -->
         <div class="wrapper">
+            <header class="header clear" role="banner">
+                <a class="toggle-nav" title="Menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
             <?php
             if (is_singular() && has_post_thumbnail()) :
                 $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'post-image-cover');
@@ -47,12 +54,13 @@
 
                     <?php the_post_thumbnail('post-image'); ?>
                     <?php dynamic_sidebar('language'); ?>
+                    
                 </div>
             <?php endif;
             ?>
             <!-- header -->
-            <header class="header clear" role="banner">
-
+            
+                
                 <!-- logo -->
                 <div class="logo">
                     <a href="<?php echo home_url(); ?>">
@@ -64,9 +72,4 @@
             </header>
             <!-- /header -->
             <main role="main">
-                <?php if (!(is_page_template('template-maintenance.php'))) : ?>
-                    <!-- nav -->
-                    <nav class="nav" role="navigation">
-                        <?php html5blank_nav(); ?>
-                    </nav>
-                <?php endif; ?>
+            

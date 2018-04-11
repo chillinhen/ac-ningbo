@@ -50,17 +50,20 @@ input[type=file]::-webkit-file-upload-button{
         @include button-style (10px,.7em 1em, 1em, $bg-inverse );
         color: $white;
     }
-select {
-    body:not(.ie) &{
-           @include appearance(none);
-    line-height:20px;
-    background-image:url('../img/bg-select.svg');
-    background-position: 98% 50%;
-    background-repeat: no-repeat; 
-    width:100%; 
+    select {
+        body:not(.ie) &{
+            @include appearance(none);
+            line-height:20px;
+            background-image:url('../img/bg-select.svg');
+            background-position: 98% 50%;
+            background-repeat: no-repeat;
+            background-size: auto 25%;
+            width:100%; 
+            .no-svg &{
+                background-image:url('../img/bg-select.png');
+            }
+        }
     }
-
-}
 textarea {
     max-height: 120px;
     overflow: auto;

@@ -11,13 +11,11 @@
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                                 <h1><?php the_title(); ?></h1>
                                 <section class="content">
-                                    <div class="main-content">
                                         <?php the_content(); ?>
-                                        <?php edit_post_link(); ?>
-                                    </div>
-                                    <?php get_sidebar(); ?>
+                                        
+                                    <?php #get_sidebar(); ?>
                                 </section>
-                                
+                               <?php edit_post_link(); ?> 
 
 			</article>
 			<!-- /article -->

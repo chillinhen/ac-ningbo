@@ -10,14 +10,14 @@
     text-rendering:optimizeLegibility;
 }
 /* external */
-a[href*="//"]:not([href*="aachen-ningbo.de"]){
+/*a[href*="//"]:not([href*="aachen-ningbo.de"]){
     &:after {
         @include icon-style ("\f08e", 0, 1, .5em, 1);
         &.btn{
             color:white;
         }
     }
-}
+}*/
 /* clear */
 .clear:before,
 .clear:after {

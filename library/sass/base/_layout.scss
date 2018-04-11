@@ -5,6 +5,7 @@ body {
     
     .wrapper{
         background:$mainBg;
+        position:relative;
         .header-image{
             position:relative;
         }
@@ -23,6 +24,28 @@ body {
 /*------------------------------------*\
     PAGES
 \*------------------------------------*/
+/*------------------------------------*\
+    Sidebar
+\*------------------------------------*/
+.contact{
+    position:relative;
+    background:$brand-primary;
+    &, & *{color:white;}
+    > *{
+        padding:{
+            left:1rem;
+            right:1rem;
+        }
+        &:first-child{
+            padding-top:1rem;
+        }
+        &:last-child{padding-bottom:1rem;}
+    }
+}
+.info{
+    margin:1em 0;
+}
+
 
 
 
@@ -71,14 +94,24 @@ a[class*="nivo-lightbox"]{color:white;}
 gallery
 --------------------------------------------------*/
 [class*='gallery-columns']{
-    @include display(flex);
-    /*    @include justify-content(space-between);*/
-    @include flex-wrap(wrap);
-    @include flex-grow(1);
-    margin: -1em;
+    .main-content &{
+        @include display(flex);
+        @include flex-wrap(wrap);
+        @include flex-grow(1);
+        @media screen and (max-width:$screen-xs){
+            @include justify-content(center);
+        }
+    }
+    
+    
+    aside.sidebar &{
+/*        @include flex-direction(column);
+        @include justify-content(space-between);*/
+    }
+
 }
 .gallery-item{
-    margin:1em;
+    margin:.1rem;
 
     a {
         display:block;
@@ -89,42 +122,46 @@ gallery
             height:auto;
         }
     }
-
+    [class*="caption"]{
+        padding:.5rem;
+    }
+    @media screen and (min-width:$screen-lg){
     .gallery-columns-1 &{
-        @include flex-basis(calc(100%/1 - 2em));
-        -ms-flex-preferred-size:calc(100%/1 - 2.5em);
+        @include flex-basis(calc(100%/1 - 2px));
+        -ms-flex-preferred-size:calc(100%/1 - 2px);
     }
     .gallery-columns-2 &{
-        @include flex-basis(calc(100%/2 - 2em));
-        -ms-flex-preferred-size:calc(100%/2 - 2.5em);
+        @include flex-basis(calc(100%/2 - 2px));
+        -ms-flex-preferred-size:calc(100%/2 - 2px);
     }
     .gallery-columns-3 &{
-        @include flex-basis(calc(100%/3 - 2em));
-        -ms-flex-preferred-size:calc(100%/3 - 2.5em);
+        @include flex-basis(calc(100%/3 - 2px));
+        -ms-flex-preferred-size:calc(100%/3 - 2px);
     }
     .gallery-columns-4 &{
-        @include flex-basis(calc(100%/4 - 2em));
-        -ms-flex-preferred-size:calc(100%/4 - 2.5em);
+        @include flex-basis(calc(100%/4 - 2px));
+        -ms-flex-preferred-size:calc(100%/4 - 2px);
     }
     .gallery-columns-5 &{
-        @include flex-basis(calc(100%/5 - 2em));
-        -ms-flex-preferred-size:calc(100%/5 - 2.5em);
+        @include flex-basis(calc(100%/5 - 2px));
+        -ms-flex-preferred-size:calc(100%/5 - 2px);
     }
     .gallery-columns-6 &{
-        @include flex-basis(calc(100%/6 - 2em));
-        -ms-flex-preferred-size:calc(100%/6 - 2.5em);
+        @include flex-basis(calc(100%/6 - 2px));
+        -ms-flex-preferred-size:calc(100%/6 - 2px);
     }
     .gallery-columns-7 &{
-        @include flex-basis(calc(100%/7 - 2em));
-        -ms-flex-preferred-size:calc(100%/7 - 2.5em);
+        @include flex-basis(calc(100%/7 - 2px));
+        -ms-flex-preferred-size:calc(100%/7 - 2px);
     }
     .gallery-columns-8 &{
-        @include flex-basis(calc(100%/8 - 2em));
-        -ms-flex-preferred-size:calc(100%/8 - 2.5em);
+        @include flex-basis(calc(100%/8 - 2px));
+        -ms-flex-preferred-size:calc(100%/8 - 2px);
     }
     .gallery-columns-9 &{
-        @include flex-basis(calc(100%/9 - 2em));
-        -ms-flex-preferred-size:calc(100%/9 - 2.5em);
+        @include flex-basis(calc(100%/9 - 2px));
+        -ms-flex-preferred-size:calc(100%/9 - 2px);
+    }
     }
 
 }

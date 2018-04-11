@@ -9,6 +9,10 @@
 </div>
 <!-- /wrapper -->
 
+<nav role="navigation" id="offMenu" class="nav off-canvas-responsive">
+    <?php html5blank_nav(); ?>
+</nav>
+
 <?php wp_footer(); ?>
 
 <?php #get_template_part('snippets/analytics'); ?>

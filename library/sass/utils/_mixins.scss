@@ -135,21 +135,19 @@
     @media screen and (min-width:$screen-md){@include flex-direction(row);}
 }
 
-@mixin toggle-nav-bar($size,$span-height,$col,$col-acive){
+@mixin toggle-nav-bar($size,$span-height){
     @include size ($size);
-    position: relative;
-    @include transform(rotate(0deg));
+    transform: rotate(0deg);
     cursor: pointer;
     span {
         display: block;
         position: absolute;
         height: $span-height;
         width: 100%;
-        background: $col;
         opacity: 1;
         left: 0;
         @include border-radius (1.5 * $span-height);
-        @include transform(rotate(0deg));
+        transform: rotate(0deg);
         @include transition(all .25s ease-in-out);
         &:nth-child(1) {
             top: 0px;
@@ -162,9 +160,6 @@
             top: 4 * $span-height;
         }
     }
-    &.open span{
-        background: $col-acive;
-    }
     &.open span:nth-child(1),&.open span:nth-child(4) {
         top: 2 * $span-height;
         width: 0%;
@@ -172,14 +167,13 @@
     }
 
     &.open span:nth-child(2) {
-        @include transform(rotate(45deg));
+        transform: rotate(-45deg);
     }
 
     &.open span:nth-child(3) {
-        @include transform(rotate(-45deg));
+        transform: rotate(45deg);
     }
 }
-
 
 /*** Infographic ***/
 @mixin level-style($bg-col){

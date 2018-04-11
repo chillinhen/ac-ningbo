@@ -115,6 +115,10 @@ function html5blank_header_scripts() {
 
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/library/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
+        
+        /** ToDo: delete later **/
+        wp_register_script('helper', get_template_directory_uri() . '/library/js/helper.js', array('jquery'), '1.0.0'); // Custom scripts
+        wp_enqueue_script('helper'); // Enqueue it!
     }
 }
 
@@ -131,7 +135,7 @@ function html5blank_styles() {
     wp_register_style('normalize', get_template_directory_uri() . '/normalize.css', array(), '1.0', 'all');
     wp_enqueue_style('normalize'); // Enqueue it!
     //fonts
-    wp_register_style('googlefonts', 'http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic|Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic', 'style', '1.0', 'all');
+    wp_register_style('googlefonts', 'https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic|Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic', 'style', '1.0', 'all');
     wp_enqueue_style('googlefonts');
 
     wp_register_style('ac-ningbo', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
@@ -139,8 +143,8 @@ function html5blank_styles() {
 
     wp_register_style('screen', get_stylesheet_directory_uri() . '/library/css/screen.css', 'style', '1.0', 'all', array('ac-ningbo'));
     wp_enqueue_style('screen');
-    wp_register_style('print', get_stylesheet_directory_uri() . '/library/css/print.min.css', 'style', '1.0', 'print', array('screen'));
-    wp_enqueue_style('print');
+    /*wp_register_style('print', get_stylesheet_directory_uri() . '/library/css/print.min.css', 'style', '1.0', 'print', array('screen'));
+    wp_enqueue_style('print');*/
 }
 /**
  * Registers an editor stylesheet for the theme.
@@ -431,6 +435,7 @@ remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altoget
 // Shortcodes above would be nested like this -
 // [html5_shortcode_demo] [html5_shortcode_demo_2] Here's the page title! [/html5_shortcode_demo_2] [/html5_shortcode_demo]
 add_filter('body_class','mv_browser_body_class');
+add_filter( 'use_default_gallery_style', '__return_false' );
 
 /* ------------------------------------*\
   Custom Post Types
