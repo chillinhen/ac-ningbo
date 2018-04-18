@@ -2,7 +2,7 @@
     Globals
 \*------------------------------------*/
 body {
-    
+
     .wrapper{
         background:$mainBg;
         position:relative;
@@ -58,7 +58,7 @@ body {
         max-height:415px;
         overflow:hidden;
     }
-    
+
 }
 /*------------------------------------------------
 Nivo Lightbox
@@ -72,9 +72,13 @@ a[class*="nivo-lightbox"]{color:white;}
 .nivo-lightbox-nav, .nivo-lightbox-close{
     display:block;
     @extend %text-indent;
-    background: transparent url(../img/nivo-icons.png) no-repeat 0% 0%;
+    background: transparent url(../img/nivo-icons.svg) no-repeat 0% 0% / cover;
     width:26px;
     height:26px;
+    
+    .no-svg &{
+        background-image:url(../img/nivo-icons.png);
+    }
 }
 .nivo-lightbox-close{
     top:10%;
@@ -93,26 +97,70 @@ a[class*="nivo-lightbox"]{color:white;}
 /*------------------------------------------------
 gallery
 --------------------------------------------------*/
+/*#wpadminbar{display:none;}
+html{margin-top:0!important;}*/
 [class*='gallery-columns']{
-    .main-content &{
+    @media screen and (min-width:$screen-sm){
         @include display(flex);
-        @include flex-wrap(wrap);
-        @include flex-grow(1);
-        @media screen and (max-width:$screen-xs){
-            @include justify-content(center);
+        .main-content &{
+            @include flex-wrap(wrap);
+            @include flex-grow(1);
+            @media screen and (max-width:$screen-xs){
+                @include justify-content(center);
+            }
+        }
+        aside.sidebar &{
+            max-width:300px;
+            @include flex-direction(column);
+            @include justify-content(space-between);
         }
     }
-    
-    
-    aside.sidebar &{
-/*        @include flex-direction(column);
-        @include justify-content(space-between);*/
-    }
-
 }
 .gallery-item{
-    margin:.1rem;
-
+    margin:1px;
+    position:relative;
+    overflow:hidden;
+    @media screen and (min-width:$screen-sm){
+        .gallery-columns-1 &{
+            @include flex-basis(calc(100%/1 - 2px));
+            -ms-flex-preferred-size:calc(100%/1 - 2px);
+        }
+        .gallery-columns-2 &{
+            @include flex-basis(calc(100%/2 - 2px));
+            -ms-flex-preferred-size:calc(100%/2 - 2px);
+        }
+        .gallery-columns-3 &{
+            @include flex-basis(calc(100%/3 - 2px));
+            -ms-flex-preferred-size:calc(100%/3 - 2px);
+        }
+        .gallery-columns-4 &{
+            @include flex-basis(calc(100%/4 - 2px));
+            -ms-flex-preferred-size:calc(100%/4 - 2px);
+        }
+        .gallery-columns-5 &{
+            @include flex-basis(calc(100%/5 - 2px));
+            -ms-flex-preferred-size:calc(100%/5 - 2px);
+        }
+        .gallery-columns-6 &{
+            @include flex-basis(calc(100%/6 - 2px));
+            -ms-flex-preferred-size:calc(100%/6 - 2px);
+        }
+        .gallery-columns-7 &{
+            @include flex-basis(calc(100%/7 - 2px));
+            -ms-flex-preferred-size:calc(100%/7 - 2px);
+        }
+        .gallery-columns-8 &{
+            @include flex-basis(calc(100%/8 - 2px));
+            -ms-flex-preferred-size:calc(100%/8 - 2px);
+        }
+        .gallery-columns-9 &{
+            @include flex-basis(calc(100%/9 - 2px));
+            -ms-flex-preferred-size:calc(100%/9 - 2px);
+        }
+    }
+    aside.sidebar &{
+        margin-bottom:1em;
+    }
     a {
         display:block;
         width:inherit;
@@ -124,44 +172,41 @@ gallery
     }
     [class*="caption"]{
         padding:.5rem;
+        text-align:center;
+        background: rgba($brand-primary, 0.75);
+        font-weight:bold;
+        color:white;
+        @media screen and (max-width:$screen-sm){
+            font-size:larger;
+        }
     }
-    @media screen and (min-width:$screen-lg){
-    .gallery-columns-1 &{
-        @include flex-basis(calc(100%/1 - 2px));
-        -ms-flex-preferred-size:calc(100%/1 - 2px);
+    /*** Caption Hover ***/
+    .main-content &{
+            .gallery-caption,
+    .gallery-icon{
+        position:absolute;
+        left:0;
+        right:0;
     }
-    .gallery-columns-2 &{
-        @include flex-basis(calc(100%/2 - 2px));
-        -ms-flex-preferred-size:calc(100%/2 - 2px);
+    .gallery-icon{
+        top:0;
+        bottom:0;
     }
-    .gallery-columns-3 &{
-        @include flex-basis(calc(100%/3 - 2px));
-        -ms-flex-preferred-size:calc(100%/3 - 2px);
+    .gallery-caption{
+        top:-150%;
+        bottom:100%;
+        @include display(flex);
+        @include flex-direction(column);
+        @include justify-content(center);
     }
-    .gallery-columns-4 &{
-        @include flex-basis(calc(100%/4 - 2px));
-        -ms-flex-preferred-size:calc(100%/4 - 2px);
-    }
-    .gallery-columns-5 &{
-        @include flex-basis(calc(100%/5 - 2px));
-        -ms-flex-preferred-size:calc(100%/5 - 2px);
-    }
-    .gallery-columns-6 &{
-        @include flex-basis(calc(100%/6 - 2px));
-        -ms-flex-preferred-size:calc(100%/6 - 2px);
-    }
-    .gallery-columns-7 &{
-        @include flex-basis(calc(100%/7 - 2px));
-        -ms-flex-preferred-size:calc(100%/7 - 2px);
-    }
-    .gallery-columns-8 &{
-        @include flex-basis(calc(100%/8 - 2px));
-        -ms-flex-preferred-size:calc(100%/8 - 2px);
-    }
-    .gallery-columns-9 &{
-        @include flex-basis(calc(100%/9 - 2px));
-        -ms-flex-preferred-size:calc(100%/9 - 2px);
+    &:hover, &:focus{
+        .gallery-caption{
+            top:0;
+            bottom:0;
+            @include transition(all .25s ease-in-out);
+        }
     }
     }
 
 }
+

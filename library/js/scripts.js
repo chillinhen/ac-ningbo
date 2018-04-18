@@ -1,31 +1,44 @@
 (function ($, root, undefined) {
 
     $(function () {
-        // Nav Button
-        var navButton = $('.menu-item > a');
-        var tapped = false;
-        //navButton.addClass('foo');
-        navButton.on("touchstart", function (e) {
-            if (!tapped) { //if tap is not set, set up single tap
-                tapped = setTimeout(function () {
-                    e.preventDefault();
-                    //insert things you want to do when single tapped
-                }, 300);   //wait 300ms then run single click code
-                $(this).addClass('dropdown');
+        checkImageSize();
+        $(window).resize(checkImageSize);
+        
+        function checkImageSize() {
+            $('.gallery-item a').each(function () {
+                var gallery = $(this).parent().parent().parent('div');
+                var galleryID = gallery.attr('id');
+                $(this).attr('data-lightbox-gallery', galleryID);
+            });
+            $('.main-content .gallery-item a').each(function () {
+                var imgHeight = $(this).height();
+                $(this).parent().parent('figure').css('height', imgHeight);
+            });
+        }
+
+        var navButton = $('[class*="item-has-children"]');
+        navButton.each(function () {
+            $(this).append('<span class="icon"> </span>');
+            $(this).children('.icon').on('click', function () {
+                $(this).toggleClass('open');
                 $(this).siblings('ul').toggleClass('show');
-            } else {    //tapped within 300ms of last tap. double tap
-                clearTimeout(tapped); //stop single tap callback
-                window.location.href = $(this).attr('href');
-                //insert things you want to do when double tapped
-            }
-            e.preventDefault()
+                e.preventDefault();
+            });
+
         });
+
+        
+        
+        
+
+        // style menu items
+        $('nav [class*="item"]> a').wrapInner('<span></span>');
         /*** Language switch ***/
         $('.lang-item').each(function () {
             $(this).children('a').wrapInner('<span></span>');
         });
         /*** Off canvas ***/
-        $('.toggle-nav').click(function (e) {
+        $('.toggle-nav').on('touchstart click', function (e) {
             $('#offMenu').toggleClass('open');
             $(this).toggleClass('open');
             e.preventDefault();
@@ -37,7 +50,26 @@
             $('header.header').addClass('has-image');
         }
         $('aside').prev('p').remove();
-        //$('aside .gallery').children('br').remove();
+        
+                /*** NIVO Lightbox ***/
+        $('a').nivoLightbox();
+
+        $('.gallery-item a').nivoLightbox({
+            effect: 'fade', // The effect to use when showing the lightbox 
+            theme: 'default', // The lightbox theme to use 
+            keyboardNav: true, // Enable/Disable keyboard navigation (left/right/escape) 
+//            onInit: function () {}, // Callback when lightbox has loaded 
+//            beforeShowLightbox: function () {}, // Callback before the lightbox is shown 
+//            afterShowLightbox: function (lightbox) {}, // Callback after the lightbox is shown 
+//            beforeHideLightbox: function () {}, // Callback before the lightbox is hidden 
+//            afterHideLightbox: function () {}, // Callback after the lightbox is hidden 
+//            onPrev: function (element) {}, // Callback when the lightbox gallery goes to previous item 
+//            onNext: function (element) {}, // Callback when the lightbox gallery goes to next item 
+            errorMessage: 'The requested content cannot be loaded. Please try again later.' // Error message when content can't be loaded 
+        });
+       
+        
+        
     });
 
 })(jQuery, this);

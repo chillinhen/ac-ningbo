@@ -43,7 +43,7 @@ body{
 .wrapper{
     min-height:100vH;
     @media screen and (min-width:$screen-md){
-        @include outer-container(65%);
+        @include outer-container(970px);
     }
     @media screen and (min-width:$screen-lg){
         @include outer-container(1170px);
@@ -65,16 +65,19 @@ body{
         }
         aside{
             @include order(2);
-            @include flex-basis(32.5%);
+            @media screen and (min-width:$screen-sm + 1){
+               @include flex-basis(32.5%);
             margin-left:2.5%;
             + .main-content{
                 @include flex-basis(62.5%);
 
+            } 
             }
+            
 
         }
         /*        }*/
-        @media screen and (max-width:$screen-xs){
+        @media screen and (max-width:$screen-sm){
             @include flex-direction(column);
         }
 
