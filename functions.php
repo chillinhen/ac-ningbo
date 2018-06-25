@@ -123,6 +123,10 @@ function html5blank_header_scripts() {
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/library/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
         
+        // Cookie Bar
+        wp_register_script('cookie-bar', get_template_directory_uri() . '/library/cookie-bar/cookiebar-latest.min.js?theme=white&tracking=1&thirdparty=1&refreshPage=1&showNoConsent=1&hideDetailsBtn=1&remember=30&privacyPage=https%3A%2F%2Faachen-ningbo.de%2Fde%2Fdatenschutzerklaerung%2F', array('jquery'), false, true);
+       wp_enqueue_script('cookie-bar');
+        
         /** ToDo: delete later **/
         wp_register_script('helper', get_template_directory_uri() . '/library/js/helper.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('helper'); // Enqueue it!
@@ -155,7 +159,7 @@ function html5blank_styles() {
     wp_register_style('ac-ningbo', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     wp_enqueue_style('ac-ningbo'); // Enqueue it!
 
-    wp_register_style('screen', get_stylesheet_directory_uri() . '/library/css/screen.css', 'style', '1.0', 'all', array('fontawesome','ac-ningbo'));
+    wp_register_style('screen', get_stylesheet_directory_uri() . '/library/css/screen.min.css', 'style', '1.0', 'all', array('fontawesome','ac-ningbo'));
     wp_enqueue_style('screen');
     /*wp_register_style('print', get_stylesheet_directory_uri() . '/library/css/print.min.css', 'style', '1.0', 'print', array('screen'));
     wp_enqueue_style('print');*/

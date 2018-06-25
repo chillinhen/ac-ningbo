@@ -11,6 +11,11 @@ body {
         }
         main{
             margin-top:8vH;
+            .main-content{
+                @media screen and (max-width:$screen-pad-landscape){
+                    padding-right:3em;
+                }
+            }
         }
         .logo a:hover{
             cursor:default;

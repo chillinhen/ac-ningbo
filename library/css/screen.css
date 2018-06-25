@@ -340,7 +340,7 @@ a.help i:hover {
 a:hover, a:focus {
   outline: none; }
 
-h1, h2, article h1, h3, h4, legend {
+h1, h2, article h1, h3, legend {
   font-family: "Titillium Web", Arial, Helvetica, sans-serif !important;
   text-rendering: optimizeLegibility;
   text-transform: uppercase;
@@ -349,9 +349,9 @@ h1, h2, article h1, h3, h4, legend {
   margin-bottom: 1em;
   line-height: 1.1;
   color: #2466a8; }
-  h1.logo, h2.logo, article h1.logo, h3.logo, h4.logo, legend.logo {
+  h1.logo, h2.logo, article h1.logo, h3.logo, legend.logo {
     margin: 2em 0 .5em 0; }
-  h1 a, h2 a, article h1 a, h3 a, h4 a, legend a {
+  h1 a, h2 a, article h1 a, h3 a, legend a {
     text-decoration: none;
     color: #2466a8; }
 
@@ -385,12 +385,19 @@ h2, article h1 {
 html:lang(de) .page-template-template-maintenance h3 {
   min-height: 70px; }
 
-h1 a:hover, h2 a:hover, article h1 a:hover, h3 a:hover {
+h4 {
+  font-size: 14px;
+  line-height: 1;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: .5em; }
+
+h1 a:hover, h2 a:hover, article h1 a:hover, h3 a:hover, h4 a:hover {
   text-decoration: none;
   cursor: pointer; }
-h1.collapseHeadline > a:first-child:before, h2.collapseHeadline > a:first-child:before, article h1.collapseHeadline > a:first-child:before, h3.collapseHeadline > a:first-child:before {
+h1.collapseHeadline > a:first-child:before, h2.collapseHeadline > a:first-child:before, article h1.collapseHeadline > a:first-child:before, h3.collapseHeadline > a:first-child:before, h4.collapseHeadline > a:first-child:before {
   padding-right: .5em; }
-h1.collapseHeadline > a:first-child:hover, h2.collapseHeadline > a:first-child:hover, article h1.collapseHeadline > a:first-child:hover, h3.collapseHeadline > a:first-child:hover {
+h1.collapseHeadline > a:first-child:hover, h2.collapseHeadline > a:first-child:hover, article h1.collapseHeadline > a:first-child:hover, h3.collapseHeadline > a:first-child:hover, h4.collapseHeadline > a:first-child:hover {
   cursor: default; }
 
 legend border {
@@ -889,6 +896,9 @@ body .wrapper {
     position: relative; }
   body .wrapper main {
     margin-top: 8vH; }
+    @media screen and (max-width: 1024px) {
+      body .wrapper main .main-content {
+        padding-right: 3em; } }
   body .wrapper .logo a:hover {
     cursor: default; }
 
@@ -1208,7 +1218,7 @@ html{margin-top:0!important;}*/
   margin: 0;
   display: none;
   top: 2em;
-  right: 2em;
+  right: 3em;
   z-index: 99999;
   position: fixed;
   height: 44px;
