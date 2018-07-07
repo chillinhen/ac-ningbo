@@ -1,13 +1,12 @@
-body{
-    &.page-template-template-maintenance{
+body.page-template-template-maintenance{
         min-height:100vH;
         position:relative;
         main{
             position:relative;
             padding:0 2.8rem;
 
-            article{
-                @include clearfix;
+            article > section{
+/*                @include clearfix;
                 @include display(flex);
                 @include justify-content(space-between);
                 @media screen and (max-width:$screen-sm - 1) and (orientation:portrait){
@@ -17,7 +16,7 @@ body{
                 @media screen and (max-width:$screen-sm) and (orientation:landscape){
                     @include flex-direction(row);
                 }
-                > div {
+                 > div {
 
                     @media screen and (orientation:portrait){
                         margin-bottom:1rem;
@@ -31,15 +30,13 @@ body{
                     }
                     @media screen and (min-width:$screen-sm) and (orientation:landscape){
                         float:left;
-                        width:calc(50%-2vW);
+                        min-width:calc(500px-2vW);
                     }
-                }
+                }*/
 
             }
         }
     }
-
-}
 .wrapper{
     min-height:100vH;
     @media screen and (min-width:$screen-md){
@@ -60,6 +57,7 @@ body{
         /*        @media screen and (min-width:$screen-md){*/
         @include display(flex);
         @include justify-content(space-between);
+
         .main-content{
             @include order(1);
         }
@@ -80,7 +78,6 @@ body{
         @media screen and (max-width:$screen-sm){
             @include flex-direction(column);
         }
-
     }
 
 

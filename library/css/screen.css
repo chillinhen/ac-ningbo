@@ -11,6 +11,7 @@ html {
   display: block;
   overflow: hidden; }
 
+/** automat. Silbentrennung ***/
 /*** Mixins & Placeholders ***/
 /**** caret ****/
 /*@include icon-style ("\f075", 0, 1, 0, 2em);*/
@@ -271,10 +272,14 @@ dt {
   Variables & Mixins
   ========================================================================== */
 #banner h2, #banner article h1, article #banner h1, h3 {
+  font-family: "Titillium Web", Arial, Helvetica, sans-serif !important;
+  text-rendering: optimizeLegibility;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
   font-size: 1.429em;
-  line-height: 1.2;
-  margin-top: 1em;
-  margin-bottom: 0.5em; }
+  line-height: 1.2; }
   @media screen and (max-device-width: 480px) and (orientation: portrait) {
     #banner h2, #banner article h1, article #banner h1, h3 {
       font-size: 1.2em; } }
@@ -339,8 +344,16 @@ a.help i:hover {
   cursor: pointer; }
 a:hover, a:focus {
   outline: none; }
+@media screen and (max-width: 992px) {
+  a[href^="mailto"] {
+    white-space: nowrap; } }
+@media screen and (min-width: 992px) {
+  a[href^="tel"], a[href^="tel"]:hover {
+    color: #333;
+    cursor: default;
+    text-decoration: none; } }
 
-h1, h2, article h1, h3, legend {
+h1, h2, article h1, legend {
   font-family: "Titillium Web", Arial, Helvetica, sans-serif !important;
   text-rendering: optimizeLegibility;
   text-transform: uppercase;
@@ -349,9 +362,9 @@ h1, h2, article h1, h3, legend {
   margin-bottom: 1em;
   line-height: 1.1;
   color: #2466a8; }
-  h1.logo, h2.logo, article h1.logo, h3.logo, legend.logo {
+  h1.logo, h2.logo, article h1.logo, legend.logo {
     margin: 2em 0 .5em 0; }
-  h1 a, h2 a, article h1 a, h3 a, legend a {
+  h1 a, h2 a, article h1 a, legend a {
     text-decoration: none;
     color: #2466a8; }
 
@@ -382,8 +395,11 @@ h2, article h1 {
     h2, article h1 {
       font-size: 1.5em; } }
 
-html:lang(de) .page-template-template-maintenance h3 {
-  min-height: 70px; }
+h3 {
+  line-height: 1.1;
+  color: #2466a8; }
+  html:lang(de) .page-template-template-maintenance h3 {
+    min-height: 70px; }
 
 h4 {
   font-size: 14px;
@@ -717,65 +733,34 @@ body.page-template-template-maintenance {
   body.page-template-template-maintenance main {
     position: relative;
     padding: 0 2.8rem; }
-    body.page-template-template-maintenance main article {
-      display: -webkit-box;
-      display: -moz-box;
-      display: box;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: justify;
-      -moz-box-pack: justify;
-      box-pack: justify;
-      -webkit-justify-content: space-between;
-      -moz-justify-content: space-between;
-      -ms-justify-content: space-between;
-      -o-justify-content: space-between;
-      justify-content: space-between;
-      -ms-flex-pack: justify; }
-      body.page-template-template-maintenance main article:before, body.page-template-template-maintenance main article:after {
-        content: ' ';
-        display: table; }
-      @media screen and (max-width: 767px) and (orientation: portrait) {
-        body.page-template-template-maintenance main article {
-          -webkit-box-orient: vertical;
-          -moz-box-orient: vertical;
-          box-orient: vertical;
-          -webkit-box-direction: normal;
-          -moz-box-direction: normal;
-          box-direction: normal;
-          -webkit-flex-direction: column;
-          -moz-flex-direction: column;
-          flex-direction: column;
-          -ms-flex-direction: column; } }
-      @media screen and (max-width: 768px) and (orientation: landscape) {
-        body.page-template-template-maintenance main article {
-          -webkit-box-orient: horizontal;
-          -moz-box-orient: horizontal;
-          box-orient: horizontal;
-          -webkit-box-direction: normal;
-          -moz-box-direction: normal;
-          box-direction: normal;
-          -webkit-flex-direction: row;
-          -moz-flex-direction: row;
-          flex-direction: row;
-          -ms-flex-direction: row; } }
-      @media screen and (orientation: portrait) {
-        body.page-template-template-maintenance main article > div {
-          margin-bottom: 1rem; } }
-      @media screen and (orientation: landscape) {
-        body.page-template-template-maintenance main article > div {
-          -webkit-flex-basis: 50%;
-          -moz-flex-basis: 50%;
-          flex-basis: 50%;
-          -ms-flex-preferred-size: 50%; }
-          body.page-template-template-maintenance main article > div:first-child {
-            margin-right: 2vW; } }
-      @media screen and (min-width: 768px) and (orientation: landscape) {
-        body.page-template-template-maintenance main article > div {
-          float: left;
-          width: calc(50%-2vW); } }
+    body.page-template-template-maintenance main article > section {
+      /*                @include clearfix;
+                      @include display(flex);
+                      @include justify-content(space-between);
+                      @media screen and (max-width:$screen-sm - 1) and (orientation:portrait){
+                          @include flex-direction(column);
+                      }
+      
+                      @media screen and (max-width:$screen-sm) and (orientation:landscape){
+                          @include flex-direction(row);
+                      }
+                       > div {
+      
+                          @media screen and (orientation:portrait){
+                              margin-bottom:1rem;
+                          }
+                          @media screen and (orientation:landscape){
+      
+                              @include flex-basis(50%);
+                              &:first-child {
+                                  margin-right:2vW;
+                              }
+                          }
+                          @media screen and (min-width:$screen-sm) and (orientation:landscape){
+                              float:left;
+                              min-width:calc(500px-2vW);
+                          }
+                      }*/ }
 
 .wrapper {
   min-height: 100vH; }
