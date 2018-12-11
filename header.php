@@ -54,13 +54,13 @@
 
                     <?php the_post_thumbnail('post-image'); ?>
                     <?php dynamic_sidebar('language'); ?>
-                    
+
                 </div>
             <?php endif;
             ?>
             <!-- header -->
-            
-                
+
+
                 <!-- logo -->
                 <div class="logo">
                     <a href="<?php echo home_url(); ?>">
@@ -72,4 +72,3 @@
             </header>
             <!-- /header -->
             <main role="main">
-            
