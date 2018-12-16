@@ -12,6 +12,9 @@
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <section>
                 <?php the_content(); ?>
+                <?php  if ( ! post_password_required() ) :
+          	      get_template_part('partials/page-builder');
+          	    endif; ?>
             </section>
         </article>
         <?php edit_post_link(); ?>

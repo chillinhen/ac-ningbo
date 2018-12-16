@@ -35,6 +35,7 @@
 
     </head>
     <body <?php body_class(); ?>>
+      <?php get_template_part('library/svg/inline', 'icons.svg'); ?>
         <!-- wrapper -->
         <div class="wrapper">
             <header class="header clear" role="banner">
@@ -59,16 +60,9 @@
             <?php endif;
             ?>
             <!-- header -->
-
-
-                <!-- logo -->
-                <div class="logo">
-                    <a href="<?php echo home_url(); ?>">
-                        <!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
-                        <img src="<?php echo get_template_directory_uri(); ?>/library/img/logo-ac-ningbo-eV.svg" alt="Logo" class="logo-img">
-                    </a>
-                </div>
-                <!-- /logo -->
+            <!-- logo -->
+            <?php get_template_part('partials/site', 'branding'); ?>
+            <!-- /logo -->
             </header>
             <!-- /header -->
             <main role="main">
