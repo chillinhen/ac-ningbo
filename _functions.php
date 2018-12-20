@@ -1,23 +1,22 @@
 <?php
-/*------------------------------------*\
-	External Modules/Files
-\*------------------------------------*/
-// Customizer Additions
-require ( 'inc/customizer.php' );
+/* ------------------------------------*\
+  External Modules/Files
+  \*------------------------------------ */
+  // Customizer Additions
+  require ( 'inc/customizer.php' );
 
 // Load any external files you have here
 
-/*------------------------------------*\
-	Theme Support
-\*------------------------------------*/
+/* ------------------------------------*\
+  Theme Support
+  \*------------------------------------ */
 
-if (!isset($content_width))
-{
+if (!isset($content_width)) {
     $content_width = 900;
 }
 
-if (function_exists('add_theme_support'))
-{
+if (function_exists('add_theme_support')) {
+
     //HTML5 support
     add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
     // Add Menu Support
@@ -28,8 +27,7 @@ if (function_exists('add_theme_support'))
     add_image_size('large', 960, '', true); // Large Thumbnail
     add_image_size('medium', 250, '', true); // Medium Thumbnail
     add_image_size('small', 120, '', true); // Small Thumbnail
-    add_image_size('banner', 1165, 415, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
-
+    //add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
     // Add Support for Custom Backgrounds
     add_theme_support('custom-background', array(
       'default-color' => '#f2f2f2',
@@ -47,8 +45,8 @@ if (function_exists('add_theme_support'))
         'default-text-color'     => '#ffffff',
         'header-text'            => true,
         'default-image'          => get_template_directory_uri() . '/library/img/headers/ac-ningbo-header.jpg',
-        'width'                  => 1165,
-        'height'                 => 415,
+        'width'                  => 1164,
+        'height'                 => 416,
         'flex-height'            => true,
         'flex-width'             => false,
         'uploads'                => true,
@@ -69,16 +67,19 @@ if (function_exists('add_theme_support'))
     add_theme_support( 'customize-selective-refresh-widgets' );
     // Enables post and comment RSS feed links to head
     add_theme_support('automatic-feed-links');
+
     //enable html5 tags
     add_theme_support( 'html5', array( 'gallery' ) );
 
     // Localisation Support
-    load_theme_textdomain('html5blank', get_template_directory() . '/languages');
+    load_theme_textdomain('ac-ningbo', get_template_directory() . '/languages');
+
 }
 
-/*------------------------------------*\
-	Functions
-\*------------------------------------*/
+/* ------------------------------------*\
+  Function, Actions + Filters + ShortCodes
+  \*------------------------------------ */
+
 //replace deprecated wp_title
 function filter_title_part($title) {
     $name = get_bloginfo('name');
@@ -98,49 +99,47 @@ function av_document_title_separator($sep) {
 }
 
 // HTML5 Blank navigation
-function html5blank_nav()
-{
-	wp_nav_menu(
-	array(
-		'theme_location'  => 'header-menu',
-		'menu'            => '',
-		'container'       => 'div',
-		'container_class' => 'menu-{menu slug}-container',
-		'container_id'    => '',
-		'menu_class'      => 'menu',
-		'menu_id'         => '',
-		'echo'            => true,
-		'fallback_cb'     => 'wp_page_menu',
-		'before'          => '',
-		'after'           => '',
-		'link_before'     => '',
-		'link_after'      => '',
-		'items_wrap'      => '<ul>%3$s</ul>',
-		'depth'           => 0,
-		'walker'          => ''
-		)
-	);
+function html5blank_nav() {
+    wp_nav_menu(
+            array(
+                'theme_location' => 'header-menu',
+                'menu' => '',
+                'container' => 'div',
+                'container_class' => 'menu-{menu slug}-container',
+                'container_id' => '',
+                'menu_class' => 'menu',
+                'menu_id' => '',
+                'echo' => true,
+                'fallback_cb' => 'wp_page_menu',
+                'before' => '',
+                'after' => '',
+                'link_before' => '',
+                'link_after' => '',
+                'items_wrap' => '<ul>%3$s</ul>',
+                'depth' => 0,
+                'walker' => ''
+            )
+    );
 }
 
 // Load HTML5 Blank scripts (header.php)
-function html5blank_header_scripts()
-{
+function html5blank_header_scripts() {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
-    	wp_register_script('conditionizr', get_template_directory_uri() . '/library/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0'); // Conditionizr
+        wp_register_script('conditionizr', get_template_directory_uri() . '/library/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0'); // Conditionizr
         wp_enqueue_script('conditionizr'); // Enqueue it!
 
         wp_register_script('modernizr', get_template_directory_uri() . '/library/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
         wp_enqueue_script('modernizr'); // Enqueue it!
 
-        wp_register_script('bootstrap', get_template_directory_uri() . '/library/js/lib/bootstrap.min.js', array(), '4.1.3', true); // Bootstrap
-        wp_enqueue_script('bootstrap'); // Enqueue it!
+        wp_register_script('bootstrap', get_template_directory_uri() . '/library/js/lib/bootstrap.min.js', array(), '4.1.3'); // Bootstrap
+        wp_enqueue_script('modernizr'); // Enqueue it!
 
-        // lightbox
-       wp_register_script('nivo-lightbox', get_stylesheet_directory_uri() . '/library/js/nivo-lightbox.min.js', array('jquery'), false, true);
-       wp_enqueue_script('nivo-lightbox');
+         // lightbox
+        wp_register_script('nivo-lightbox', get_stylesheet_directory_uri() . '/library/js/nivo-lightbox.min.js', array('jquery'), false, true);
+        //wp_enqueue_script('nivo-lightbox');
 
-        wp_register_script('html5blankscripts', get_template_directory_uri() . '/library/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
+        wp_register_script('html5blankscripts', get_template_directory_uri() . '/library/js/script.min.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
 
         // Cookie Bar
@@ -150,8 +149,7 @@ function html5blank_header_scripts()
 }
 
 // Load HTML5 Blank conditional scripts
-function html5blank_conditional_scripts()
-{
+function html5blank_conditional_scripts() {
     if (is_page('pagenamehere')) {
         wp_register_script('scriptname', get_template_directory_uri() . '/library/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)
         wp_enqueue_script('scriptname'); // Enqueue it!
@@ -159,11 +157,9 @@ function html5blank_conditional_scripts()
 }
 
 // Load HTML5 Blank styles
-function html5blank_styles()
-{
-    wp_register_style('normalize', get_template_directory_uri() . '/library/css/normalize.min.css', array(), '1.0', 'all');
+function html5blank_styles() {
+    wp_register_style('normalize', get_template_directory_uri() . '/normalize.css', array(), '1.0', 'all');
     wp_enqueue_style('normalize'); // Enqueue it!
-
     //fonts
     wp_register_style('fonts', get_template_directory_uri() . '/library/css/fonts.css', 'style', '1.0', 'all');
     wp_enqueue_style('fonts');
@@ -184,41 +180,45 @@ function html5blank_styles()
     wp_enqueue_style('ac-ningbo'); // Enqueue it!
 
     wp_register_style('screen', get_stylesheet_directory_uri() . '/library/css/screen.min.css', 'style', '1.0', 'all', array('fontawesome','ac-ningbo'));
-    wp_enqueue_style('screen');
+    swp_enqueue_style('screen');
+    /*wp_register_style('print', get_stylesheet_directory_uri() . '/library/css/print.min.css', 'style', '1.0', 'print', array('screen'));
+    wp_enqueue_style('print');*/
+}
+/**
+ * Registers an editor stylesheet for the theme.
+ */
+function theme_add_editor_styles() {
+    add_editor_style( '/library/css/custom-editor-style.css' );
 }
 
+
 // Register HTML5 Blank Navigation
-function register_html5_menu()
-{
-    register_nav_menus(array( // Using array to specify more menus if needed
-        'header-menu' => __('Header Menu', 'html5blank'), // Main Navigation
-        'sidebar-menu' => __('Sidebar Menu', 'html5blank'), // Sidebar Navigation
-        'extra-menu' => __('Extra Menu', 'html5blank') // Extra Navigation if needed (duplicate as many as you need!)
+function register_html5_menu() {
+    register_nav_menus(array(// Using array to specify more menus if needed
+        'header-menu' => __('Header Menu', 'ac-ningbo'), // Main Navigation
+        'sidebar-menu' => __('Sidebar Menu', 'ac-ningbo'), // Sidebar Navigation
+        'footer' => __('Footer Menu', 'ac-ningbo') // Extra Navigation if needed (duplicate as many as you need!)
     ));
 }
 
 // Remove the <div> surrounding the dynamic navigation to cleanup markup
-function my_wp_nav_menu_args($args = '')
-{
+function my_wp_nav_menu_args($args = '') {
     $args['container'] = false;
     return $args;
 }
 
 // Remove Injected classes, ID's and Page ID's from Navigation <li> items
-function my_css_attributes_filter($var)
-{
+function my_css_attributes_filter($var) {
     return is_array($var) ? array() : '';
 }
 
 // Remove invalid rel attribute values in the categorylist
-function remove_category_rel_from_category_list($thelist)
-{
+function remove_category_rel_from_category_list($thelist) {
     return str_replace('rel="category tag"', 'rel="tag"', $thelist);
 }
 
 // Add page slug to body class, love this - Credit: Starkers Wordpress Theme
-function add_slug_to_body_class($classes)
-{
+function add_slug_to_body_class($classes) {
     global $post;
     if (is_home()) {
         $key = array_search('blog', $classes);
@@ -235,12 +235,11 @@ function add_slug_to_body_class($classes)
 }
 
 // If Dynamic Sidebar Exists
-if (function_exists('register_sidebar'))
-{
+if (function_exists('register_sidebar')) {
     // Define Sidebar Widget Area 1
     register_sidebar(array(
-        'name' => __('Widget Area 1', 'html5blank'),
-        'description' => __('Description for this widget-area...', 'html5blank'),
+        'name' => __('Widget Area 1', 'ac-ningbo'),
+        'description' => __('Description for this widget-area...', 'ac-ningbo'),
         'id' => 'widget-area-1',
         'before_widget' => '<div id="%1$s" class="%2$s">',
         'after_widget' => '</div>',
@@ -250,19 +249,26 @@ if (function_exists('register_sidebar'))
 
     // Define Sidebar Widget Area 2
     register_sidebar(array(
-        'name' => __('Widget Area 2', 'html5blank'),
-        'description' => __('Description for this widget-area...', 'html5blank'),
+        'name' => __('Widget Area 2', 'ac-ningbo'),
+        'description' => __('Description for this widget-area...', 'ac-ningbo'),
         'id' => 'widget-area-2',
         'before_widget' => '<div id="%1$s" class="%2$s">',
         'after_widget' => '</div>',
         'before_title' => '<h3>',
         'after_title' => '</h3>'
     ));
+    // Define Sidebar Language
+    register_sidebar(array(
+        'name' => __('Language', 'ac-ningbo'),
+        'description' => __('Language Switch', 'ac-ningbo'),
+        'id' => 'language',
+        'before_widget' => '<div id="languages-menu">',
+        'after_widget' => '</div>'
+    ));
 }
 
 // Remove wp_head() injected Recent Comment styles
-function my_remove_recent_comments_style()
-{
+function my_remove_recent_comments_style() {
     global $wp_widget_factory;
     remove_action('wp_head', array(
         $wp_widget_factory->widgets['WP_Widget_Recent_Comments'],
@@ -271,8 +277,7 @@ function my_remove_recent_comments_style()
 }
 
 // Pagination for paged posts, Page 1, Page 2, Page 3, with Next and Previous Links, No plugin
-function html5wp_pagination()
-{
+function html5wp_pagination() {
     global $wp_query;
     $big = 999999999;
     echo paginate_links(array(
@@ -284,20 +289,17 @@ function html5wp_pagination()
 }
 
 // Custom Excerpts
-function html5wp_index($length) // Create 20 Word Callback for Index page Excerpts, call using html5wp_excerpt('html5wp_index');
-{
+function html5wp_index($length) { // Create 20 Word Callback for Index page Excerpts, call using html5wp_excerpt('html5wp_index');
     return 20;
 }
 
 // Create 40 Word Callback for Custom Post Excerpts, call using html5wp_excerpt('html5wp_custom_post');
-function html5wp_custom_post($length)
-{
+function html5wp_custom_post($length) {
     return 40;
 }
 
 // Create the Custom Excerpts callback
-function html5wp_excerpt($length_callback = '', $more_callback = '')
-{
+function html5wp_excerpt($length_callback = '', $more_callback = '') {
     global $post;
     if (function_exists($length_callback)) {
         add_filter('excerpt_length', $length_callback);
@@ -313,107 +315,125 @@ function html5wp_excerpt($length_callback = '', $more_callback = '')
 }
 
 // Custom View Article link to Post
-function html5_blank_view_article($more)
-{
+function html5_blank_view_article($more) {
     global $post;
-    return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'html5blank') . '</a>';
+    return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'ac-ningbo') . '</a>';
 }
 
 // Remove Admin bar
-function remove_admin_bar()
-{
-    return false;
-}
-
+//function remove_admin_bar()
+//{
+//    return false;
+//}
 // Remove 'text/css' from our enqueued stylesheet
-function html5_style_remove($tag)
-{
+function html5_style_remove($tag) {
     return preg_replace('~\s+type=["\'][^"\']++["\']~', '', $tag);
 }
 
 // Remove thumbnail width and height dimensions that prevent fluid images in the_thumbnail
-function remove_thumbnail_dimensions( $html )
-{
+function remove_thumbnail_dimensions($html) {
     $html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
     return $html;
 }
 
 // Custom Gravatar in Settings > Discussion
-function html5blankgravatar ($avatar_defaults)
-{
+function html5blankgravatar($avatar_defaults) {
     $myavatar = get_template_directory_uri() . '/img/gravatar.jpg';
     $avatar_defaults[$myavatar] = "Custom Gravatar";
     return $avatar_defaults;
 }
 
 // Threaded Comments
-function enable_threaded_comments()
-{
+function enable_threaded_comments() {
     if (!is_admin()) {
-        if (is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
+        if (is_singular() AND comments_open() AND ( get_option('thread_comments') == 1)) {
             wp_enqueue_script('comment-reply');
         }
     }
 }
 
 // Custom Comments Callback
-function html5blankcomments($comment, $args, $depth)
-{
-	$GLOBALS['comment'] = $comment;
-	extract($args, EXTR_SKIP);
+function html5blankcomments($comment, $args, $depth) {
+    $GLOBALS['comment'] = $comment;
+    extract($args, EXTR_SKIP);
 
-	if ( 'div' == $args['style'] ) {
-		$tag = 'div';
-		$add_below = 'comment';
-	} else {
-		$tag = 'li';
-		$add_below = 'div-comment';
-	}
-?>
+    if ('div' == $args['style']) {
+        $tag = 'div';
+        $add_below = 'comment';
+    } else {
+        $tag = 'li';
+        $add_below = 'div-comment';
+    }
+    ?>
     <!-- heads up: starting < for the html tag (li or div) in the next line: -->
-    <<?php echo $tag ?> <?php comment_class(empty( $args['has_children'] ) ? '' : 'parent') ?> id="comment-<?php comment_ID() ?>">
-	<?php if ( 'div' != $args['style'] ) : ?>
-	<div id="div-comment-<?php comment_ID() ?>" class="comment-body">
-	<?php endif; ?>
-	<div class="comment-author vcard">
-	<?php if ($args['avatar_size'] != 0) echo get_avatar( $comment, $args['180'] ); ?>
-	<?php printf(__('<cite class="fn">%s</cite> <span class="says">says:</span>'), get_comment_author_link()) ?>
-	</div>
-<?php if ($comment->comment_approved == '0') : ?>
-	<em class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.') ?></em>
-	<br />
-<?php endif; ?>
+    <<?php echo $tag ?> <?php comment_class(empty($args['has_children']) ? '' : 'parent') ?> id="comment-<?php comment_ID() ?>">
+    <?php if ('div' != $args['style']) : ?>
+        <div id="div-comment-<?php comment_ID() ?>" class="comment-body">
+        <?php endif; ?>
+        <div class="comment-author vcard">
+            <?php if ($args['avatar_size'] != 0) echo get_avatar($comment, $args['180']); ?>
 
-	<div class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>">
-		<?php
-			printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)'),'  ','' );
-		?>
-	</div>
+            <?php printf(__('<cite class="fn">%s</cite> <span class="says">says:</span>','ac-ningbo'), get_comment_author_link()) ?>
+        </div>
+        <?php if ($comment->comment_approved == '0') : ?>
+            <em class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation','ac-ningbo') ?></em>
+            <br />
+        <?php endif; ?>
 
-	<?php comment_text() ?>
+        <div class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars(get_comment_link($comment->comment_ID)) ?>">
+                <?php printf(__('%1$s at %2$s','ac-ningbo'), get_comment_date(), get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)','ac-ningbo'), '  ', '');
+                ?>
+        </div>
 
-	<div class="reply">
-	<?php comment_reply_link(array_merge( $args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-	</div>
-	<?php if ( 'div' != $args['style'] ) : ?>
-	</div>
-	<?php endif; ?>
-<?php }
+        <?php comment_text() ?>
 
-/*------------------------------------*\
-	Actions + Filters + ShortCodes
-\*------------------------------------*/
+        <div class="reply">
+            <?php comment_reply_link(array_merge($args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+        </div>
+        <?php if ('div' != $args['style']) : ?>
+        </div>
+    <?php endif; ?>
+    <?php
+}
+function mv_browser_body_class($classes) {
+        global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
+        if($is_lynx) $classes[] = 'lynx';
+        elseif($is_gecko) $classes[] = 'gecko';
+        elseif($is_opera) $classes[] = 'opera';
+        elseif($is_NS4) $classes[] = 'ns4';
+        elseif($is_safari) $classes[] = 'safari';
+        elseif($is_chrome) $classes[] = 'chrome';
+        elseif($is_IE) {
+                $classes[] = 'ie';
+                if(preg_match('/MSIE ([0-9]+)([a-zA-Z0-9.]+)/', $_SERVER['HTTP_USER_AGENT'], $browser_version))
+                $classes[] = 'ie'.$browser_version[1];
+        } else $classes[] = 'unknown';
+        if($is_iphone) $classes[] = 'iphone';
+        if ( stristr( $_SERVER['HTTP_USER_AGENT'],"mac") ) {
+                 $classes[] = 'osx';
+           } elseif ( stristr( $_SERVER['HTTP_USER_AGENT'],"linux") ) {
+                 $classes[] = 'linux';
+           } elseif ( stristr( $_SERVER['HTTP_USER_AGENT'],"windows") ) {
+                 $classes[] = 'windows';
+           }
+        return $classes;
+}
+
+
+/* ------------------------------------*\
+  Actions + Filters + ShortCodes
+  \*------------------------------------ */
 
 // Add Actions
+add_action( 'admin_init', 'theme_add_editor_styles' );
 add_action('init', 'html5blank_header_scripts'); // Add Custom Scripts to wp_head
 add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditional Page Scripts
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
-add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
+//add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
-
 // Remove Actions
 remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
 remove_action('wp_head', 'feed_links', 2); // Display the links to the general feeds: Post and Comment Feed
@@ -445,73 +465,32 @@ add_filter('excerpt_more', 'html5_blank_view_article'); // Add 'View Article' bu
 add_filter('style_loader_tag', 'html5_style_remove'); // Remove 'text/css' from enqueued stylesheet
 add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
 add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
-
 // Remove Filters
 remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether
-
 // Shortcodes
-add_shortcode('html5_shortcode_demo', 'html5_shortcode_demo'); // You can place [html5_shortcode_demo] in Pages, Posts now.
-add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [html5_shortcode_demo_2] in Pages, Posts now.
-
+//add_shortcode('html5_shortcode_demo', 'html5_shortcode_demo'); // You can place [html5_shortcode_demo] in Pages, Posts now.
+//add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [html5_shortcode_demo_2] in Pages, Posts now.
 // Shortcodes above would be nested like this -
 // [html5_shortcode_demo] [html5_shortcode_demo_2] Here's the page title! [/html5_shortcode_demo_2] [/html5_shortcode_demo]
+add_filter('body_class','mv_browser_body_class');
+add_filter( 'use_default_gallery_style', '__return_false' );
 
-/*------------------------------------*\
-	Custom Post Types
-\*------------------------------------*/
+/* ------------------------------------*\
+  Custom Post Types
+  \*------------------------------------ */
 
-// Create 1 Custom Post type for a Demo, called HTML5-Blank
-function create_post_type_html5()
-{
-    register_taxonomy_for_object_type('category', 'html5-blank'); // Register Taxonomies for Category
-    register_taxonomy_for_object_type('post_tag', 'html5-blank');
-    register_post_type('html5-blank', // Register Custom Post Type
-        array(
-        'labels' => array(
-            'name' => __('HTML5 Blank Custom Post', 'html5blank'), // Rename these to suit
-            'singular_name' => __('HTML5 Blank Custom Post', 'html5blank'),
-            'add_new' => __('Add New', 'html5blank'),
-            'add_new_item' => __('Add New HTML5 Blank Custom Post', 'html5blank'),
-            'edit' => __('Edit', 'html5blank'),
-            'edit_item' => __('Edit HTML5 Blank Custom Post', 'html5blank'),
-            'new_item' => __('New HTML5 Blank Custom Post', 'html5blank'),
-            'view' => __('View HTML5 Blank Custom Post', 'html5blank'),
-            'view_item' => __('View HTML5 Blank Custom Post', 'html5blank'),
-            'search_items' => __('Search HTML5 Blank Custom Post', 'html5blank'),
-            'not_found' => __('No HTML5 Blank Custom Posts found', 'html5blank'),
-            'not_found_in_trash' => __('No HTML5 Blank Custom Posts found in Trash', 'html5blank')
-        ),
-        'public' => true,
-        'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
-        'has_archive' => true,
-        'supports' => array(
-            'title',
-            'editor',
-            'excerpt',
-            'thumbnail'
-        ), // Go to Dashboard Custom HTML5 Blank post for supports
-        'can_export' => true, // Allows export in Tools > Export
-        'taxonomies' => array(
-            'post_tag',
-            'category'
-        ) // Add Category and Post Tags support
-    ));
-}
 
-/*------------------------------------*\
-	ShortCode Functions
-\*------------------------------------*/
+/* ------------------------------------*\
+  ShortCode Functions
+  \*------------------------------------ */
 
 // Shortcode Demo with Nested Capability
-function html5_shortcode_demo($atts, $content = null)
-{
+function html5_shortcode_demo($atts, $content = null) {
     return '<div class="shortcode-demo">' . do_shortcode($content) . '</div>'; // do_shortcode allows for nested Shortcodes
 }
 
 // Shortcode Demo with simple <h2> tag
-function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 shortcode, allows for nesting within above element. Fully expandable.
-{
+function html5_shortcode_demo_2($atts, $content = null) { // Demo Heading H2 shortcode, allows for nesting within above element. Fully expandable.
     return '<h2>' . $content . '</h2>';
 }
-
 ?>

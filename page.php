@@ -9,10 +9,10 @@
 		<h1><?php the_title(); ?></h1>
 		<section class="content">
 			<?php the_content(); ?>
-			<?php  #if ( ! post_password_required() ) :
-	      #get_template_part('partials/page-builder');
-	    #endif; ?>
-			<?php #get_sidebar(); ?>
+			<?php  if ( ! post_password_required() ) :
+	      get_template_part('partials/page-builder');
+	    endif; ?>
+			<?php get_sidebar(); ?>
 		</section>
 		<?php edit_post_link(); ?>
 

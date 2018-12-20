@@ -37,7 +37,7 @@
     <body <?php body_class(); ?>>
       <?php get_template_part('library/svg/inline', 'icons.svg'); ?>
         <!-- wrapper -->
-        <div class="wrapper">
+        <div class="wrapper container">
             <header class="header clear" role="banner">
                 <a class="toggle-nav" title="Menu">
                 <span class="icon-bar"></span>
@@ -53,7 +53,7 @@
 
                 <div class="header-image bg-image">
 
-                    <?php the_post_thumbnail('post-image'); ?>
+                    <?php the_post_thumbnail('banner',array('class' => 'img-fluid')); ?>
                     <?php dynamic_sidebar('language'); ?>
 
                 </div>

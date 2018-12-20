@@ -51,13 +51,13 @@ module.exports = function(grunt) {
                 files: ['assets/js/**/*.js'],
                 tasks: ['concat', 'uglify']
             },
-            sass: {
-                files: 'assets/sass/**/*.{scss,sass}',
-                tasks: ['sass']
-            },
+            //sass: {
+              //  files: 'assets/sass/**/*.{scss,sass}',
+              //  tasks: ['sass']
+            //},
 
         }
     });
     //grunt.registerTask('watch', ['concat', 'uglify', 'watch']);
-    grunt.registerTask('default', ['sass', 'concat','uglify', 'watch']);
+    grunt.registerTask('default', ['concat','uglify', 'watch']);
 }

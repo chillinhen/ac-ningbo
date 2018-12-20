@@ -243,6 +243,7 @@ function sak_add_customizer_css() {
   .site-title{
     color: <?php echo $primary_color; ?>;
   }
+  .wrapper,
   main{
     background-color: <?php echo $container_color; ?>;
   }
