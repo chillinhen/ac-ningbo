@@ -1,0 +1,344 @@
+%bold{font-weight:600};/** depends on font-fammily**/
+/* =============================================================================
+  Variables & Mixins
+  ========================================================================== */
+@mixin headline-style ($weight,$mg-top, $mg-bottom){
+    font-family:$headings-font-family;
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+    font-weight:$weight;
+    margin-top: $mg-top;
+    margin-bottom: $mg-bottom;
+}
+%main-headline-style-h3{
+    @include headline-style (400,1.5em, .5em);
+    font-size: 1.429em;
+    @media screen and (max-device-width:$screen-xs) and (orientation:portrait){
+        font-size:1.2em;
+    }
+    line-height: 1.2;
+}
+%sidebar-headline-style-h3{
+    font-size: 1.286em;
+    font-weight: 600;
+    margin-top:0;
+    text-transform: none;
+}
+%sidebar-panel-style-h3{
+    color:#000;
+    margin-right:0;
+}
+%panel-headline-style{
+    font-size: 1.2em !important;
+    margin-top:0;
+    min-height:50px;
+}
+
+/* =============================================================================
+   Basics
+   ========================================================================== */
+/* html element 62.5% font-size for REM use */
+html { font-size: 62.5%; -webkit-text-size-adjust: auto; -ms-text-size-adjust: auto;}
+
+html, body, button, input, select, textarea{ 
+    font-family:$body-font-family;
+    color: $text-color;
+
+    .page-template-template-maintenance *{
+        font-family:$headings-font-family;
+        color: $text-color;
+    }
+}
+
+::-moz-selection { 
+    text-shadow: none;
+    @include active-style;
+}
+::selection { 
+    text-shadow: none;
+    @include active-style;
+}
+
+// body typography
+body {
+    text-rendering: optimizeLegibility;
+    font-size:$rem-base;
+    font-weight:400;
+    line-height: $base-line-height;
+
+}
+a {
+    &,&:link { 
+        text-decoration: none;
+        cursor:pointer; 
+         color: $brand-primary;
+        &:hover{color: $brand-secondary;}
+    }
+    
+    &:hover{
+        text-decoration: underline;
+    }
+    &:visited{
+        opacity:.5;
+    }
+    &:visited{ 
+        text-decoration: none !important;
+    }
+
+    &.help i:hover { cursor: pointer }
+    &:hover,&:focus {outline:none;}
+    &[href^="mailto"] { 
+        @media screen and (max-width:$screen-md){
+            white-space:nowrap;
+        }
+    }
+    &[href^="tel"] { 
+        @media screen and (min-width:$screen-md){
+            &, &:hover{
+                color: $text-color; 
+                cursor:default;
+                text-decoration:none;
+            }
+        }
+    }
+}
+h1,h2, legend{
+    @include headline-style (400, 0, 1em);
+    line-height: 1.1;
+    color: $heading-text-color;
+    &.logo{
+        margin:2em 0 .5em 0;
+    }
+    a{
+        text-decoration: none;
+        color: $brand-primary;
+    }
+}
+
+// different font-sizes
+h1 {
+    font-size:1.5 * $rem-base;
+    line-height: 1;
+    color: #000;
+    @media screen and (max-width:$screen-xs){
+        font-size:2em;
+    }
+    article &{
+        @extend h2;
+        color:$brand-primary;
+    }
+}
+
+h2 {
+    font-size:2.143 * $rem-base;
+    line-height: 1;
+    .page-template-template-maintenance & {
+        font-size:$rem-base;
+        font-weight:bold;
+        @include header-subline ($brand-primary,25%, 3px, .5em);
+    }
+    #banner &{
+        @extend %main-headline-style-h3;
+    }
+    @media screen and (max-width:$screen-xs){
+        font-size:1.5em;
+    }
+}
+
+h3 {
+    @extend %main-headline-style-h3;
+    line-height: 1.1;
+    color: $heading-text-color;
+    .sidebar &, aside & {
+        @extend %sidebar-headline-style-h3;
+
+        a {
+            @extend %sidebar-panel-style-h3; 
+        }
+    }
+    .sidebar .box &, aside .box & {
+        @extend %sidebar-panel-style-h3; 
+        a {@extend %sidebar-panel-style-h3; }
+    }
+    html:lang(de) .page-template-template-maintenance & {
+        min-height:70px;
+    }
+}
+h4{
+    font-size:$rem-base;
+    line-height: 1;
+    color: #000;
+    font-weight:bold;
+    margin-bottom: .5em;
+}
+h1, h2, h3, h4 {
+    a{
+        &:hover{
+            text-decoration:none;
+            cursor:pointer;
+        }
+    }
+    &.collapseHeadline > a:first-child{
+
+        &:before{
+            padding-right: .5em;
+        } 
+
+        &:hover{
+            cursor:default;
+        }
+    }
+}
+
+
+legend {
+    border{
+        width:1px 0 0 0;
+        style:solid;
+        color:$border-color;
+        margin-top:1em;
+    }
+}
+// paragraph text
+p {
+    margin: 0 0 $paragraph-margin;
+    font-family: inherit;
+    font-size: $rem-base;
+    font-weight: normal;
+    line-height: $base-line-height;
+}
+
+// lists
+ul,
+ol {
+    padding-left: 1.5rem;
+   
+
+    li {
+        line-height: $base-line-height;
+    }
+}
+ul {
+    .sidebar & {
+        padding:0;
+        li {
+            list-style:none;
+            text-indent: -1.35em;
+            margin:0 0 .5em 1.5em;
+            &:before{
+                @include icon-style ("\f0da", 0, 1, 0, 1em);
+                display:inline-block;
+                margin-left:1.2em;
+            }
+        }
+    }
+}
+
+dl {
+    margin: 0 0 $paragraph-margin;
+    line-height: $base-line-height;
+}
+
+dt {
+    font-weight: bold;
+    /** oder **/
+    @extend %bold;
+}
+
+dd {
+    margin: 0 0 0.5rem;
+}
+
+b,.bold, strong{
+    font-weight:bold
+}
+p, .close{
+    font-size: 1em;
+}
+// blockquotes
+blockquote {
+    border-left: 2px solid $brand-primary;
+    position: relative;
+    margin: 1.5rem 1rem 1.5rem 3rem;
+    text-align: left;
+
+    &:before {
+        content: "“";
+        display: block;
+        position: absolute;
+        top: -1rem;
+        left: -3rem;
+        color: $text-muted-color;
+        font-size: 5rem;
+        line-height: 1;
+    }
+}
+address{
+    .page-template-template-maintenance.windows{
+        @media screen and (min-width:$screen-sm) and (orientation:landscape){
+            font-size: 14px;
+        }
+    }
+    .page-template-template-maintenance &{
+        @media screen and (max-width:$screen-xs){
+            font-size:1.3rem;
+            p {
+                line-height:2;
+            }
+        }
+        @media screen and (min-width:$screen-sm) and (orientation:portrait){
+            font-size: 1.6rem;
+        }
+        @media screen and (min-width:$screen-md){
+            font-size: 1.5rem;
+        }
+        @media screen and (min-width:$screen-lg){
+            font-size:1.8rem;
+        }
+        @media screen and (min-width:$screen-wide){
+            font-size:1.4rem;
+        }
+        @media screen and (min-width:1920px){
+            font-size:1.8rem;
+        }
+
+    }
+    font-style: normal;
+    .footer & {
+
+        p{
+            margin-bottom: $paragraph-margin * 0.2;
+            font-size: .8rem;
+        }
+        > div {
+            margin-bottom: $paragraph-margin * 0.5
+        }
+    }
+}
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+.text-muted { color: $text-muted-color; }
+.text-smaller {font-size: smaller;}
+.uppercase{
+    text-transform:uppercase;
+}
+
+/*** tables ****/
+table {
+    width:100%;
+    margin-bottom:2em;
+}
+/**** Misc ***/
+.screen-reader-text{
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+/* Kleinerer Text */
+.s {
+    font-size: 0.9em;
+}

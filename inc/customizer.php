@@ -49,109 +49,37 @@ function sak_theme_customizer($wp_customize) {
 
   $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'container_color', array(
     'label' => __('Container Color', 'html5blank'),
-    'description' => __('Define a color für your main contents background', 'html5blank'),
+    'description' => __('Define a color for your main contents background', 'html5blank'),
     'section' => 'colors',
     'settings' => 'container_color',
   )));
-  //adding logo section
-  /*$wp_customize->add_section('logo_settings_section', array(
-    'title'          => __('Additional Logo(s)', 'html5blank'),
+
+  $wp_customize->add_setting('footer_color', array(
+    'default' => '#E22B37',
+    'transport' => 'refresh',
+    'sanitize_callback' => 'sanitize_hex_color',
   ));
 
-  $wp_customize->add_setting('footer_logo', array(
-       'transport' => 'refresh',
-  ));
-  $wp_customize->add_control(new WP_Customize_Upload_Control($wp_customize,'footer_logo',array(
-    'label'      => __('Footer Logo', 'html5blank'),
-    'description'  => __('If you have a smaller version of your logo, you can upload it here. Or take your logo again.', 'html5blank'),
-    'section'    => 'logo_settings_section',
-    'settings'   => 'footer_logo',
-  )));*/
-  //adding text section in wordpress customizer
-  /*$wp_customize->add_section('contact_settings_section', array(
-    'title'          => __('Contact Data', 'html5blank'),
-  ));
-  //adding setting for contact area
-  $wp_customize->add_setting('phone', array(
-    'default'        => __('+49-241-920 400', 'html5blank'),
+  $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'footer_color', array(
+    'label' => __('Footer Color', 'html5blank'),
+    'description' => __('Define a color for your footer background', 'html5blank'),
+    'section' => 'colors',
+    'settings' => 'footer_color',
+  )));
+
+  $wp_customize->add_setting('footer_menu_color', array(
+    'default' => '#ffffff',
     'transport' => 'refresh',
-    array(
-      'sanitize_callback'     =>  'esc_url_raw',
-    )
+    'sanitize_callback' => 'sanitize_hex_color',
   ));
-  $wp_customize->add_control('phone', array(
-    'label'   => __('Phone Number', 'html5blank'),
-    'description' => __('Please provide your phone number', 'html5blank'),
-    'section' => 'contact_settings_section',
-    'type'    => 'text',
-  ));
-  $wp_customize->add_setting('mail', array(
-    'default'        => esc_html__('mail@spraachen.de', 'html5blank'),
-    'transport' => 'refresh',
-    array(
-      'sanitize_callback'     =>  'esc_url_raw',
-    )
-  ));
-  $wp_customize->add_control('mail', array(
-    'label'   => __('Email', 'html5blank'),
-    'description' => __('Please provide your email-address', 'html5blank'),
-    'section' => 'contact_settings_section',
-    'type'    => 'text',
-  ));
-  $wp_customize->add_setting('address', array(
-    'default'        => esc_html__('Sprachenakademie Aachen gGmbH, Buchkremerstr. 6, 52062 Aachen, Deutschland','html5blank'),
-    'transport' => 'refresh',
-  ));
-  $wp_customize->add_control('address', array(
-    'label'   => __('Address', 'html5blank'),
-    'description' => __('Please provide your address', 'html5blank'),
-    'section' => 'contact_settings_section',
-    'type'    => 'text',
-  ));
-  //adding text section in wordpress customizer
-  $wp_customize->add_section('social_media_settings_section', array(
-    'title'          => __('Social Media', 'html5blank'),
-  ));
-  $wp_customize->add_setting('social_media_label', array(
-    'default'        => '',
-    'transport' => 'postMessage',
-  ));
-  $wp_customize->add_control( 'social_media_label', array(
-    'type'    => 'radio',
-    'label'   => __('Choose your social media network'),
-    'choices'  => array(
-      'facebook' => __('facebook','html5blank'),
-      'twitter' => __('twitter','html5blank'),
-      'xing' => __('xing','html5blank'),
-      'linkedin' => __('linkedin','html5blank'),
-      'instagram' => __('instagram','html5blank'),
-      'pinterest' => __('pinterest','html5blank'),
-    ),
-    'section' => 'social_media_settings_section'
-  ));
-  $wp_customize->add_setting('social_media_link', array(
-    'default'        => '',
-    'transport' => 'refresh',
-    array(
-      'sanitize_callback'     =>  'esc_url_raw',
-    )
-  ));
-  $wp_customize->add_control('social_media_link', array(
-    'label'   => __('Social media links', 'html5blank'),
-    'description' => __('Please provide the link to your chosen network', 'html5blank'),
-    'section' => 'social_media_settings_section',
-    'type'    => 'text',
-  ));
-  $wp_customize->add_setting('social_media_cta', array(
-    'default'        => esc_html__('Follow us on facebook','html5blank'),
-    'transport' => 'refresh',
-  ));
-  $wp_customize->add_control('social_media_cta', array(
-    'label'   => __('Label', 'html5blank'),
-    'description' => __('Please label your Social Media Link', 'html5blank'),
-    'section' => 'social_media_settings_section',
-    'type'    => 'text',
-  ));*/
+
+  $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'footer_menu_color', array(
+    'label' => __('Footer Menu Color', 'html5blank'),
+    'description' => __('Define a color for your footer links', 'html5blank'),
+    'section' => 'colors',
+    'settings' => 'footer_menu_color',
+  )));
+
   //adding text section for Analytics Code
   $wp_customize->add_section('analytics_settings_section', array(
     'title'          => __('Analytics-Code', 'html5blank'),
@@ -184,6 +112,8 @@ function sak_add_customizer_css() {
     $secondary_color = sak_sanitize_hex_color(get_theme_mod('secondary_color','#E22B37'));
     $headline_color = sak_sanitize_hex_color(get_theme_mod('headline_color','#2664B8'));
     $container_color = sak_sanitize_hex_color(get_theme_mod('container_color','#ffffff'));
+    $footer_color = sak_sanitize_hex_color(get_theme_mod('footer_color','#E22B37'));
+    $footer_menu_color = sak_sanitize_hex_color(get_theme_mod('footer_menu_color','#ffffff'));
 
 ?>
   <style>
@@ -200,29 +130,69 @@ function sak_add_customizer_css() {
   }
   ::-moz-selection{
     background-color: <?php echo $primary_color; ?>;
-    color:white;
+    color:<?php echo $container_color; ?>;
   }
   ::selection{
     background-color: <?php echo $primary_color; ?>;
-    color:white;
+    color:<?php echo $container_color; ?>;
   }
 
   .toggle-nav span,
   .contact,
   .gallery-item [class*="caption"],
+  .btn-primary,
+  #languages-menu,
   #offMenu{
     background-color: <?php echo $primary_color; ?>;
-    color:white;
+    color:<?php echo $container_color; ?>;
   }
-  a,a:link {
+  #languages-menu a, #languages-menu a span{
+    color:<?php echo $container_color; ?>;
+  }
+  .btn-primary{
+    border-color: <?php echo $primary_color; ?>;
+  }
+  .btn-primary:hover{
+    background-color: <?php echo $secondary_color; ?>;
+    border-color: <?php echo $secondary_color; ?>;
+  }
+  #offMenu li[class*="page"] a,
+  #offMenu li[class*="menu"] a{
+    color:<?php echo $container_color; ?>;
+  }
+  #offMenu li[class*="page"] a:hover,
+  #offMenu li[class*="menu"] a:hover{
+      color: <?php echo $primary_color; ?>;
+      background-color:<?php echo $container_color; ?>;
+      opacity: .5;
+  }
+  header .navbar-nav > .nav-item > a,
+  .dropdown-menu li,
+  .dropdown-item{
     color: <?php echo $primary_color; ?>;
   }
-  a:hover{
+  header .navbar-nav > .nav-item:not(.menu-item-has-children) > a:after{
+    background-color: <?php echo $secondary_color; ?>;
+  }
+  header .dropdown-menu{
+    background-color: <?php echo $container_color; ?>;
+    border-top:3px solid <?php echo $secondary_color; ?>;
+  }
+  .post-edit-link,
+  .dropdown-item:hover{
+    background-color: <?php echo $secondary_color; ?>;
+    color:<?php echo $container_color; ?> !important;
+  }
+  main a,main a:link {
+    color: <?php echo $primary_color; ?>;
+  }
+  main a:hover{
     color: <?php echo $headline_color; ?>
   }
   a.btn,
+  .block.highlight,
   .scroll-to-top{
-    color: <?php echo $container_color; ?>;
+    color: <?php echo $container_color; ?> !important;
     background-color:<?php echo $primary_color; ?>;
   }
   article h1{
@@ -230,9 +200,6 @@ function sak_add_customizer_css() {
   }
   h1,h2,h1 a,h2 a, legend{
     color: <?php echo $primary_color; ?>;
-  }
-  h3 {
-    color: <?php echo $headline_color; ?>;
   }
   h2:after, h3:after{
     background-color:<?php echo $secondary_color; ?>;
@@ -249,6 +216,12 @@ function sak_add_customizer_css() {
   }
   blockquote:before{
     background-color:<?php echo $secondary_color; ?>;
+  }
+  footer{
+    background-color:<?php echo $footer_color; ?>;
+  }
+  .footer-menu li a{
+    color:<?php echo $footer_menu_color; ?>;
   }
   </style>
 <?php }

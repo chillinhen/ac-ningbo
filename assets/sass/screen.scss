@@ -1,2 +1,8 @@
 @import '../../node_modules/bourbon/core/_bourbon.scss';
 @import 'scss/custom-bootstrap.scss';
+@import 'customs/_myMixins';
+@import 'customs/_myGlobals';
+@import 'customs/_myTypo';
+@import 'customs/_myNavigation';
+@import 'customs/_myLayout';
+@import 'customs/_myForms';

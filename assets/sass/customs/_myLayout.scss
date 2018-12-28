@@ -1,0 +1,91 @@
+.elastic {
+  .logo & {
+    @include media-breakpoint-down(md) {
+      @include elastic-scale(100%,28%);
+    }
+    @include media-breakpoint-up(lg) {
+      @include elastic-scale(100%,35%);
+    }
+    margin-top: -.875rem;
+  }
+}
+
+.logo {
+  @include media-breakpoint-down(xs) {
+    margin: {
+      top: $grid-gutter-width;
+      right: -$grid-gutter-width;
+      bottom: $grid-gutter-width;
+      left: -$grid-gutter-width;
+    }
+  }
+}
+/*Sticky Footer**/
+.container {
+  body > &.wrapper {
+    min-height: calc(100vH -50px);
+    > footer{
+      height:50px;
+      margin:0 -$grid-gutter-width;
+    }
+  }
+}
+/*** galleries ***/
+.gallery {
+  .entry-content &[class*="gallery-columns"]{
+    @extend .row;
+    @extend .no-gutters;
+    margin-bottom: $grid-gutter-width;
+    @include media-breakpoint-down(xs){
+      @media screen and (orientation:portrait){
+        display: block;
+      }
+      @media screen and (orientation:landscape){@include masonry(2,$grid-gutter-width/2);}
+    }
+    @include media-breakpoint-only(xs) {
+      @media screen and (orientation:landscape) {
+        @include masonry(2,1rem);
+      }
+    }
+    @include media-breakpoint-only(sm) {
+      @media screen and (orientation:landscape) {
+        @include masonry(3,1rem);
+      }
+    }
+    @include media-breakpoint-up(md) {
+      @include gallery-row;
+    }
+  }
+  .entry-content &.gallery-columns-1 {
+    display: block;
+    @include media-breakpoint-only(md) {
+      @media screen and (orientation:portrait) {
+        @include masonry(2,1rem);
+      }
+    }
+  }
+  [class*="attachment"] {
+    width: 100%;
+    height:auto;
+  }
+  .gallery-icon {
+    width: 100%;
+    overflow: hidden;
+    a {
+      display: block;
+    }
+  }
+  .gallery-caption {
+    padding: 0.5rem;
+    margin-top: 1px;
+    font-size: smaller;
+  }
+}
+.gallery-item {
+  @include media-breakpoint-down(xs) {
+    @media screen and (orientation:portrait){
+      width: 100%;
+    }
+  }
+  //@include media-breakpoint-between(sm, md) {@include gallery-grid(50%,$grid-gutter-width);}
+}

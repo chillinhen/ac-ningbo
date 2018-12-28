@@ -54,14 +54,29 @@
                 <div class="header-image bg-image">
 
                     <?php the_post_thumbnail('banner',array('class' => 'img-fluid')); ?>
-                    <?php dynamic_sidebar('language'); ?>
 
                 </div>
+            <?php endif;
+            if(is_front_page()) : ?>
+            <div class="header-image bg-image">
+              <img class="img-fluid" src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
+            </div>
             <?php endif;
             ?>
             <!-- header -->
             <!-- logo -->
-            <?php get_template_part('partials/site', 'branding'); ?>
+            <div class="row pos-r">
+              <div class="col-lg-4 col-md-12"><?php get_template_part('partials/site', 'branding'); ?></div>
+              <div class="col-lg-8 d-none d-lg-block">
+                <!-- nav -->
+      					<nav class="navbar navbar-expand-sm" role="navigation">
+      						<?php html5blank_nav(); ?>
+      					</nav>
+      					<!-- /nav -->
+              </div>
+              <?php dynamic_sidebar('language'); ?>
+            </div>
+
             <!-- /logo -->
             </header>
             <!-- /header -->

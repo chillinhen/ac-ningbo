@@ -25,21 +25,21 @@ if (function_exists('add_theme_support'))
 
     // Add Thumbnail Theme Support
     add_theme_support('post-thumbnails');
-    add_image_size('large', 960, '', true); // Large Thumbnail
-    add_image_size('medium', 250, '', true); // Medium Thumbnail
-    add_image_size('small', 120, '', true); // Small Thumbnail
+    add_image_size('large', 1024, '', true); // Large Thumbnail
+    add_image_size('medium', 600, '', true); // Medium Thumbnail
+    add_image_size('small', 315, '', true); // Small Thumbnail
     add_image_size('banner', 1165, 415, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
     // Add Support for Custom Backgrounds
     add_theme_support('custom-background', array(
       'default-color' => '#f2f2f2',
       //'default-image' => get_template_directory_uri() . '/library/img/bg.png',
-      'default-image'          => '',
-      'default-repeat'         => 'no-repeat',
-      'default-position-x'     => 'left',
-      'default-position-y'     => 'top',
-      'default-size'           => 'auto',
-      'default-attachment'     => 'scroll',
+      //'default-image'          => '',
+      //'default-repeat'         => 'no-repeat',
+      //'default-position-x'     => 'left',
+      //'default-position-y'     => 'top',
+      //'default-size'           => 'auto',
+      //'default-attachment'     => 'scroll',
     ));
 
     //Add Support for Custom Header - Uncomment below if you're going to use
@@ -137,10 +137,10 @@ function html5blank_header_scripts()
         wp_enqueue_script('bootstrap'); // Enqueue it!
 
         // lightbox
-       wp_register_script('nivo-lightbox', get_stylesheet_directory_uri() . '/library/js/nivo-lightbox.min.js', array('jquery'), false, true);
+       wp_register_script('nivo-lightbox', get_stylesheet_directory_uri() . '/library/js/nivo-lightbox.min.js', array('jquery'), '', true);
        wp_enqueue_script('nivo-lightbox');
 
-        wp_register_script('html5blankscripts', get_template_directory_uri() . '/library/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
+        wp_register_script('html5blankscripts', get_template_directory_uri() . '/library/js/scripts.js', array('jquery', 'bootstrap'), '1.0.0', true); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
 
         // Cookie Bar
@@ -192,8 +192,7 @@ function register_html5_menu()
 {
     register_nav_menus(array( // Using array to specify more menus if needed
         'header-menu' => __('Header Menu', 'html5blank'), // Main Navigation
-        'sidebar-menu' => __('Sidebar Menu', 'html5blank'), // Sidebar Navigation
-        'extra-menu' => __('Extra Menu', 'html5blank') // Extra Navigation if needed (duplicate as many as you need!)
+        'footer-menu' => __('Footer Menu', 'html5blank') // Extra Navigation if needed (duplicate as many as you need!)
     ));
 }
 
@@ -257,6 +256,14 @@ if (function_exists('register_sidebar'))
         'after_widget' => '</div>',
         'before_title' => '<h3>',
         'after_title' => '</h3>'
+    ));
+    // Define Sidebar Language
+    register_sidebar(array(
+        'name' => __('Language', 'ac-ningbo'),
+        'description' => __('Language Switch', 'ac-ningbo'),
+        'id' => 'language',
+        'before_widget' => '<div id="languages-menu">',
+        'after_widget' => '</div>'
     ));
 }
 

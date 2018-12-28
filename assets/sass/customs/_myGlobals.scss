@@ -1,0 +1,52 @@
+/**global classes */
+.pos-r{
+  position: relative;
+}
+.pos-a{
+  position: absolute;
+}
+.post-edit-link{
+  @extend .btn;
+  @include transform (1, 90deg);
+  transform-origin: 100% 100%;
+  position: fixed;
+  z-index:999999;
+  top:25%;
+  right:2rem;
+}
+/** global menu styles **/
+ul{
+    #offMenu & {
+    padding:0;
+    margin:0;
+    text-transform: uppercase;
+    &.sub-menu{text-transform:none;}
+  }
+  .entry-content &{
+    list-style-position: outside;
+    @include media-breakpoint-down(sm) {
+      padding-left: 1rem;
+    }
+
+  }
+}
+ul, li{
+    //list-style:none;
+    color:inherit;
+}
+li{
+  .entry-content &{
+    @include media-breakpoint-down(sm) {
+      margin-bottom: 1rem;
+    }
+  }
+}
+li[class*="page"],
+li[class*="menu"]{
+  > a{
+    text-decoration:none;
+  }
+}
+.block{
+  padding:$grid-gutter-width/2;
+}

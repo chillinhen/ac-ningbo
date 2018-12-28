@@ -1,0 +1,16 @@
+.widget-acf{
+    margin-bottom:1rem;
+    border-bottom:1px solid $border-color;
+    &.gallery{
+        &, li{
+            list-style:none;
+            text-indent:0;
+        }
+        li{
+            margin:1rem 0;
+            &:before{display:none;}
+            a{ display:block;}
+            img{max-width:100%;}
+        }
+    }
+}
