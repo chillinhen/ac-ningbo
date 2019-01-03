@@ -4,6 +4,8 @@
 \*------------------------------------*/
 // Customizer Additions
 require ( 'inc/customizer.php' );
+// add ACF Theme Options and Fields
+require_once ('acf/acf-include.php');
 
 // Load any external files you have here
 

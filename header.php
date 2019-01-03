@@ -37,7 +37,7 @@
     <body <?php body_class(); ?>>
       <?php get_template_part('library/svg/inline', 'icons.svg'); ?>
         <!-- wrapper -->
-        <div class="wrapper container">
+        <div class="wrapper container pb-5">
             <header class="header clear p-3" role="banner">
                 <a class="toggle-nav" title="Menu">
                 <span class="icon-bar"></span>

@@ -1,0 +1,29 @@
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+    /* IE10+ specific styles go here */
+    [class*="bewertung-ranking-stars"] .icons{
+        background-image: url('../img/icons/rating-empty@3x.png') !important;
+        &:before{
+            background-image: url('../img/icons/rating-full@3x.png') !important;
+        }
+    }
+
+    .verdampfer-auswahl-item{
+        max-width:170px;
+    }
+
+    /*** Cards Flex Bug ***/
+    .card{
+        display:block;
+
+        > a{
+          margin-top:2rem;
+        }
+    }
+
+    /*** List-items ***/
+    .list-item{
+      border-bottom:1px dotted currentColor;
+      margin:2rem 0;
+    }
+
+}

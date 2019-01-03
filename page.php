@@ -6,12 +6,11 @@
 
 	<!-- article -->
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		<div class="container"><h1><?php the_title(); ?></h1></div>
+		<div class="col-sm-12"><h1><?php the_title(); ?></h1></div>
 		<section class="content">
+			<div class="col-sm-8">
 			<?php the_content(); ?>
-			<?php  if ( ! post_password_required() ) :
-	      get_template_part('partials/page-builder');
-	    endif; ?>
+		</div>
 			<?php get_sidebar(); ?>
 		</section>
 		<?php edit_post_link(); ?>

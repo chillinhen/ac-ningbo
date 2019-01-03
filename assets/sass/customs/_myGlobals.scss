@@ -7,12 +7,19 @@
 }
 .post-edit-link{
   @extend .btn;
-  @include transform (1, 90deg);
-  transform-origin: 100% 100%;
   position: fixed;
   z-index:999999;
-  top:25%;
-  right:2rem;
+
+  @include media-breakpoint-down(sm) {
+    bottom:0;
+    top:auto;
+  }
+  @include media-breakpoint-up(md) {
+    @include transform (1, 90deg);
+    transform-origin: 100% 100%;
+    top:25%;
+    right:2rem;
+  }
 }
 /** global menu styles **/
 ul{

@@ -88,7 +88,22 @@
   }
   //@include media-breakpoint-between(sm, md) {@include gallery-grid(50%,$grid-gutter-width);}
 }
-
+/*** header ***/
+header.header{
+  @include media-breakpoint-down(md) {
+    margin:{
+      left:-$grid-gutter-width;
+      right: -$grid-gutter-width;
+    }
+    .header-image{
+      margin:{
+        top:-1rem;
+        left:-1rem;
+        right: -1rem;
+      }
+    }
+  }
+}
 /** Sidebar **/
 .block.highlight{
   @extend .p-3;
