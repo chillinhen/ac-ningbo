@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php /* Template Name: ind. Layout */ get_header(); ?>
 
 <!-- section -->
 
@@ -10,7 +10,7 @@
 		<section class="content">
 			<?php the_content(); ?>
 			<?php  if ( ! post_password_required() ) :
-	      get_template_part('partials/page-builder');
+	      get_template_part('partials/page','flexible-columns');
 	    endif; ?>
 			<?php get_sidebar(); ?>
 		</section>

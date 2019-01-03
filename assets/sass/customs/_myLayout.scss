@@ -23,11 +23,10 @@
 /*Sticky Footer**/
 .container {
   body > &.wrapper {
-    min-height: calc(100vH -50px);
-    > footer{
-      height:50px;
-      margin:0 -$grid-gutter-width;
-    }
+    min-height: calc(100vH - 10vH);
+  }
+  body > &.footer{
+    height:10vH;
   }
 }
 /*** galleries ***/
@@ -88,4 +87,9 @@
     }
   }
   //@include media-breakpoint-between(sm, md) {@include gallery-grid(50%,$grid-gutter-width);}
+}
+
+/** Sidebar **/
+.block.highlight{
+  @extend .p-3;
 }

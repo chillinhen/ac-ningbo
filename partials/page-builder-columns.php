@@ -1,25 +1,16 @@
 <?php
-  $proportion = get_sub_field('proportion');
-  if (have_rows('columns')):?>
-    <div class="row cols-<?php echo $proportion; ?>">
-        <?php
-        while (have_rows('columns')) : the_row(); ?>
-                <div class="entry-content acf-field">
-                  <?php if (get_sub_field('block')):?>
-                    <?php if (get_sub_field('attribute')):?>
-                      <div class="block <?php the_sub_field('attribute');?>">
-                    <?php endif; ?>
-                      <?php the_sub_field('block'); ?>
-                    <?php if (get_sub_field('attribute')):?>
-                      </div>
-                    <?php endif;
-                  endif;?>
-                </div>
-            <?php
-        endwhile;
-        ?>
+$proportion = get_sub_field('proportion');
+if (have_rows('columns')):?>
+<div class="container">
+  <div class="row pb-5 cols-<?php echo $proportion; ?>">
+    <?php
+    while (have_rows('columns')) : the_row(); ?>
+    <div class="entry-content acf-field">
+      <?php get_template_part('partials/textblock','attributes');?>
     </div>
-<?php else :
-    echo "<!--no Boxes-->";
-endif;
-?>
+        <?php
+      endwhile;
+      ?>
+    </div>
+  </div>
+<?php endif;?>

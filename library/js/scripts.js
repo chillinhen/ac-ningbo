@@ -59,5 +59,6 @@ jQuery(function($) {
   $('.wpcf7-form').find('br').remove();
 
   /*** language menu tweaks ***/
-  $('.lang-item a').wrapInner('<span></span>');
+  $('.lang-item-de > a').html('DE');
+  $('.lang-item-zh > a').html('文');
 });

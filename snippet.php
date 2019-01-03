@@ -1,59 +1,32 @@
-<fieldset>
-  <div class="form-group">
-    <label for="formofaddress"> Anrede *</label>
-    [select* formofaddress id:formofaddress class:form-control "Herr" "Frau"]
-  </div>
-  <div class="form-group">
-    <label for="familyname"> Familienname * </label>
-    [text* familyname id:familyname class:form-control placeholder "Familienname"]
-  </div>
-  <div class="form-group">
-    <label for="firstname"> Vorname *</label>
-    [text* firstname id:firstname class:form-control placeholder "Vorname"]
-  </div>
-  <div class="form-group">
-    <label for="institution"> Firma oder Institution * </label>
-    [text institution id:institution class:form-control placeholder "Firma oder Institution"]
-  </div>
-  <div class="form-group">
-    <label for="email"> E-Mail-Adresse *</label>
-    [email* email id:email class:form-control placeholder "E-Mail-Adresse"]
-  </div>
-  <div class="form-group">
-    <label for="email"> Telefonnummer *</label>
-    [text* phone id:phone class:form-control placeholder "Telefonnummer"]
-  </div>
-</fieldset>
-<fieldset>
-  <div class="form-group">
-    <label for="member"> Ich möchte dem Verein zur Förderung der Städtepartnerschaft Aachen-Ningbo e.V. beitreten als: * </label>
-    [select* member  class:form-control id:member clas:form-control include_blank "Schüler/in, Student/in oder Auszubildende/r" "Natürliche Person" "Einzelfirma oder Institution" "Jursistische Person, Handelsgesellschaft oder Personenverbund"]
-  </div>
-  <div class="form-group">
-    <h4>Ihre Rechnungsadresse:</h4></div>
-    <label for="name-invoice"> Rechnungsempfänger *</label>
-    [text name-invoice id:name-invoice class:form-control placeholder "Rechnungsempfänger"]
-  </div>
-  <div class="form-group">
-    <label for="street"> Straße und Hausnummer *</label>
-    [text street id:street class:form-control placeholder "Straße und Hausnummer"]
-  </div>
-  <div class="form-group">
-    <label for="zipcode"> Postleitzahl</label>
-    [text zipcode id:zipcode class:form-control placeholder "Postleitzahl"]
-  </div>
-  <div class="form-group">
-    <label for="city"> Stadt</label>
-    [text city id:city class:form-control placeholder "Stadt"]
-  </div>
-  <div class="form-group">
-    <label for="message"> Bemerkungen</label>
-    [textarea message id:message class:form-control placeholder "Bemerkungen"]
-  </div>
-  <div class="form-check">
-    [acceptance acceptance id:datenschutz class:form-check-input] <label for="datenschutz" class="form-check-label"> Ich bin mit der Verwendung meiner in diesem Formular angegebenen persönlichen Daten zur Bearbeitung meines Mitgliedschaftsantrages einverstanden. </label>
-  </div>
-  <div class="form-group text-right">
-    [submit "Senden"]
-  </div>
-</fieldset>
+<!-- Content -->
+<h2>Kontakt in Ningbo:</h2>
+<h3>Foreign Affairs Office Ningbo Municipal People's Government</h3>
+2001 Ning Chuan Lu, Jiangdong Qu
+315000 Ningbo Shi, Zhejiang Sheng
+People's Republic of China
+
+Fon: <a href="tel:+8657489186513">0086-574-89186513</a>
+Fax: 0086-574-871865-18
+<a href="http://www.nbfao.gov.cn">www.nbfao.gov.cn</a>
+
+[sc name="Button" link="http://german.ningbo.gov.cn/art/2017/2/28/art_1232_684923.html" linktext="mehr Informationen" ]
+
+
+<!-- Sidebar -->
+<h2>Kontakt in Aachen:</h2>
+<h3>Verein zur Förderung der Städtepartnerschaft Aachen - Ningbo e.V.</h3>
+<strong>Vorsitzender:</strong>
+Herr Kai U. Müller
+
+<strong>Vorstandsbüro:</strong>
+Frau Keren Hou und Frau Nele Clemens
+
+Buchkremerstr. 6
+52062 Aachen
+Deutschland
+
+fon: <a href="tel:+4924192040289">0049 (0)241 / 920 40 289</a>
+fax: 0049 (0)241 / 920 40 18
+<a href="mailto:info@aachen-ningbo.de">info@aachen-ningbo.de</a>
+
+[sc name="Button" link="http://www.aachen.de/DE/stadt_buerger/aachen_profil/staedtepartnerschaften/ningbo/index.html" linktext="mehr Informationen" ]

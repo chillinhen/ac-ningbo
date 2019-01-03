@@ -190,10 +190,25 @@ function sak_add_customizer_css() {
     color: <?php echo $headline_color; ?>
   }
   a.btn,
-  .block.highlight,
-  .scroll-to-top{
+  .scroll-to-top,
+  .block.highlight.bg-primary
+  {
     color: <?php echo $container_color; ?> !important;
-    background-color:<?php echo $primary_color; ?>;
+    background-color:<?php echo $primary_color; ?> !important;
+  }
+  .block.highlight.bg-primary .btn{
+    background-color:<?php echo $secondary_color; ?> !important;
+  }
+  .block.highlight[class*="bg-"] a{
+    color: <?php echo $container_color; ?> !important;
+  }
+  .block.highlight.bg-secondary
+  {
+    color: <?php echo $container_color; ?> !important;
+    background-color:<?php echo $secondary_color; ?> !important;
+  }
+  .block.highlight.bg-secondary .btn{
+    background-color:<?php echo $primary_color; ?> !important;
   }
   article h1{
       color: <?php echo $primary_color; ?>;
