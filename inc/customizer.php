@@ -116,7 +116,7 @@ function sak_add_customizer_css() {
     $footer_menu_color = sak_sanitize_hex_color(get_theme_mod('footer_menu_color','#ffffff'));
 
 ?>
-  <style>
+  <style media="screen">
   /* SVG-Logo */
   .bg-circle{
     fill:<?php echo $container_color; ?>;

@@ -187,6 +187,9 @@ function html5blank_styles()
 
     wp_register_style('screen', get_stylesheet_directory_uri() . '/library/css/screen.min.css', 'style', '1.0', 'all', array('fontawesome','ac-ningbo'));
     wp_enqueue_style('screen');
+
+    wp_register_style('print', get_stylesheet_directory_uri() . '/library/css/print.min.css', 'style', '1.0', 'print', array('fontawesome','ac-ningbo'));
+    wp_enqueue_style('print');
 }
 
 // Register HTML5 Blank Navigation
