@@ -27,6 +27,9 @@ ul{
     padding:0;
     margin:0;
     text-transform: uppercase;
+    &, li{
+      list-style: none;
+    }
     &.sub-menu{text-transform:none;}
   }
   .entry-content &{
@@ -56,4 +59,8 @@ li[class*="menu"]{
 }
 .block{
   padding:$grid-gutter-width/2;
+}
+.separator::after{
+  @include hr(2px,100%,$gray-200);
+  @extend .my-3;
 }

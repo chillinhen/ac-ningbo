@@ -27,10 +27,10 @@ module.exports = function(grunt) {
         },
 
         concat: {
-            js: {
-                src: ['library/js/**/*.js'],
-                dest: 'library/js/scripts.js',
-            },
+            //js: {
+              //  src: ['library/js/**/*.js'],
+                //dest: 'library/js/scripts.js',
+            //},
             //css: {
               //  src: ['library/css/**/*.css'],
                 //dest: 'library/css/screen.min.css',
@@ -51,13 +51,13 @@ module.exports = function(grunt) {
                 files: ['assets/js/**/*.js'],
                 tasks: ['concat', 'uglify']
             },
-            //sass: {
-              //  files: 'assets/sass/**/*.{scss,sass}',
-              //  tasks: ['sass']
-            //},
+            sass: {
+                files: 'assets/sass/**/*.{scss,sass}',
+                tasks: ['sass']
+            },
 
         }
     });
     //grunt.registerTask('watch', ['concat', 'uglify', 'watch']);
-    grunt.registerTask('default', ['concat','uglify', 'watch']);
+    grunt.registerTask('watch');
 }

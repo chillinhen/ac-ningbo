@@ -44,21 +44,7 @@ if (function_exists('add_theme_support'))
       //'default-attachment'     => 'scroll',
     ));
 
-    //Add Support for Custom Header - Uncomment below if you're going to use
-    add_theme_support('custom-header', array(
-        'default-text-color'     => '#ffffff',
-        'header-text'            => true,
-        'default-image'          => get_template_directory_uri() . '/library/img/headers/ac-ningbo-header.jpg',
-        'width'                  => 1165,
-        'height'                 => 415,
-        'flex-height'            => true,
-        'flex-width'             => false,
-        'uploads'                => true,
-        'random-default'         => false,
-        'wp-head-callback'       => '',
-        'admin-head-callback'    => '',
-        'admin-preview-callback' => '',
-    ));
+    //Alt Attribute for random Header
     //add SVG
     function add_svg($svg_mime) {
       $svg_mime['svg'] = 'image/svg+xml';
@@ -81,6 +67,23 @@ if (function_exists('add_theme_support'))
 /*------------------------------------*\
 	Functions
 \*------------------------------------*/
+//order blog Posts
+// Runs before the posts are fetched
+
+add_filter( 'pre_get_posts' , 'acnb_post_order' );
+
+// Function accepting current query
+
+function acnb_post_order( $query ) {
+
+// Check if the query is for home and alter only the primary query
+
+if(!($query->is_home && $query->is_main_query()))
+
+// Query was for home, then set order
+
+$query->set( 'order' , 'asc' );}
+
 //replace deprecated wp_title
 function filter_title_part($title) {
     $name = get_bloginfo('name');
@@ -90,7 +93,7 @@ function filter_title_part($title) {
     return array($name, $parent, $title);
 }
 
-function av_document_title_separator($sep) {
+function an_document_title_separator($sep) {
     // change separator for singular blog post
     if (is_singular(array('post', 'page'))) {
         $sep = '|';
@@ -208,6 +211,7 @@ function my_wp_nav_menu_args($args = '')
     return $args;
 }
 
+
 // Remove Injected classes, ID's and Page ID's from Navigation <li> items
 function my_css_attributes_filter($var)
 {
@@ -304,7 +308,7 @@ function html5wp_index($length) // Create 20 Word Callback for Index page Excerp
 // Create 40 Word Callback for Custom Post Excerpts, call using html5wp_excerpt('html5wp_custom_post');
 function html5wp_custom_post($length)
 {
-    return 40;
+    return 80;
 }
 
 // Create the Custom Excerpts callback
@@ -368,6 +372,8 @@ function enable_threaded_comments()
     }
 }
 
+
+
 // Custom Comments Callback
 function html5blankcomments($comment, $args, $depth)
 {
@@ -411,6 +417,7 @@ function html5blankcomments($comment, $args, $depth)
 	</div>
 	<?php endif; ?>
 <?php }
+
 
 /*------------------------------------*\
 	Actions + Filters + ShortCodes

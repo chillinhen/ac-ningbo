@@ -46,7 +46,7 @@ transition: $prop $time $func;
         left: 0;
         border-radius: (1.5 * $span-height);
         transform: rotate(0deg);
-        @include transition(all, .25s, ease-in-out);
+        @include transition(all, 250ms, ease-in-out);
         &:nth-child(1) {
             top: 0px;
         }
@@ -79,6 +79,7 @@ transition: $prop $time $func;
 @mixin gallery-row{
   flex-wrap: nowrap;
   justify-content: space-between;
+  //margin: 0  -$grid-gutter-width/2;
   > .gallery-item{
     margin: $grid-gutter-width/2;
   }
@@ -104,4 +105,49 @@ transition: $prop $time $func;
     -webkit-transform: scale($size) rotate($angle);
     -ms-transform: scale($size) rotate($angle);
     transform: scale($size) rotate($angle);
+}
+@mixin text-indent($pos,$dis){
+  text-indent: $pos;
+  display:$dis;
+  overflow:hidden;
+}
+
+/*** Language Flags ***/
+@mixin svg-icon($size,$ml,$mr,$bg-size){
+    content:'';
+    @include size($size);
+    display: inline-block;
+    margin:{
+        right:$mr;
+        left:$ml;
+    }
+    background:{
+        color:transparent;
+        repeat:no-repeat;
+        position:center;
+        size:$bg-size;
+    }
+}
+
+@mixin dotted-borders($h,$w,$dir){
+    content:'';
+    display:block;
+    height:$h;
+    width:$w;
+    background:{
+        color:transparent;
+        repeat:$dir;
+        size:contain;
+    }
+    background-image:none, url(../img/horizontal-dots.svg);
+    background-image: url(../img/horizontal-dots.png);
+}
+@mixin hr($h,$w,$col){
+    content:'';
+    display:block;
+    height:$h;
+    width:$w;
+    background:{
+        color:$col;
+    }
 }

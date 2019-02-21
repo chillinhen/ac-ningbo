@@ -137,14 +137,16 @@ function sak_add_customizer_css() {
     color:<?php echo $container_color; ?>;
   }
 
-  .toggle-nav span,
   .contact,
-  .gallery-item [class*="caption"],
+  .sidebar .gallery-item [class*="caption"],
   .btn-primary,
   #languages-menu,
   #offMenu{
     background-color: <?php echo $primary_color; ?>;
     color:<?php echo $container_color; ?>;
+  }
+  .toggle-nav span{
+    background-color: <?php echo $secondary_color; ?>;
   }
   #languages-menu a, #languages-menu a span{
     color:<?php echo $container_color; ?>;
@@ -174,15 +176,24 @@ function sak_add_customizer_css() {
   header .navbar-nav > .nav-item:not(.menu-item-has-children) > a:after{
     background-color: <?php echo $secondary_color; ?>;
   }
+  header .navbar-nav > .current-menu-item > a,
+  header .navbar-nav > .current-menu-ancestor > a{
+    color:<?php echo $secondary_color; ?>;
+  }
   header .dropdown-menu{
     background-color: <?php echo $container_color; ?>;
     border-top:3px solid <?php echo $secondary_color; ?>;
   }
   .post-edit-link,
-  .dropdown-item:hover{
+  .dropdown-item:hover,
+  .dropdown-item:focus,
+  .dropdown-menu > .current-menu-item > a,
+  .dropdown-menu > .current-menu-ancestor > a,
+  .dropdown-menu > .current-menu-parent > a{
     background-color: <?php echo $secondary_color; ?>;
     color:<?php echo $container_color; ?> !important;
   }
+
   main a,main a:link {
     color: <?php echo $primary_color; ?>;
   }
@@ -190,7 +201,6 @@ function sak_add_customizer_css() {
     color: <?php echo $headline_color; ?>
   }
   a.btn,
-  .scroll-to-top,
   .block.highlight.bg-primary
   {
     color: <?php echo $container_color; ?> !important;
@@ -237,6 +247,12 @@ function sak_add_customizer_css() {
   }
   .footer-menu li a{
     color:<?php echo $footer_menu_color; ?>;
+  }
+  .scroll-to-top_cnt{
+    color:<?php echo $footer_menu_color; ?>;
+  }
+  .arrow-up{
+    fill:currentColor;
   }
   </style>
 <?php }

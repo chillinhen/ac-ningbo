@@ -45,31 +45,20 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <?php
-            if (is_singular() && has_post_thumbnail()) :
-                $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'post-image-cover');
-                $post_image = $thumb['0'];
-                ?>
-
-                <div class="header-image bg-image">
-
-                    <?php the_post_thumbnail('banner',array('class' => 'img-fluid')); ?>
-
-                </div>
-            <?php endif;
-            if(is_front_page()) : ?>
-            <div class="header-image bg-image">
-              <img class="img-fluid" src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
-            </div>
-            <?php endif;
-            ?>
+            <?php if(is_front_page()) :
+                  get_template_part('partials/gallery','carousel');
+                  else :
+                    if (has_post_thumbnail()) :
+                        get_template_part('partials/thumbnail','banner');
+                      endif;
+                    endif;?>
             <!-- header -->
             <!-- logo -->
-            <div class="row pos-r">
+            <div class="row no-gutters pos-r main-navigation">
               <div class="col-lg-4 col-md-12"><?php get_template_part('partials/site', 'branding'); ?></div>
-              <div class="col-lg-8 d-none d-lg-block">
+              <div class="col-lg-8">
                 <!-- nav -->
-      					<nav class="navbar navbar-expand-sm" role="navigation">
+      					<nav class="navbar navbar-expand-md" role="navigation">
       						<?php html5blank_nav(); ?>
       					</nav>
       					<!-- /nav -->

@@ -1,32 +1,37 @@
-<!-- Content -->
-<h2>Kontakt in Ningbo:</h2>
-<h3>Foreign Affairs Office Ningbo Municipal People's Government</h3>
-2001 Ning Chuan Lu, Jiangdong Qu
-315000 Ningbo Shi, Zhejiang Sheng
-People's Republic of China
+<?php
+$images = get_field('slider-images','option');
+$size = 'banner'; // (thumbnail, medium, large, full or custom size)
 
-Fon: <a href="tel:+8657489186513">0086-574-89186513</a>
-Fax: 0086-574-871865-18
-<a href="http://www.nbfao.gov.cn">www.nbfao.gov.cn</a>
+if( $images ): ?>
+<div id="bannerCarousel" class="header-image bg-image carousel slide" data-ride="carousel" data-interval="8000" data-pause="hover" data-wrap="true" data-touch="true">
+  <ol class="carousel-indicators">
+    <?php  $i= 0; ?>
+    <?php foreach( $images as $image ):?>
+      <li data-target="#bannerCarousel" data-slide-to="<?php echo $i;?>"></li>
+      <?php $i++;
+       endforeach; ?>
+  </ol>
+  <div class="carousel-inner" style="background:black;">
 
-[sc name="Button" link="http://german.ningbo.gov.cn/art/2017/2/28/art_1232_684923.html" linktext="mehr Informationen" ]
+    <?php foreach( $images as $image ):?>
+      <div class="carousel-item">
+        <figure class="d-block w-100">
+        <?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
+          <?php if($image['caption']):?>
+            <figcaption><?php echo $image['caption']; ?></figcaption>
+            <?php endif;?>
+        </figure>
+      </div>
+    <?php endforeach; ?>
+  </div>
+  <a class="carousel-control-prev" href="#bannerCarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#bannerCarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
-
-<!-- Sidebar -->
-<h2>Kontakt in Aachen:</h2>
-<h3>Verein zur Förderung der Städtepartnerschaft Aachen - Ningbo e.V.</h3>
-<strong>Vorsitzender:</strong>
-Herr Kai U. Müller
-
-<strong>Vorstandsbüro:</strong>
-Frau Keren Hou und Frau Nele Clemens
-
-Buchkremerstr. 6
-52062 Aachen
-Deutschland
-
-fon: <a href="tel:+4924192040289">0049 (0)241 / 920 40 289</a>
-fax: 0049 (0)241 / 920 40 18
-<a href="mailto:info@aachen-ningbo.de">info@aachen-ningbo.de</a>
-
-[sc name="Button" link="http://www.aachen.de/DE/stadt_buerger/aachen_profil/staedtepartnerschaften/ningbo/index.html" linktext="mehr Informationen" ]
+<?php endif; ?>

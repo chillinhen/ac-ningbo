@@ -31,6 +31,17 @@ if (!is_admin()) {
 // 4. Include ACF
 include_once( get_stylesheet_directory() . '/acf/acf-fields.php' );
 
+if (function_exists('acf_add_options_page')) {
+    $option_page = acf_add_options_page(array(
+        'page_title' => __('Theme General Settings', 'ac-ningbo'),
+        'menu_title' => __('Theme Settings inkl. Slider', 'ac-ningbo'),
+        'position' => '63.3',
+        'menu_slug' => 'theme-general-settings',
+        'capability' => 'edit_posts',
+        'redirect' => false
+    ));
+}
+
 
 // 5. if you have some extras
 //Shortcodes in ACF

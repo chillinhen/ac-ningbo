@@ -1,32 +1,52 @@
-<!-- Content -->
-<h2>Kontakt in Ningbo:</h2>
-<h3>Foreign Affairs Office Ningbo Municipal People's Government</h3>
-2001 Ning Chuan Lu, Jiangdong Qu
-315000 Ningbo Shi, Zhejiang Sheng
-People's Republic of China
 
-Fon: <a href="tel:+8657489186513">0086-574-89186513</a>
-Fax: 0086-574-871865-18
-<a href="http://www.nbfao.gov.cn">www.nbfao.gov.cn</a>
+<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-[sc name="Button" link="http://german.ningbo.gov.cn/art/2017/2/28/art_1232_684923.html" linktext="mehr Informationen" ]
+	<!-- article -->
+	<article id="post-<?php the_ID(); ?>" <?php post_class('card'); ?> style="width:18em;">
+
+		<!-- post thumbnail -->
+		<?php if ( has_post_thumbnail()) : // Check if thumbnail exists ?>
+			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+				<?php the_post_thumbnail(array('class' => 'card-img-top'))); // Declare pixel size you need inside the array ?>
+				<div class="card-body">
+<!-- post title -->
+					<h2 class="card-title">
+						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+					</h2>
+					<!-- /post title -->
+					<div class="card-body">
+						<?php html5wp_excerpt('html5wp_index'); // Build your custom callback length in functions.php ?>
+						<!-- post details -->
+						<strong class="date"><?php the_time('F j, Y'); ?></strong>
+						<!-- /post details -->
+					</div>
+				</div>
+
+			</a>
+			<?php #edit_post_link(); ?>
+		<?php endif; ?>
+		<!-- /post thumbnail -->
 
 
-<!-- Sidebar -->
-<h2>Kontakt in Aachen:</h2>
-<h3>Verein zur Förderung der Städtepartnerschaft Aachen - Ningbo e.V.</h3>
-<strong>Vorsitzender:</strong>
-Herr Kai U. Müller
 
-<strong>Vorstandsbüro:</strong>
-Frau Keren Hou und Frau Nele Clemens
 
-Buchkremerstr. 6
-52062 Aachen
-Deutschland
 
-fon: <a href="tel:+4924192040289">0049 (0)241 / 920 40 289</a>
-fax: 0049 (0)241 / 920 40 18
-<a href="mailto:info@aachen-ningbo.de">info@aachen-ningbo.de</a>
 
-[sc name="Button" link="http://www.aachen.de/DE/stadt_buerger/aachen_profil/staedtepartnerschaften/ningbo/index.html" linktext="mehr Informationen" ]
+
+
+
+
+	</article>
+	<!-- /article -->
+
+<?php endwhile; ?>
+
+<?php else: ?>
+
+	<!-- article -->
+	<article>
+		<h2><?php _e( 'Sorry, nothing to display.', 'ac-ningbo' ); ?></h2>
+	</article>
+	<!-- /article -->
+
+<?php endif; ?>

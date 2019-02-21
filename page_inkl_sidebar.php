@@ -19,7 +19,7 @@ get_header(); ?>
 			<?php the_content(); ?>
 		</section>
 	</div>
-	<div class="col-sm-4<?php echo $firstCol;?>">
+	<div class="sidebar col-sm-4<?php echo $firstCol;?>">
 		<?php if(get_field('welche_sidebar') == 'default'):?>
 			<?php get_sidebar(); ?>
 		<?php else :?>
