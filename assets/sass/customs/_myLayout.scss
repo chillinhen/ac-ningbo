@@ -115,7 +115,7 @@
   //@include media-breakpoint-between(sm, md) {@include gallery-grid(50%,$grid-gutter-width);}
 }
 
-/** Carousel/ Slider**/
+
 
 /*** header ***/
 header.header{
@@ -130,26 +130,26 @@ header.header{
     margin:0;
     position: relative;
     overflow:hidden;
+    height: inherit;
     img{
-      max-width: 100%;
-      height: auto;
+      max-width: none;
+      height: 100%;
+      width: auto;
     }
     figcaption{
       position: absolute;
       left:0;
       right:0;
       bottom:-100%;
-      text-align: right;
       background: rgba(0,0,0,0);
       color:white;
       padding:1rem;
       margin: 0;
       font-size: .875rem;
     }
-    &:hover{
+    &.hover:hover,  &.hover:focus{
       cursor: pointer;
       figcaption{
-        cursor:default;
         bottom:0;
         @include transition(all, 800ms, ease);
         background: rgba(0,0,0,.5);
@@ -171,8 +171,15 @@ header.header{
   }
   .header-image{
       @include media-breakpoint-up(xl) {
-        height:370px;
         overflow:hidden;
+        height:370px;
+        /*&, & > img{
+
+        }
+        > img{
+          max-width: none;
+          width:auto;
+        }*/
       }
     }
 }

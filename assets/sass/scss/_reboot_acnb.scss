@@ -167,7 +167,10 @@ dfn {
 b,
 strong {
   font-weight: bolder; // Add the correct font weight in Chrome, Edge, and Safari
-}
+  h1 &, h2 &, h3 &, h4 &, h5 &, h6 &{
+    font-weight: 600;
+  }
+  }
 // stylelint-enable font-weight-notation
 
 small {
@@ -205,6 +208,7 @@ a {
     color: $link-hover-color;
     text-decoration: $link-hover-decoration;
   }
+
 }
 
 // And undo these styles for placeholder links/named anchors (without href)

@@ -7,7 +7,7 @@
 				<?php echo get_category_parents( $cat, true, ' &raquo; ' );?>
 			</h1>
 			<div class="card-columns">
-				<?php get_template_part('loop'); ?>
+				<?php get_template_part('loop', 'card'); ?>
 			</div>
 			<?php get_template_part('pagination'); ?>
 

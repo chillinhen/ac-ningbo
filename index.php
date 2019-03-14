@@ -5,9 +5,9 @@
 		<section>
 
 			<h1><?php _e( 'Latest Posts', 'ac-ningbo' ); ?></h1>
-
-			<?php get_template_part('loop'); ?>
-
+			<div class="card-columns">
+				<?php get_template_part('loop','card'); ?>
+			</div>
 			<?php get_template_part('pagination'); ?>
 
 		</section>

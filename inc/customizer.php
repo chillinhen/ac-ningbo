@@ -193,8 +193,8 @@ function sak_add_customizer_css() {
     background-color: <?php echo $secondary_color; ?>;
     color:<?php echo $container_color; ?> !important;
   }
-
-  main a,main a:link {
+  main ul a,main ul a:link,
+  main p a,main p a:link {
     color: <?php echo $primary_color; ?>;
   }
   main a:hover{
@@ -235,6 +235,20 @@ function sak_add_customizer_css() {
   .site-title{
     color: <?php echo $primary_color; ?>;
   }
+  .page-numbers{
+    color: <?php echo $container_color; ?>;
+    background-color: <?php echo $primary_color; ?>;
+  }
+  .page-numbers:hover{
+      color: <?php echo $container_color; ?>;
+  }
+  .page-numbers.current{
+    background-color: <?php echo $secondary_color; ?>;
+  }
+  .page-numbers.dots{
+    color:<?php echo $primary_color; ?>;
+  }
+  .page-numbers.next:hover i, .page-numbers.prev:hover i{color:white;}
   .wrapper,
   main{
     background-color: <?php echo $container_color; ?>;

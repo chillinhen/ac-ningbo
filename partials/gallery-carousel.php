@@ -3,6 +3,7 @@
 $images = get_field('slider-images','option');
 $size = 'banner'; // (thumbnail, medium, large, full or custom size)
 
+
 if( $images ): ?>
 <div id="bannerCarousel" class="carousel slide" data-ride="carousel" data-interval="8000" data-pause="hover" data-wrap="true" data-touch="true">
   <ol class="carousel-indicators">
@@ -18,7 +19,10 @@ if( $images ): ?>
               <figure class="d-block w-100">
               	<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
                 <?php if($image['caption']):?>
-                  <figcaption><?php echo $image['caption']; ?></figcaption>
+                  <figcaption class="d-flex justify-content-end">
+                    <i class="fas fa-info-circle mt-1 mr-3 align-items-baseline"></i>
+                    <span><?php echo $image['caption']; ?></span>
+                  </figcaption>
                   <?php endif;?>
               </figure>
             </div>

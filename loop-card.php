@@ -1,7 +1,7 @@
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
 	<!-- article -->
-	<article id="post-<?php the_ID(); ?>" <?php post_class('card'); ?>>
+	<article id="post-<?php the_ID(); ?>" <?php post_class('card card-item'); ?>>
 
 		<!-- post thumbnail -->
 
@@ -11,14 +11,17 @@
 				<?php endif; ?>
 				<div class="card-body">
 					<!-- post title -->
+					<small class="category text-muted text-small"><?php the_category(' | '); // Separated by commas ?></small>
 					<h2 class="card-title">
 						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
 					</h2>
 					<!-- /post title -->
 					<div class="card-text">
-						<?php html5wp_excerpt('html5wp_index'); // Build your custom callback length in functions.php ?>
+						<?php html5wp_excerpt(10); // Build your custom callback length in functions.php ?>
+						<?php #the_excerpt();?>
 						<!-- post details -->
-						<strong class="date"><?php the_time('F j, Y'); ?></strong>
+						<small class="date text-muted text-small"><?php the_time('d. F Y'); ?></small>
+						<?php edit_post_link(); ?>
 						<!-- /post details -->
 					</div>
 					<?php #edit_post_link(); ?>

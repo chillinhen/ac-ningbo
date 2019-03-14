@@ -1,8 +1,24 @@
 .pagination {
-  display: flex;
+  @extend .d-flex;
   justify-content: center;
   @include list-unstyled();
   @include border-radius();
+
+  .page-numbers{
+    @include border-radius(50%);
+    font-weight: 600;
+    @include size(1.5rem);
+    line-height: 1.5rem;
+    text-align: center;
+    margin:0 .25rem;
+    &.dots{
+      background-color: transparent;
+    }
+    &:hover{text-decoration: none;opacity: .5;}
+    span{
+      font-size: 0;
+    }
+  }
 }
 
 .page-link {

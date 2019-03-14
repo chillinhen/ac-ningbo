@@ -267,14 +267,15 @@ $line-height-base:            1.5 !default;
 
 $h1-font-size:                $font-size-base * 2.1 !default;
 $h2-font-size:                $font-size-base * 1.75 !default;
-$h3-font-size:                $font-size-base * 1 !default;
+$h3-font-size:                $font-size-base * 1.25 !default;
 $h4-font-size:                $h3-font-size !default;
 $h5-font-size:                $font-size-base * .9 !default;
 $h6-font-size:                $h5-font-size !default;
 
+$headings-margin-top:      ($spacer / 4) !default;
 $headings-margin-bottom:      ($spacer / 2) !default;
 $headings-font-family:        $font-family-headings !default;
-$headings-font-weight:        500 !default;
+$headings-font-weight:        400 !default;
 $headings-line-height:        1.2 !default;
 $headings-color:              inherit !default;
 
@@ -292,7 +293,7 @@ $display-line-height:         $headings-line-height !default;
 $lead-font-size:              ($font-size-base * 1.25) !default;
 $lead-font-weight:            300 !default;
 
-$small-font-size:             80% !default;
+$small-font-size:             .75rem !default;
 
 $text-muted:                  $gray-600 !default;
 
@@ -727,7 +728,7 @@ $card-deck-margin:                  $card-group-margin !default;
 
 $card-columns-count:                3 !default;
 $card-columns-gap:                  1.25rem !default;
-$card-columns-margin:               $card-spacer-y !default;
+$card-columns-margin:               $card-columns-gap !default;
 
 
 // Tooltips

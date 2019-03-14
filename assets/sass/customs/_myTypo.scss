@@ -19,3 +19,14 @@ li[class*="menu"]{
   h2, .h2{
     article &{margin-bottom: $headings-margin-bottom * 2 !important;}
   }
+
+
+.text-small{
+  &.text-muted > *{@extend .text-muted;}
+  &.date,
+  &.category{
+    text-transform: uppercase;
+    letter-spacing: .035rem;
+    > a:hover{text-decoration: none;}
+  }
+}

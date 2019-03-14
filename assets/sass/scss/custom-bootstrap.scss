@@ -9,6 +9,7 @@
 @import "variables_acnb";
 @import "mixins";
 @import "mixins/grid_acnb";
+@import '../customs/_myMixins';
 @import "root";
 @import "reboot_acnb";
 @import "type_acnb";
@@ -25,7 +26,7 @@
 @import "custom-forms";
 @import "nav";
 @import "navbar";
-@import "card";
+@import "card_acnb";
 @import "breadcrumb";
 @import "pagination_acnb";
 @import "badge";

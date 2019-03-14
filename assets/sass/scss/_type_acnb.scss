@@ -1,5 +1,11 @@
 // stylelint-disable declaration-no-important, selector-list-comma-newline-after
-
+/** Typo Mixins ***/
+@mixin item-title{
+  &, &> a {color: $body-color;}
+  font-weight: 700;
+  font-size: $h3-font-size;
+  margin-top:$headings-margin-top;
+}
 //
 // Headings
 //
@@ -14,6 +20,13 @@ h1, h2,.h1, .h2 {
     color:inherit !important;
     margin-top: 0;
   }
+  > a:hover{
+    text-decoration: none;
+    opacity: .75;
+  }
+  [class*="item"] &[class*="-title"]{
+    @include item-title;
+  }
 }
 h3, h4, h5, h6,
 .h3, .h4, .h5, .h6 {
@@ -26,6 +39,9 @@ h3, h4, h5, h6,
   .block.highlight &{
     color:inherit !important;
   }
+  &.item-title{
+    @include item-title;
+  }
 }
 h1, .h1 { font-size: $h1-font-size; }
 h2, .h2 { font-size: $h2-font-size; }
@@ -34,10 +50,12 @@ h4, .h4 { font-size: $h4-font-size; }
 h5, .h5 { font-size: $h5-font-size; }
 h6, .h6 { font-size: $h6-font-size; }
 
+
 .lead {
   font-size: $lead-font-size;
   font-weight: $lead-font-weight;
 }
+
 
 // Type display classes
 .display-1 {
