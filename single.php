@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php get_header();
+
+?>
 
 	<main role="main">
 	<!-- section -->
@@ -17,20 +19,26 @@
 			<!-- /post title -->
 			<?php the_content(); // Dynamic Content ?>
 			<!-- post details -->
-			<strong class="date"><?php the_time('d.m.Y'); ?></strong>
-			<!-- /post details -->
-			<hr>
-			<?php the_tags( __( 'Tags: ', 'ac-ningbo' ), ', ', ' | '); // Separated by commas with a line break at the end ?>
-
-			<p><?php _e( 'Categorised in: ', 'ac-ningbo' ); the_category(', '); // Separated by commas ?></p>
-
-                        <?php wp_link_pages( array(
-	'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'ac-ningbo' ) . '</span>',
-	'after'       => '</div>',
-	'link_before' => '<span>',
-	'link_after'  => '</span>',
-	) );
-?>
+			<footer class="article-footer">
+				<strong class="date"><?php the_time('d.m.Y'); ?></strong>
+				<hr>
+				<div class="d-flex post-details text-muted">
+						<span class="tags">
+							<?php the_tags( __( 'Tags: ', 'ac-ningbo' ), ', ', ' | ');
+							// Separated by commas with a line break at the end ?>
+						</span>
+						<span class="categories">
+							<?php _e( 'Categorised in: ', 'ac-ningbo' ); the_category(', '); // Separated by commas ?>
+						</span>
+				</div>
+			</footer>
+			<?php wp_link_pages( array(
+				'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'ac-ningbo' ) . '</span>',
+				'after'       => '</div>',
+				'link_before' => '<span>',
+				'link_after'  => '</span>',
+			) );
+			?>
 
 			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
 

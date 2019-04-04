@@ -256,7 +256,7 @@ function sak_add_customizer_css() {
   blockquote:before{
     background-color:<?php echo $secondary_color; ?>;
   }
-  footer{
+  body > footer{
     background-color:<?php echo $footer_color; ?>;
   }
   .footer-menu li a{

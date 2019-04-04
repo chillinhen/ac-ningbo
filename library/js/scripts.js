@@ -117,4 +117,7 @@ $('figure.showCaption').bind('hover touchdown', function(){
    $('.page-numbers.next, .page-numbers.prev').wrapInner('<span></span>');
    $('.page-numbers.next').append('<i class="fas fa-arrow-circle-right"></i>');
    $('.page-numbers.prev').prepend('<i class="fas fa-arrow-circle-left"></i>');
+
+   // set content images max-width
+   $('main[role="main"] article p img').addClass('img-fluid');
 });

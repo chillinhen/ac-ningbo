@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AC Ningbo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-10 12:49+0000\n"
+"POT-Creation-Date: 2019-04-04 10:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -15,25 +15,12 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.2.1; wp-5.0.3"
 
-#: author.php:43
-msgid "% Comments"
+#: 404.php:8
+msgid "Die Seite befindet sich im Aufbau."
 msgstr ""
 
-#: search.php:7
-#, php-format
-msgid "%s Search Results for "
-msgstr ""
-
-#: author.php:43
-msgid "1 Comment"
-msgstr ""
-
-#: author.php:15
-msgid "About "
-msgstr ""
-
-#. Name of the theme
-msgid "AC Ningbo"
+#: 404.php:10
+msgid "Return home?"
 msgstr ""
 
 #: archive.php:7
@@ -44,43 +31,45 @@ msgstr ""
 msgid "Author Archives for "
 msgstr ""
 
-#. Description of the theme
-msgid "based upon HTML5 Blank WordPress Theme"
+#: author.php:15
+msgid "About "
 msgstr ""
 
-#: single.php:25
-msgid "Categorised in: "
+#: author.php:42
+msgid "Published by"
+msgstr ""
+
+#: author.php:43
+msgid "Leave your thoughts"
+msgstr ""
+
+#: author.php:43
+msgid "1 Comment"
+msgstr ""
+
+#: author.php:43
+msgid "% Comments"
+msgstr ""
+
+#: author.php:62 loop-card.php:39 loop-liste.php:40 page.php:34
+#: page_columns.php:33 page_full_width.php:29 page_inkl_sidebar.php:47
+#: single.php:53 snippet.php:48
+msgid "Sorry, nothing to display."
+msgstr ""
+
+#: comments.php:3
+msgid "Post is password protected. Enter the password to view any comments."
 msgstr ""
 
 #: comments.php:19
 msgid "Comments are closed here."
 msgstr ""
 
-#: 404.php:8
-msgid "Die Seite befindet sich im Aufbau."
-msgstr ""
-
-#. Name of the template
-msgid "Full Width Page"
-msgstr ""
-
-#. URI of the theme
-msgid "http://aachen-ningbo.de/"
-msgstr ""
-
-#. Author URI of the theme
-msgid "http://toddmotto.com"
-msgstr ""
-
-#. Name of the template
-msgid "ind. Layout"
-msgstr ""
-
-#: functions.php:271
+#: functions.php:274
 msgid "Language"
 msgstr ""
 
-#: functions.php:272
+#: functions.php:275
 msgid "Language Switch"
 msgstr ""
 
@@ -88,49 +77,45 @@ msgstr ""
 msgid "Latest Posts"
 msgstr ""
 
-#: author.php:43
-msgid "Leave your thoughts"
+#. Name of the template
+msgid "ind. Layout"
 msgstr ""
 
-#: library/svg/inline-icons.svg.php:200
-msgid "nach oben"
-msgstr ""
-
-#: single.php:28
-msgid "Pages:"
-msgstr ""
-
-#: comments.php:3
-msgid "Post is password protected. Enter the password to view any comments."
-msgstr ""
-
-#: author.php:42
-msgid "Published by"
-msgstr ""
-
-#: 404.php:10
-msgid "Return home?"
-msgstr ""
-
-#: searchform.php:4
-msgid "Search"
+#. Name of the template
+msgid "volle Seitenbreite (Gutenberg Template)"
 msgstr ""
 
 #. Name of the template
 msgid "Seite inkl. Sidebar"
 msgstr ""
 
-#: author.php:62 loop-card.php:39 loop-liste.php:40 page.php:28
-#: page_columns.php:29 page_inkl_sidebar.php:47 single.php:49 snippet.php:48
-msgid "Sorry, nothing to display."
+#: search.php:7
+#, php-format
+msgid "%s Search Results for "
+msgstr ""
+
+#: searchform.php:3
+msgid "To search, type and hit enter."
+msgstr ""
+
+#: searchform.php:4
+msgid "Search"
+msgstr ""
+
+#: single.php:27
+msgid "Tags: "
+msgstr ""
+
+#: single.php:29
+msgid "Categorised in: "
+msgstr ""
+
+#: single.php:32
+msgid "Pages:"
 msgstr ""
 
 #: tag.php:7
 msgid "Tag Archive: "
-msgstr ""
-
-#: single.php:23
-msgid "Tags: "
 msgstr ""
 
 #: acf/acf-include.php:36
@@ -141,10 +126,30 @@ msgstr ""
 msgid "Theme Settings inkl. Slider"
 msgstr ""
 
-#: searchform.php:3
-msgid "To search, type and hit enter."
+#. Name of the template
+msgid "Full Width Page"
+msgstr ""
+
+#: library/svg/inline-icons.svg.php:200
+msgid "nach oben"
+msgstr ""
+
+#. Name of the theme
+msgid "AC Ningbo"
+msgstr ""
+
+#. Description of the theme
+msgid "based upon HTML5 Blank WordPress Theme"
+msgstr ""
+
+#. URI of the theme
+msgid "http://aachen-ningbo.de/"
 msgstr ""
 
 #. Author of the theme
 msgid "Todd Motto (@toddmotto)"
+msgstr ""
+
+#. Author URI of the theme
+msgid "http://toddmotto.com"
 msgstr ""
