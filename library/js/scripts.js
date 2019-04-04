@@ -1,4 +1,18 @@
 jQuery(function($) {
+  // set Tooltip Title
+  var btnTooltip = $(".btn-tooltip");
+  btnTooltip.each(function(){
+      var tooltip = $(this).siblings(".tooltip-cnt").html();
+      $(this)
+      .attr('data-toggle', 'tooltip')
+      .attr('data-placement', 'top')
+      .attr('title', tooltip);
+
+  });
+  //Initialize BS Tooltips
+  $('[data-toggle="tooltip"]').tooltip();
+
+
   //set columns
   $(".row.cols-50-50").children('div').addClass('col-lg-6');
   $(".row.cols-30-70").children('div:first-child()').addClass('col-lg-4').next('div').addClass('col-lg-8');

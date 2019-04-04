@@ -38,9 +38,14 @@
 .gallery {
   .entry-content &[class*="gallery-columns"]{
     width:100%;
+    //background: #eee;
     @extend .row;
     @extend .no-gutters;
-    margin-bottom: $grid-gutter-width;
+    margin:{
+      left:-$grid-gutter-width/2;
+      right:-$grid-gutter-width/2;
+      bottom:$grid-gutter-width;
+    }
     @include media-breakpoint-down(xs){
       @media screen and (orientation:portrait){
         display: block;
@@ -119,6 +124,7 @@
 
 /*** header ***/
 header.header{
+  padding-top: $grid-gutter-width;
   ul{
     margin:0;
     padding:0;

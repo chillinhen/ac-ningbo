@@ -34,6 +34,7 @@ ul{
   }
   .entry-content &{
     list-style-position: outside;
+    margin-left: -$grid-gutter-width;
     @include media-breakpoint-down(sm) {
       padding-left: 1rem;
     }

@@ -6,7 +6,11 @@
 
 	<!-- article -->
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		<div class="container"><h1><?php the_title(); ?></h1></div>
+		<div class="row">
+			<div class="col-sm-12">
+				<h1><?php the_title(); ?></h1>
+			</div>
+		</div>
 		<section class="content">
 			<?php the_content(); ?>
 			<?php  if ( ! post_password_required() ) :
