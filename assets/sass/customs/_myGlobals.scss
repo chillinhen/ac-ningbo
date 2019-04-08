@@ -5,20 +5,32 @@
 .pos-a{
   position: absolute;
 }
-.post-edit-link{
-  @extend .btn;
-  position: fixed;
-  z-index:999999;
-
-  @include media-breakpoint-down(sm) {
-    bottom:0;
-    top:auto;
+.post-details{
+  .card-text  &{
+    @extend .d-flex;
+    justify-content: space-between;
   }
-  @include media-breakpoint-up(md) {
-    @include transform (1, 90deg);
-    transform-origin: 100% 100%;
-    top:25%;
-    right:2rem;
+}
+.post-edit-link{
+  body.page &,
+  body.single &{
+    @extend .btn;
+    @include media-breakpoint-down(sm) {
+      bottom:0;
+      top:auto;
+    }
+    @include media-breakpoint-up(md) {
+      @include transform (1, 90deg);
+      transform-origin: 100% 100%;
+      top:25%;
+      right:2rem;
+      position: fixed;
+      z-index:999999;
+    }
+  }
+  body.category &{
+    color:$link-color;
+    span{display:none;}
   }
 }
 /** global menu styles **/

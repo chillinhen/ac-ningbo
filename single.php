@@ -24,7 +24,7 @@
 				<hr>
 				<div class="d-flex post-details text-muted">
 						<span class="tags">
-							<?php the_tags( __( 'Tags: ', 'ac-ningbo' ), ', ', ' | ');
+							<?php the_tags( _e( 'Tags: ', 'ac-ningbo' ), ', ', ' | ');
 							// Separated by commas with a line break at the end ?>
 						</span>
 						<span class="categories">

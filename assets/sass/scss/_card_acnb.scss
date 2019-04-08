@@ -259,7 +259,7 @@
   }
 
   @include media-breakpoint-up(sm) {
-    column-count: $card-columns-count;
+    column-count: 2;
     column-gap: $card-columns-gap;
     orphans: 1;
     widows: 1;
@@ -269,6 +269,10 @@
       width: 100%; // Don't let their width change
     }
   }
+  @include media-breakpoint-up(lg) {
+    column-count: $card-columns-count;
+  }
+
 }
 
 

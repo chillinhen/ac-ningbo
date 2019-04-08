@@ -61,7 +61,7 @@ if (function_exists('add_theme_support'))
     add_theme_support( 'html5', array( 'gallery' ) );
 
     // Localisation Support
-    load_theme_textdomain('html5blank', get_template_directory() . '/languages');
+    load_theme_textdomain('ac-ningbo', get_template_directory() . '/languages');
 }
 
 /*------------------------------------*\
@@ -202,8 +202,8 @@ function html5blank_styles()
 function register_html5_menu()
 {
     register_nav_menus(array( // Using array to specify more menus if needed
-        'header-menu' => __('Header Menu', 'html5blank'), // Main Navigation
-        'footer-menu' => __('Footer Menu', 'html5blank') // Extra Navigation if needed (duplicate as many as you need!)
+        'header-menu' => __('Header Menu', 'ac-ningbo'), // Main Navigation
+        'footer-menu' => __('Footer Menu', 'ac-ningbo') // Extra Navigation if needed (duplicate as many as you need!)
     ));
 }
 
@@ -250,8 +250,8 @@ if (function_exists('register_sidebar'))
 {
     // Define Sidebar Widget Area 1
     register_sidebar(array(
-        'name' => __('Widget Area 1', 'html5blank'),
-        'description' => __('Description for this widget-area...', 'html5blank'),
+        'name' => __('Widget Area 1', 'ac-ningbo'),
+        'description' => __('Description for this widget-area...', 'ac-ningbo'),
         'id' => 'widget-area-1',
         'before_widget' => '<div id="%1$s" class="%2$s">',
         'after_widget' => '</div>',
@@ -261,8 +261,8 @@ if (function_exists('register_sidebar'))
 
     // Define Sidebar Widget Area 2
     register_sidebar(array(
-        'name' => __('Widget Area 2', 'html5blank'),
-        'description' => __('Description for this widget-area...', 'html5blank'),
+        'name' => __('Widget Area 2', 'ac-ningbo'),
+        'description' => __('Description for this widget-area...', 'ac-ningbo'),
         'id' => 'widget-area-2',
         'before_widget' => '<div id="%1$s" class="%2$s">',
         'after_widget' => '</div>',
@@ -335,7 +335,7 @@ function html5wp_excerpt($length_callback = '', $more_callback = '')
 function html5_blank_view_article($more)
 {
     global $post;
-    return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'html5blank') . '</a>';
+    return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . _e('View Article', 'ac-ningbo') . '</a>';
 }
 
 // Remove Admin bar
@@ -490,18 +490,18 @@ function create_post_type_html5()
     register_post_type('html5-blank', // Register Custom Post Type
         array(
         'labels' => array(
-            'name' => __('HTML5 Blank Custom Post', 'html5blank'), // Rename these to suit
-            'singular_name' => __('HTML5 Blank Custom Post', 'html5blank'),
-            'add_new' => __('Add New', 'html5blank'),
-            'add_new_item' => __('Add New HTML5 Blank Custom Post', 'html5blank'),
-            'edit' => __('Edit', 'html5blank'),
-            'edit_item' => __('Edit HTML5 Blank Custom Post', 'html5blank'),
-            'new_item' => __('New HTML5 Blank Custom Post', 'html5blank'),
-            'view' => __('View HTML5 Blank Custom Post', 'html5blank'),
-            'view_item' => __('View HTML5 Blank Custom Post', 'html5blank'),
-            'search_items' => __('Search HTML5 Blank Custom Post', 'html5blank'),
-            'not_found' => __('No HTML5 Blank Custom Posts found', 'html5blank'),
-            'not_found_in_trash' => __('No HTML5 Blank Custom Posts found in Trash', 'html5blank')
+            'name' => __('HTML5 Blank Custom Post', 'ac-ningbo'), // Rename these to suit
+            'singular_name' => __('HTML5 Blank Custom Post', 'ac-ningbo'),
+            'add_new' => __('Add New', 'ac-ningbo'),
+            'add_new_item' => __('Add New HTML5 Blank Custom Post', 'ac-ningbo'),
+            'edit' => __('Edit', 'ac-ningbo'),
+            'edit_item' => __('Edit HTML5 Blank Custom Post', 'ac-ningbo'),
+            'new_item' => __('New HTML5 Blank Custom Post', 'ac-ningbo'),
+            'view' => __('View HTML5 Blank Custom Post', 'ac-ningbo'),
+            'view_item' => __('View HTML5 Blank Custom Post', 'ac-ningbo'),
+            'search_items' => __('Search HTML5 Blank Custom Post', 'ac-ningbo'),
+            'not_found' => __('No HTML5 Blank Custom Posts found', 'ac-ningbo'),
+            'not_found_in_trash' => __('No HTML5 Blank Custom Posts found in Trash', 'ac-ningbo')
         ),
         'public' => true,
         'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages

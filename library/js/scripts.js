@@ -12,8 +12,13 @@ jQuery(function($) {
   //Initialize BS Tooltips
   $('[data-toggle="tooltip"]').tooltip();
 
+  //edit posts links
+  $('.card-text .post-details').each(function(){
+    $(this).children('.post-edit-link').wrapInner('<span></span>');
+    $(this).children('.post-edit-link').prepend('<i class="fas fa-pen"></i>');
+  });
 
-  //set columns
+  //bs page grid
   $(".row.cols-50-50").children('div').addClass('col-lg-6');
   $(".row.cols-30-70").children('div:first-child()').addClass('col-lg-4').next('div').addClass('col-lg-8');
   $(".row.cols-70-30").children('div:first-child()').addClass('col-lg-8').next('div').addClass('col-lg-4');
@@ -35,17 +40,12 @@ jQuery(function($) {
 
     $(".dropdown")
       .mouseover(function() {
-        //alert('show');
         $(this).addClass('show').attr('aria-expanded', "true");
-        //$(this).find('.dropdown-menu').addClass('show');
       })
       .mouseout(function() {
-        //alert('hide');
         $(this).removeClass('show').attr('aria-expanded', "false");
-        //$(this).find('.dropdown-menu').removeClass('show');
       });
   } else {
-      //console.log('smaller than 992');
       offNav = $('#offMenu > ul ').addClass('nav flex-column');
       offNav.children('li').addClass('nav-item').children('a').addClass('nav-link');
       offNav.find('.menu-item-has-children').addClass('dropdown').children('a').addClass('dropdown-toggle');

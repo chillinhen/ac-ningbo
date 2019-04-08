@@ -1,3 +1,6 @@
+<?php /* Template Name: Taetigkeitsfelder */
+get_header(); ?>
+
 <?php
 
    $args = array('cat' => 18);
@@ -9,7 +12,7 @@
 ?>
 
          <h1><?php the_title() ?></h1>
-         <div class='post-content'><?php the_content() ?></div>
+         <div class='post-content'><?php #the_content() ?>----</div>
 
 <?php
       endwhile;
@@ -21,3 +24,4 @@
 <?php
    endif;
 ?>
+<?php get_footer(); ?>

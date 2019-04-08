@@ -11,8 +11,8 @@ function sak_theme_customizer($wp_customize) {
     'sanitize_callback' => 'sanitize_hex_color',
   ));
   $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'primary_color', array(
-    'label' => __('Branding Color', 'html5blank'),
-    'description' => __('Define your main color', 'html5blank'),
+    'label' => __('Branding Color', 'ac-ningbo'),
+    'description' => __('Define your main color', 'ac-ningbo'),
     'section' => 'colors',
     'settings' => 'primary_color',
   )));
@@ -23,8 +23,8 @@ function sak_theme_customizer($wp_customize) {
     'sanitize_callback' => 'sanitize_hex_color',
   ));
   $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'secondary_color', array(
-    'label' => __('Secondary Color', 'html5blank'),
-    'description' => __('Define a secondary color that matches branding color', 'html5blank'),
+    'label' => __('Secondary Color', 'ac-ningbo'),
+    'description' => __('Define a secondary color that matches branding color', 'ac-ningbo'),
     'section' => 'colors',
     'settings' => 'secondary_color',
   )));
@@ -35,8 +35,8 @@ function sak_theme_customizer($wp_customize) {
     'sanitize_callback' => 'sanitize_hex_color',
   ));
   $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'headline_color', array(
-    'label' => __('Branding Color', 'html5blank'),
-    'description' => __('Define your main color', 'html5blank'),
+    'label' => __('Branding Color', 'ac-ningbo'),
+    'description' => __('Define your main color', 'ac-ningbo'),
     'section' => 'colors',
     'settings' => 'headline_color',
   )));
@@ -48,8 +48,8 @@ function sak_theme_customizer($wp_customize) {
   ));
 
   $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'container_color', array(
-    'label' => __('Container Color', 'html5blank'),
-    'description' => __('Define a color for your main contents background', 'html5blank'),
+    'label' => __('Container Color', 'ac-ningbo'),
+    'description' => __('Define a color for your main contents background', 'ac-ningbo'),
     'section' => 'colors',
     'settings' => 'container_color',
   )));
@@ -61,8 +61,8 @@ function sak_theme_customizer($wp_customize) {
   ));
 
   $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'footer_color', array(
-    'label' => __('Footer Color', 'html5blank'),
-    'description' => __('Define a color for your footer background', 'html5blank'),
+    'label' => __('Footer Color', 'ac-ningbo'),
+    'description' => __('Define a color for your footer background', 'ac-ningbo'),
     'section' => 'colors',
     'settings' => 'footer_color',
   )));
@@ -74,22 +74,22 @@ function sak_theme_customizer($wp_customize) {
   ));
 
   $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'footer_menu_color', array(
-    'label' => __('Footer Menu Color', 'html5blank'),
-    'description' => __('Define a color for your footer links', 'html5blank'),
+    'label' => __('Footer Menu Color', 'ac-ningbo'),
+    'description' => __('Define a color for your footer links', 'ac-ningbo'),
     'section' => 'colors',
     'settings' => 'footer_menu_color',
   )));
 
   //adding text section for Analytics Code
   $wp_customize->add_section('analytics_settings_section', array(
-    'title'          => __('Analytics-Code', 'html5blank'),
+    'title'          => __('Analytics-Code', 'ac-ningbo'),
   ));
   //adding setting for Analytics Code
   $wp_customize->add_setting('code', array(
     'default'        => "",
   ));
   $wp_customize->add_control('code', array(
-    'description' => __('Please provide your analytics code', 'html5blank'),
+    'description' => __('Please provide your analytics code', 'ac-ningbo'),
     'section' => 'analytics_settings_section',
     'type'    => 'textarea',
   ));
@@ -184,7 +184,8 @@ function sak_add_customizer_css() {
     background-color: <?php echo $container_color; ?>;
     border-top:3px solid <?php echo $secondary_color; ?>;
   }
-  .post-edit-link,
+  body.page .post-edit-link,
+  body.single .post-edit-link,
   .dropdown-item:hover,
   .dropdown-item:focus,
   .dropdown-menu > .current-menu-item > a,

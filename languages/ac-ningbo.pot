@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AC Ningbo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-04 10:46+0000\n"
+"POT-Creation-Date: 2019-04-04 12:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -20,60 +20,155 @@ msgid "Die Seite befindet sich im Aufbau."
 msgstr ""
 
 #: 404.php:10
+msgctxt "Zurück zur Startseite?"
 msgid "Return home?"
 msgstr ""
 
 #: archive.php:7
+msgctxt "Archive"
 msgid "Archives"
 msgstr ""
 
 #: author.php:9
+msgctxt "Autor Archive von  "
 msgid "Author Archives for "
 msgstr ""
 
 #: author.php:15
+msgctxt "Über"
 msgid "About "
 msgstr ""
 
 #: author.php:42
+msgctxt "veröffentlicht von "
 msgid "Published by"
 msgstr ""
 
 #: author.php:43
+msgctxt "Hinterlassen Sie einen Kommentar"
 msgid "Leave your thoughts"
 msgstr ""
 
 #: author.php:43
+msgctxt "1 Kommentar"
 msgid "1 Comment"
 msgstr ""
 
 #: author.php:43
+msgctxt "% Kommentare"
 msgid "% Comments"
 msgstr ""
 
-#: author.php:62 loop-card.php:39 loop-liste.php:40 page.php:34
-#: page_columns.php:33 page_full_width.php:29 page_inkl_sidebar.php:47
-#: single.php:53 snippet.php:48
+#: author.php:62 page.php:34 page_columns.php:33 page_inkl_sidebar.php:47
+#: single.php:53 page_full_width.php:29 loop-card.php:39 loop-liste.php:40
+msgctxt "Tut uns leid, hier gibt es nicht zu sehen."
 msgid "Sorry, nothing to display."
 msgstr ""
 
 #: comments.php:3
+msgctxt ""
+"Dieser Beitrag ist passwortgeschützt. Loggen Sie sich mit dem Passwort ein, "
+"um Kommentare zu lesen.  "
 msgid "Post is password protected. Enter the password to view any comments."
 msgstr ""
 
 #: comments.php:19
+msgctxt "Die Kommentarfunktion ist hier geschlossen."
 msgid "Comments are closed here."
 msgstr ""
 
+#: functions.php:205
+msgctxt "Kopfzeilen-Navigation"
+msgid "Header Menu"
+msgstr ""
+
+#: functions.php:206
+msgctxt "Fußzeilen-Navigation"
+msgid "Footer Menu"
+msgstr ""
+
+#: functions.php:253
+msgctxt "Widget Bereich 1"
+msgid "Widget Area 1"
+msgstr ""
+
+#: functions.php:254 functions.php:265
+msgctxt "Bescheibung für diesen Widget-Bereich..."
+msgid "Description for this widget-area..."
+msgstr ""
+
+#: functions.php:264
+msgctxt "Widget Bereich 2"
+msgid "Widget Area 2"
+msgstr ""
+
 #: functions.php:274
+msgctxt "Sprache"
 msgid "Language"
 msgstr ""
 
 #: functions.php:275
+msgctxt "Sprachschalter"
 msgid "Language Switch"
 msgstr ""
 
+#: functions.php:338
+msgctxt "Artikel lesen"
+msgid "View Article"
+msgstr ""
+
+#: functions.php:493 functions.php:494
+msgctxt "HTML5 Blank benutzerdefinierter Beitrag"
+msgid "HTML5 Blank Custom Post"
+msgstr ""
+
+#: functions.php:495
+msgctxt "Neu hinzufügen"
+msgid "Add New"
+msgstr ""
+
+#: functions.php:496
+msgctxt "Neuen benutzerdefinierten Beitrag hinzufügen"
+msgid "Add New HTML5 Blank Custom Post"
+msgstr ""
+
+#: functions.php:497
+msgctxt "Bearbeiten"
+msgid "Edit"
+msgstr ""
+
+#: functions.php:498
+msgctxt "benutzerdefinierten Beitrag bearbeiten"
+msgid "Edit HTML5 Blank Custom Post"
+msgstr ""
+
+#: functions.php:499
+msgctxt "neuer benutzerdefinierter Beitrag"
+msgid "New HTML5 Blank Custom Post"
+msgstr ""
+
+#: functions.php:500 functions.php:501
+msgctxt "benutzerdefinierten Beitrag ansehen"
+msgid "View HTML5 Blank Custom Post"
+msgstr ""
+
+#: functions.php:502
+msgctxt "benutzerdefinierten Beitrag suchen"
+msgid "Search HTML5 Blank Custom Post"
+msgstr ""
+
+#: functions.php:503
+msgctxt "keinen benutzerdefinierten Beitrag gefunden"
+msgid "No HTML5 Blank Custom Posts found"
+msgstr ""
+
+#: functions.php:504
+msgctxt "keinen benutzerdefinierten Beitrag im Papierkorb gefunden"
+msgid "No HTML5 Blank Custom Posts found in Trash"
+msgstr ""
+
 #: index.php:7
+msgctxt "Letzte Beiträge"
 msgid "Latest Posts"
 msgstr ""
 
@@ -82,52 +177,117 @@ msgid "ind. Layout"
 msgstr ""
 
 #. Name of the template
-msgid "volle Seitenbreite (Gutenberg Template)"
-msgstr ""
-
-#. Name of the template
 msgid "Seite inkl. Sidebar"
 msgstr ""
 
 #: search.php:7
 #, php-format
+msgctxt "Suchergebnisse für"
 msgid "%s Search Results for "
 msgstr ""
 
 #: searchform.php:3
+msgctxt "Suchbegriffe eintippen + Eingabetaste klicken"
 msgid "To search, type and hit enter."
 msgstr ""
 
 #: searchform.php:4
+msgctxt "Suche"
 msgid "Search"
 msgstr ""
 
 #: single.php:27
+msgctxt "Schlagwörter:"
 msgid "Tags: "
 msgstr ""
 
 #: single.php:29
+msgctxt "kategorisiert in: "
 msgid "Categorised in: "
 msgstr ""
 
 #: single.php:32
+msgctxt "Seiten: "
 msgid "Pages:"
 msgstr ""
 
 #: tag.php:7
+msgctxt "Schlagwortarchiv:"
 msgid "Tag Archive: "
 msgstr ""
 
+#. Name of the template
+msgid "volle Seitenbreite (Gutenberg Template)"
+msgstr ""
+
 #: acf/acf-include.php:36
+msgctxt "allgemeine Design Einstellungen"
 msgid "Theme General Settings"
 msgstr ""
 
 #: acf/acf-include.php:37
+msgctxt "Design Einstellungen inkl. Slider"
 msgid "Theme Settings inkl. Slider"
 msgstr ""
 
-#. Name of the template
-msgid "Full Width Page"
+#: inc/customizer.php:14 inc/customizer.php:38
+msgctxt "Markenfarbe"
+msgid "Branding Color"
+msgstr ""
+
+#: inc/customizer.php:15 inc/customizer.php:39
+msgctxt "Definieren Sie Ihre Hauptfarbe"
+msgid "Define your main color"
+msgstr ""
+
+#: inc/customizer.php:26
+msgctxt "Sekundärfarbe"
+msgid "Secondary Color"
+msgstr ""
+
+#: inc/customizer.php:27
+msgctxt "Definieren Sie eine sekundäre Farbe die zu Ihrer Markenfarbe passt"
+msgid "Define a secondary color that matches branding color"
+msgstr ""
+
+#: inc/customizer.php:51
+msgctxt "Hintergrundfarbe des (Haupt)Containers"
+msgid "Container Color"
+msgstr ""
+
+#: inc/customizer.php:52
+msgctxt "Definieren Sie eine Farbe für Ihren Seitenhintergrund"
+msgid "Define a color for your main contents background"
+msgstr ""
+
+#: inc/customizer.php:64
+msgctxt "Fußzeilen Farbe"
+msgid "Footer Color"
+msgstr ""
+
+#: inc/customizer.php:65
+msgctxt "Definieren Sie eine Farbe für Ihre Fußzeile"
+msgid "Define a color for your footer background"
+msgstr ""
+
+#: inc/customizer.php:77
+msgctxt "Menufarbe für die Fußzeile"
+msgid "Footer Menu Color"
+msgstr ""
+
+#: inc/customizer.php:78
+msgctxt "Definieren Sie Ihre Farbe für die Links in der Fußzeile"
+msgid "Define a color for your footer links"
+msgstr ""
+
+#: inc/customizer.php:85
+msgctxt "Analytics-Code"
+msgid "Analytics-Code"
+msgstr ""
+
+#: inc/customizer.php:92
+msgctxt "Tragen Sie hier den Code Ihres Analyse-Tools ein."
+msgid "Please provide your analytics code"
 msgstr ""
 
 #: library/svg/inline-icons.svg.php:200
