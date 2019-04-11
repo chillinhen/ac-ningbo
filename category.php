@@ -6,8 +6,8 @@
 			<h1 class="category-title">
 				<?php echo get_category_parents( $cat, true, ' &raquo; ' );?>
 			</h1>
-			<div class="card-columns">
-				<?php get_template_part('loop', 'card'); ?>
+			<div class="articles">
+				<?php get_template_part('loop'); ?>
 			</div>
 			<?php get_template_part('pagination'); ?>
 

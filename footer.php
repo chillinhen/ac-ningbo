@@ -1,8 +1,7 @@
 
-
 </div>
 <!-- /wrapper -->
-<?php #if(!(is_page_template('template-maintenance.php'))) :  ?>
+
 <!-- footer -->
 <footer class="footer container" role="contentinfo">
     <?php wp_nav_menu(array('theme_location' => 'footer-menu', 'menu_class' => 'footer-menu', 'container' => '', 'fallback_cb' => 'my_menu')); ?>

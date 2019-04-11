@@ -1,4 +1,4 @@
-<?php /* Template Name: ind. Layout */ get_header(); ?>
+<?php /* Template Name: Kontakt */ get_header(); ?>
 
 <!-- section -->
 
@@ -13,9 +13,6 @@
 		</div>
 		<section class="content">
 			<?php the_content(); ?>
-			<?php  if ( ! post_password_required() ) :
-	      get_template_part('partials/page','flexible-columns');
-	    endif; ?>
 		</section>
 		<?php edit_post_link(); ?>
 
@@ -35,9 +32,8 @@
 	<!-- /article -->
 
 <?php endif; ?>
+
+
 <!-- /section -->
-<!-- section bootom -->
-<?php get_sidebar("footer");?>
-<!-- /section bootom -->
 </main>
 <?php get_footer(); ?>

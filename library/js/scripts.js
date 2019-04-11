@@ -26,6 +26,52 @@ jQuery(function($) {
   $(".row.cols-4x30").children('div').addClass('col-lg-3');
   $(".row.cols-100").children('div').addClass('col-lg-12');
 
+  // Bottom Widgets
+  if($(".sidebar-footer > *").length){
+    $(".sidebar-footer").addClass("bg-light").addClass("p-3");
+  }
+  // Category Title
+  var title = $(".category-title").text();
+  spacePosition = title.lastIndexOf(" »");
+  newTitle = title.substr(0, spacePosition);
+  $(".category-title").html(newTitle);
+
+
+  // category grids
+  if($("body").is(".logged-in")){
+    $(".post-details").addClass("justify-content-between");
+  } else {$(".post-details").addClass("justify-content-end");}
+
+  if($("body.category").is("[class*='bericht']")){
+    $(".articles").addClass("my-5").addClass("category-list");
+    // style list Elements
+    $(".category-list > article").each(function(){
+      $(this).addClass("row").addClass("my-5");
+      var img = $(this).children(".img-cnt");
+      if(img.length){
+        img.addClass("col-md-2");
+        img.children('img').addClass("img-fluid");
+        img.siblings(".body").addClass("col-md-10");
+      } else {
+        $(this).children(".body").addClass("col-md-12");
+      }
+    });
+  } else {
+    $(".articles").addClass("my-5").addClass("card-columns");
+    //style cards
+    $(".card-columns > article").each(function(){
+      $(this).addClass("card").addClass("card-item");
+      $(this).find(".img-cnt > img").addClass("card-img-top");
+      $(this).find(".body").addClass("card-body");
+      $(this).find(".title").addClass("card-title");
+      $(this).find(".text").addClass("card-text");
+    });
+        /*
+
+      $(this).children(".img-cnt").addClass("card-img-top");
+    }*/
+  }
+
 
   // set bs navbar
   if($(window).width() > 991){

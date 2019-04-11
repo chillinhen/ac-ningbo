@@ -53,5 +53,8 @@ get_header(); ?>
 
 
 <!-- /section -->
+<!-- section bootom -->
+<?php get_sidebar("footer");?>
+<!-- /section bootom -->
 </main>
 <?php get_footer(); ?>
