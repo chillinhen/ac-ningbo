@@ -54,6 +54,4 @@ function acf_on_init() {
         add_filter('acf/format_value_for_api/type=wysiwyg', 'acf_format_value_for_api', 10, 3);
     }
 }
-
-add_action('init', 'acf_on_init');
 ?>

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: HTML5 Blank WordPress Theme\n"
 "POT-Creation-Date: 2019-06-07 11:29+0000\n"
-"PO-Revision-Date: 2019-06-07 11:34+0000\n"
+"PO-Revision-Date: 2019-06-07 11:33+0000\n"
 "Last-Translator: AcN1-Cn7 <hosting@mb-ac.de>\n"
 "Language-Team: Deutsch\n"
 "Language: de_DE\n"
@@ -121,7 +121,7 @@ msgstr "volle Seitenbreite (Gutenberg Template)"
 
 #. Name of the template
 msgid "Interims-Homepage"
-msgstr "Interims-Homepage"
+msgstr ""
 
 #. Name of the template
 msgid "Seite inkl. Sidebar"

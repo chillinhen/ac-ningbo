@@ -115,8 +115,8 @@ jQuery(function($) {
       e.preventDefault();
   });
 
-  /** Carousel Gallery **/
-  $('.carousel-item:first, .carousel-indicators > li:first').addClass('active');
+  /** Initialize Carousel **/
+  $('.carousel-item:first-child, .carousel-indicators > li:first').addClass('active');
   var bannerCaption = $('header.header figcaption');
   bannerCaption.each(function(){
       $(this).parent('figure').addClass('showCaption');

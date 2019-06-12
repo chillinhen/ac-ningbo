@@ -1,4 +1,4 @@
-<?php /* Template Name: volle Seitenbreite (Gutenberg Template) */
+<?php /* Template Name: Gutenberg Template */
 get_header('ge'); ?>
 
 <!-- section -->

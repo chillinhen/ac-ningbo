@@ -223,3 +223,28 @@ a[class*="nivo-lightbox"]{color:white;}
         background-position: 0% 50%;
     }
 }
+
+//newsCarousel
+#newsCarousel{
+  padding:1rem 1rem 2rem;
+  height: 275px;
+  .carousel-inner{
+
+  }
+
+  [class*="carousel-control"]{
+    bottom:0;
+    @extend .d-flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    i.fa{
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+  }
+  .carousel-control-prev{
+    right:1.5rem;
+    left:auto;
+  }
+}

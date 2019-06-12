@@ -31,6 +31,7 @@ if (function_exists('add_theme_support'))
     add_image_size('large', 1024, '', true); // Large Thumbnail
     add_image_size('medium', 600, '', true); // Medium Thumbnail
     add_image_size('small', 315, '', true); // Small Thumbnail
+    add_image_size( 'favorite-small', 315, 140, true );//Favorite Thumbnail
     add_image_size('banner', 9999, 415, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
     // Add Support for Custom Backgrounds
@@ -307,6 +308,11 @@ function html5wp_pagination()
 function html5wp_index($length) // Create 20 Word Callback for Index page Excerpts, call using html5wp_excerpt('html5wp_index');
 {
     return 20;
+}
+
+function html5wp_news($length) // Create 20 Word Callback for Index page Excerpts, call using html5wp_excerpt('html5wp_index');
+{
+    return 15;
 }
 
 // Create 40 Word Callback for Custom Post Excerpts, call using html5wp_excerpt('html5wp_custom_post');

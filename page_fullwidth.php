@@ -1,4 +1,5 @@
-<?php get_header(); ?>
+<?php /* Template Name: volle Seitenbreite */
+get_header(); ?>
 
 <!-- section -->
 
@@ -11,12 +12,12 @@
 				<h1><?php the_title(); ?></h1>
 			</div>
 		</div>
-		<section class="content">
+		<section class="content entry-content">
 			<div class="row">
-				<div class="col-sm-8">
+				<div class="col-sm-12">
 					<?php the_content(); ?>
 				</div>
-				<?php get_sidebar(); ?>
+
 			</div>
 		</section>
 		<?php edit_post_link(); ?>
@@ -37,7 +38,7 @@
 	<!-- /article -->
 
 <?php endif; ?>
-<?php get_template_part('partials/articles','related'); ?>
+
 
 <!-- /section -->
 <!-- section bootom -->

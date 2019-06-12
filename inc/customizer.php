@@ -80,6 +80,31 @@ function sak_theme_customizer($wp_customize) {
     'settings' => 'footer_menu_color',
   )));
 
+  //Colorize the NewsBox
+  $wp_customize->add_setting('newsbox_color', array(
+    'default' => '#235DAB',
+    'transport' => 'refresh',
+    'sanitize_callback' => 'sanitize_hex_color',
+  ));
+  $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'newsbox_color', array(
+    'label' => __('NewsBox Color', 'ac-ningbo'),
+    'description' => __('Define a color for your NewsBox background', 'ac-ningbo'),
+    'section' => 'colors',
+    'settings' => 'newsbox_color',
+  )));
+  $wp_customize->add_setting('newsbox_font_color', array(
+    'default' => '#ffffff',
+    'transport' => 'refresh',
+    'sanitize_callback' => 'sanitize_hex_color',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'newsbox_font_color', array(
+    'label' => __('NewsBox Font Color', 'ac-ningbo'),
+    'description' => __('Define a color for your newsbox fonts', 'ac-ningbo'),
+    'section' => 'colors',
+    'settings' => 'newsbox_font_color',
+  )));
+
   //adding text section for Analytics Code
   $wp_customize->add_section('analytics_settings_section', array(
     'title'          => __('Analytics-Code', 'ac-ningbo'),
@@ -114,6 +139,8 @@ function sak_add_customizer_css() {
     $container_color = sak_sanitize_hex_color(get_theme_mod('container_color','#ffffff'));
     $footer_color = sak_sanitize_hex_color(get_theme_mod('footer_color','#E22B37'));
     $footer_menu_color = sak_sanitize_hex_color(get_theme_mod('footer_menu_color','#ffffff'));
+    $newsbox_color = sak_sanitize_hex_color(get_theme_mod('newsbox_color','#235DAB'));
+    $newsbox_font_color = sak_sanitize_hex_color(get_theme_mod('newsbox_font_color','#ffffff'));
 
 ?>
   <style media="screen">
@@ -269,6 +296,10 @@ function sak_add_customizer_css() {
   .arrow-up{
     fill:currentColor;
   }
+  #newsCarousel{
+    background-color: <?php echo $newsbox_color; ?>;
+  }
+  #newsCarousel  *{color:<?php echo $newsbox_font_color; ?>;}
   </style>
 <?php }
 add_action('wp_head', 'sak_add_customizer_css');

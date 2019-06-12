@@ -26,7 +26,7 @@ if( $images ): ?>
                   <?php endif;?>
               </figure>
             </div>
-        <?php endforeach; ?>
+        <?php endforeach; wp_reset_postdata();?>
       </div>
       <a class="carousel-control-prev" href="#bannerCarousel" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
