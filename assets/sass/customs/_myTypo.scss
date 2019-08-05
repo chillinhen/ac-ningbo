@@ -1,32 +1,51 @@
 li[class*="page"],
-li[class*="menu"]{
-    #offMenu & > a{
-      display:block;
-      position:relative;
-      font-family:$headings-font-family;
-      line-height:1.2;
-      padding:1em;
-      border:{
-          width:0 0 2px 0;
-          style:solid;
-          color:currentColor;
-      }
+li[class*="menu"] {
+  #offMenu &>a {
+    display: block;
+    position: relative;
+    font-family: $headings-font-family;
+    line-height: 1.2;
+    padding: 1em;
+
+    border: {
+      width: 0 0 2px 0;
+      style: solid;
+      color: currentColor;
     }
   }
-  h1, .h1{
-    article &{margin-bottom: $headings-margin-bottom * 4 !important;}
+}
+
+h1,
+.h1 {
+  article & {
+    margin-bottom: $headings-margin-bottom * 4 !important;
   }
-  h2, .h2{
-    article &{margin-bottom: $headings-margin-bottom * 2 !important;}
+}
+
+h2,
+.h2 {
+  article & {
+    margin-bottom: $headings-margin-bottom * 2 !important;
   }
+}
 
 
-.text-small{
-  &.text-muted > *{@extend .text-muted;}
+.text-small {
+  &.text-muted>* {
+    @extend .text-muted;
+  }
+
   &.date,
-  &.category{
+  &.category {
     text-transform: uppercase;
     letter-spacing: .035rem;
-    > a:hover{text-decoration: none;}
+
+    >a:hover {
+      text-decoration: none;
+    }
+  }
+
+  &.category {
+    color: $secondary !important;
   }
 }

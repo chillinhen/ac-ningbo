@@ -12,7 +12,7 @@
 
 		<div class="body">
 			<!-- post title -->
-			<small class="category text-muted text-small">
+			<small class="category text-small">
 				<?php the_category(' | '); // Separated by commas ?>
 			</small>
 			<h2 class="title">

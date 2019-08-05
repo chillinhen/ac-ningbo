@@ -1,6 +1,14 @@
 // Gallery
-.wp-block-gallery{
-  .entry-content &{
-    padding:1em 2em 0 2em;
+.wp-block-gallery {
+  .entry-content & {
+    padding: 1em 2em 0 2em;
+    flex-flow: row wrap;
+    margin-left: -$grid-gutter-width;
+    margin-right: -$grid-gutter-width;
+    justify-content: flex-start;
+  }
+
+  .blocks-gallery-item {
+    flex: 0 1 auto;
   }
 }

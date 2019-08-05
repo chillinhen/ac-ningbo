@@ -1,79 +1,113 @@
 /**global classes */
-.pos-r{
+.pos-r {
   position: relative;
 }
-.pos-a{
+
+.pos-a {
   position: absolute;
 }
-.post-details{
-  .card-text  &{
+
+.post-details {
+  .card-text & {
     @extend .d-flex;
     justify-content: space-between;
   }
 }
-.post-edit-link{
+
+.post-edit-link {
+
   body.page &,
-  body.single &{
+  body.single & {
     @extend .btn;
+
     @include media-breakpoint-down(sm) {
-      bottom:0;
-      top:auto;
+      bottom: 0;
+      top: auto;
     }
+
     @include media-breakpoint-up(md) {
       @include transform (1, 90deg);
       transform-origin: 100% 100%;
-      top:25%;
-      right:2rem;
+      top: 25%;
+      right: 2rem;
       position: fixed;
-      z-index:999999;
+      z-index: 999999;
     }
   }
-  body.category &{
-    color:$link-color;
-    span{display:none;}
+
+  body.category & {
+    color: $link-color;
+
+    span {
+      display: none;
+    }
   }
 }
+
 /** global menu styles **/
-ul{
-    #offMenu & {
-    padding:0;
-    margin:0;
+ul {
+  #offMenu & {
+    padding: 0;
+    margin: 0;
     text-transform: uppercase;
-    &, li{
+
+    &,
+    li {
       list-style: none;
     }
-    &.sub-menu{text-transform:none;}
+
+    &.sub-menu {
+      text-transform: none;
+    }
   }
-  .entry-content &{
+
+  .entry-content & {
     list-style-position: outside;
-    margin-left: -$grid-gutter-width;
+
     @include media-breakpoint-down(sm) {
       padding-left: 1rem;
     }
 
   }
 }
-ul, li{
-    //list-style:none;
-    color:inherit;
+
+ul,
+li {
+  //list-style:none;
+  color: inherit;
 }
-li{
-  .entry-content &{
+
+li {
+  .entry-content & {
     @include media-breakpoint-down(sm) {
       margin-bottom: 1rem;
     }
   }
 }
+
 li[class*="page"],
-li[class*="menu"]{
-  > a{
-    text-decoration:none;
+li[class*="menu"] {
+  >a {
+    text-decoration: none;
   }
 }
-.block{
-  padding:$grid-gutter-width/2;
+
+.block {
+  padding: $grid-gutter-width/2;
 }
-.separator::after{
-  @include hr(2px,100%,$gray-200);
+
+.separator::after {
+  @include hr(2px, 100%, $gray-200);
   @extend .my-3;
+}
+
+/*** Posts ***/
+.post-details {
+  margin-top: -.5rem;
+}
+
+/***** Kommentare ****/
+.comments,
+#comments {
+  display: none;
 }

@@ -20,9 +20,9 @@
 			<?php the_content(); // Dynamic Content ?>
 			<!-- post details -->
 			<footer class="article-footer">
-				<strong class="date"><?php the_time('d.m.Y'); ?></strong>
-				<hr>
-				<div class="d-flex post-details text-muted">
+				<div class="d-flex justify-content-between">
+					<strong class="date mr-5"><?php the_time('d.m.Y'); ?></strong>
+					<div class="post-details text-muted">
 						<span class="tags">
 							<?php the_tags( _e( 'Tags: ', 'ac-ningbo' ), ', ', ' | ');
 							// Separated by commas with a line break at the end ?>
@@ -30,6 +30,7 @@
 						<span class="categories">
 							<?php _e( 'Categorised in: ', 'ac-ningbo' ); the_category(', '); // Separated by commas ?>
 						</span>
+					</div>				
 				</div>
 			</footer>
 			<?php wp_link_pages( array(
