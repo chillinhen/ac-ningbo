@@ -189,12 +189,12 @@ function sak_add_customizer_css() {
   #offMenu li[class*="menu"] a{
     color:<?php echo $container_color; ?>;
   }
-  #offMenu li[class*="page"] a:hover,
+  /* #offMenu li[class*="page"] a:hover,
   #offMenu li[class*="menu"] a:hover{
       color: <?php echo $primary_color; ?>;
       background-color:<?php echo $container_color; ?>;
       opacity: .5;
-  }
+  } */
   header .navbar-nav > .nav-item > a,
   .dropdown-menu li,
   .dropdown-item{

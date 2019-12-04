@@ -8,7 +8,7 @@ get_header(); ?>
 	<!-- article -->
 	<div class="row mb-5">
 
-		<div class="col-sm-8 order-2 order-md-1">
+		<div class="col-lg-8 order-2 order-lg-1">
 			<article id="post-<?php the_ID(); ?>" <?php post_class('entry-content'); ?>>
 				<h1><?php the_title(); ?></h1>
 				<section class="content">
@@ -16,7 +16,7 @@ get_header(); ?>
 				</section>
 			</article>
 		</div>
-		<div class="sidebar col-sm-4 align-self-end order-1 order-md-2">
+		<div class="sidebar col-lg-4 align-self-end order-1 order-lg-2">
 			<?php get_template_part('partials/news','carousel'); ?>
 		</div>
 		<?php edit_post_link(); ?>

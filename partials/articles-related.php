@@ -13,7 +13,7 @@ if( $posts ): ?>
         </a>
       <?php else :?>
         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-          <?php echo '<img class="card-img-top" src="'.get_template_directory_uri().'/library/img/default/default-bg.png" />';?>
+          <?php echo '<img class="card-img-top" src="'.get_template_directory_uri().'/assets/img/default/default-bg.png" />';?>
         </a>
       <?php endif; ?>
       <div class="card-body">

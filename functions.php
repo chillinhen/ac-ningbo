@@ -134,28 +134,27 @@ function html5blank_header_scripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
-    	wp_register_script('conditionizr', get_template_directory_uri() . '/library/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0'); // Conditionizr
+    	wp_register_script('conditionizr', get_template_directory_uri() . '/assets/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0'); // Conditionizr
         wp_enqueue_script('conditionizr'); // Enqueue it!
 
-        wp_register_script('modernizr', get_template_directory_uri() . '/library/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
+        wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
         wp_enqueue_script('modernizr'); // Enqueue it!
 
-        wp_register_script('popper', get_template_directory_uri() . '/library/js/lib/popper.min.js', array(), '', true); // Popper
+        wp_register_script('popper', get_template_directory_uri() . '/assets/js/lib/popper.min.js', array(), '', true); // Popper
         wp_enqueue_script('popper'); // Enqueue it!
 
-        wp_register_script('bootstrap', get_template_directory_uri() . '/library/js/lib/bootstrap.min.js', array(), '4.1.3', true); // Bootstrap
+        wp_register_script('bootstrap', get_template_directory_uri() . '/assets/js/lib/bootstrap.min.js', array(), '4.1.3', true); // Bootstrap
         wp_enqueue_script('bootstrap'); // Enqueue it!
 
         // lightbox
-       wp_register_script('nivo-lightbox', get_stylesheet_directory_uri() . '/library/js/nivo-lightbox.min.js', array('jquery'), '', true);
+       wp_register_script('nivo-lightbox', get_stylesheet_directory_uri() . '/assets/js/nivo-lightbox.min.js', array('jquery'), '', true);
        wp_enqueue_script('nivo-lightbox');
 
-        wp_register_script('html5blankscripts', get_template_directory_uri() . '/library/js/scripts.js', array('jquery', 'bootstrap'), '1.0.0', true); // Custom scripts
+        wp_register_script('html5blankscripts', get_template_directory_uri() . '/assets/js/custom_scripts.js', array('jquery', 'bootstrap'), '1.0.0', true); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
 
         // Cookie Bar
-        wp_register_script('cookie-bar', get_template_directory_uri() . '/library/cookie-bar/cookiebar-latest.min.js?theme=white&tracking=1&thirdparty=1&refreshPage=1&showNoConsent=1&hideDetailsBtn=1&remember=30&privacyPage=https%3A%2F%2Faachen-ningbo.de%2Fde%2Fdatenschutzerklaerung%2F', array('jquery'), false, true);
-       wp_enqueue_script('cookie-bar');
+        wp_enqueue_script('cookie-bar', get_template_directory_uri() . '/assets/cookie-bar/cookiebar-latest.min.js?theme=white&tracking=1&thirdparty=1&refreshPage=1&showNoConsent=1&hideDetailsBtn=1&remember=30&privacyPage=https%3A%2F%2Faachen-ningbo.de%2Fde%2Fdatenschutzerklaerung%2F', array('jquery'), false, true);
     }
 }
 
@@ -163,7 +162,7 @@ function html5blank_header_scripts()
 function html5blank_conditional_scripts()
 {
     if (is_page('pagenamehere')) {
-        wp_register_script('scriptname', get_template_directory_uri() . '/library/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)
+        wp_register_script('scriptname', get_template_directory_uri() . '/assets/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)
         wp_enqueue_script('scriptname'); // Enqueue it!
     }
 }
@@ -171,33 +170,28 @@ function html5blank_conditional_scripts()
 // Load HTML5 Blank styles
 function html5blank_styles()
 {
-    wp_register_style('normalize', get_template_directory_uri() . '/library/css/normalize.min.css', array(), '1.0', 'all');
-    wp_enqueue_style('normalize'); // Enqueue it!
+    wp_enqueue_style('normalize', get_template_directory_uri() . '/assets/css/normalize.min.css', array(), '1.0', 'all');
 
     //fonts
-    wp_register_style('fonts', get_template_directory_uri() . '/library/css/fonts.css', 'style', '1.0', 'all');
-    wp_enqueue_style('fonts');
+    wp_enqueue_style('fonts', get_template_directory_uri() . '/assets/css/fonts.css', 'style', '1.0', 'all');
 
     //icons
-    wp_register_style('fontawesome', get_template_directory_uri() . '/library/css/all.min.css', array(), '5.0.10', 'all');
-    wp_enqueue_style('fontawesome'); // Enqueue it!
+    wp_enqueue_style('fontawesome', get_template_directory_uri() . '/assets/css/all.min.css', array(), '5.0.10', 'all');
 
     //icons
-    wp_register_style('fontawesomeV4', get_template_directory_uri() . '/library/css/v4-shims.min.css', array(), '5.0.10', 'all');
-    wp_enqueue_style('fontawesomeV4'); // Enqueue it!
+    wp_enqueue_style('fontawesomeV4', get_template_directory_uri() . '/assets/css/v4-shims.min.css', array(), '5.0.10', 'all');
+
+    //icons
+    wp_enqueue_style('themify', get_template_directory_uri() . '/assets/css/themify-icons.css', array(), '5.0.10', 'all');
 
     //lightbox
-    wp_register_style('nivo-lightbox', get_stylesheet_directory_uri() . '/library/css/nivo-lightbox.css', 'style', '1.0', 'all', array());
-    wp_enqueue_style('nivo-lightbox');
+    //wp_enqueue_style('nivo-lightbox', get_stylesheet_directory_uri() . '/assets/css/nivo-lightbox.css', 'style', '1.0', 'all', array());
 
-    wp_register_style('ac-ningbo', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
-    wp_enqueue_style('ac-ningbo'); // Enqueue it!
+    wp_enqueue_style('ac-ningbo', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
 
-    wp_register_style('screen', get_stylesheet_directory_uri() . '/library/css/screen.min.css', 'style', '1.0', 'all', array('fontawesome','ac-ningbo'));
-    wp_enqueue_style('screen');
+    wp_enqueue_style('screen', get_stylesheet_directory_uri() . '/assets/css/screen.css', 'style', '1.0', 'all', array('fontawesome','ac-ningbo'));
 
-    wp_register_style('print', get_stylesheet_directory_uri() . '/library/css/print.min.css', 'style', '1.0', 'print', array('fontawesome','ac-ningbo'));
-    wp_enqueue_style('print');
+    //wp_enqueue_style('print', get_stylesheet_directory_uri() . '/assets/css/print.css', 'style', '1.0', 'print', array('fontawesome','ac-ningbo'));
 }
 
 // Register HTML5 Blank Navigation

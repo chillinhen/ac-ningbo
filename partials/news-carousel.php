@@ -22,10 +22,10 @@ if ($newsQuery->have_posts()) :?>
   </div>
 
   <a class="carousel-control-prev" href="#newsCarousel" role="button" data-slide="prev">
-    <i class="fa fa-angle-left"></i><span class="sr-only">Previous</span>
+  <span class="ti-angle-left" aria-hidden="true"></span><span class="sr-only">Previous</span>
   </a>
   <a class="carousel-control-next" href="#newsCarousel" role="button" data-slide="next">
-    <i class="fa fa-angle-right"></i><span class="sr-only">Next</span>
+  <span class="ti-angle-right" aria-hidden="true"></span><span class="sr-only">Next</span>
   </a>
 </div>
 <?php endif; ?>

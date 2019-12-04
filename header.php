@@ -35,7 +35,12 @@
 
     </head>
     <body <?php body_class(); ?>>
-      <?php get_template_part('library/svg/inline', 'icons.svg'); ?>
+      <?php get_template_part('assets/svg/inline', 'icons.svg'); ?>
+        <!-- offNav -->
+        <nav role="navigation" id="offMenu" class="off-canvas-responsive">
+          <?php html5blank_nav(); ?>
+          <?php dynamic_sidebar('language'); ?>
+        </nav>
         <!-- wrapper -->
         <div class="wrapper container pb-5">
             <header class="header clear" role="banner">
@@ -59,11 +64,12 @@
               <div class="col-lg-8">
                 <!-- nav -->
       					<nav class="navbar navbar-expand-md" role="navigation">
-      						<?php html5blank_nav(); ?>
+                  <?php html5blank_nav(); ?>
+                  <?php dynamic_sidebar('language'); ?>
       					</nav>
       					<!-- /nav -->
               </div>
-              <?php dynamic_sidebar('language'); ?>
+              
             </div>
 
             <!-- /logo -->

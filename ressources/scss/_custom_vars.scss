@@ -1,0 +1,77 @@
+// Colors
+$blue:    #3b549a;
+$red:     #d51c29;
+$link-color:                theme-color("danger");
+
+$primary:       $blue;
+$secondary:     $red;
+
+
+
+// Grid Columns
+$grid-gutter-width:           28px;
+
+// Typography
+$font-family-sans-serif:      "Open Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-headings:        'PT Sans', Arial,Helvetica, sans-serif;
+
+$font-size-base:              .875rem; // Assumes the browser default, typically `16px`
+$line-height-base:            1.7;
+
+$h1-font-size:                $font-size-base * 2.1;
+$h2-font-size:                $font-size-base * 1.75;
+$h3-font-size:                $font-size-base * 1.25;
+$h4-font-size:                $h3-font-size;
+$h5-font-size:                $font-size-base * .9;
+$h6-font-size:                $h5-font-size;
+
+$headings-margin-top:      ($spacer / 4);
+$headings-margin-bottom:      ($spacer / 2);
+$headings-font-family:        $font-family-headings;
+$headings-font-weight:        400;
+
+$small-font-size:             .75rem;
+
+//Tables
+$table-bg:                    transparent;
+$table-border-color:          $gray-300;
+$table-dark-bg:               $gray-900;
+
+//Forms
+$custom-control-gutter:                 1.5rem;
+
+//Navs
+$nav-link-padding-y:                0;
+$navbar-padding-y:                  0;
+$off-nav-menu-bg:       lighten($primary, 12%);
+
+//Pagination
+$pagination-padding-x:              1rem;
+$pagination-padding-y-lg:           2rem;
+$pagination-color:                  $body-color;
+$pagination-bg:                     $gray-200;
+
+//Badges
+$badge-padding-y:                   .5em;
+$badge-padding-x:                   .8em;
+
+//Listgroups
+$list-group-bg:                     transparent;
+$list-group-border-width:           0 0 $border-width 0;
+$list-group-border-radius:          0;
+
+$list-group-item-padding-x:         0;
+
+$list-group-hover-bg:               transparent;
+
+//Carousel
+$carousel-indicator-width:          30px;
+$carousel-indicator-height:         5px;
+$carousel-indicator-spacer:         5px;
+$carousel-indicator-active-bg:      $white;
+
+$carousel-caption-width:            70%;
+$carousel-caption-color:            $white;
+
+$carousel-control-icon-width:       20px;
+$carousel-control-icon-height:      40px;
