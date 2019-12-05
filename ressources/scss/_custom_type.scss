@@ -57,7 +57,19 @@ h6,.h6 {
   color: $text-muted;
 }
 
+.card-title,
+.card-subtitle {
+ font-weight:$font-weight-bold;
+}
 
+
+a{
+  .category &{
+    color:$text-muted;
+    font-size:$font-size-base-sm;
+    text-transform:uppercase;
+  }
+}
 
 .lead {
   font-size: $lead-font-size;

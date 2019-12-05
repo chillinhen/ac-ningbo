@@ -20,7 +20,7 @@ if( $posts ): ?>
         <h4 class="card-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
         <div class="card-details d-flex">
           <!-- post details -->
-          <small class="category text-muted text-small">
+          <small class="category">
             <?php the_category(' | '); // Separated by commas ?>
           </small>
         </div>

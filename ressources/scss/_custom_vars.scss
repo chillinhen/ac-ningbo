@@ -16,7 +16,11 @@ $font-family-sans-serif:      "Open Sans", "Segoe UI", "Helvetica Neue", Arial, 
 $font-family-headings:        'PT Sans', Arial,Helvetica, sans-serif;
 
 $font-size-base:              .875rem; // Assumes the browser default, typically `16px`
+$font-size-base-sm:           .75rem;
 $line-height-base:            1.7;
+
+$font-weight-bold:            600;
+$font-weight-bolder:          700;
 
 $h1-font-size:                $font-size-base * 2.1;
 $h2-font-size:                $font-size-base * 1.75;
@@ -50,6 +54,11 @@ $pagination-padding-x:              1rem;
 $pagination-padding-y-lg:           2rem;
 $pagination-color:                  $body-color;
 $pagination-bg:                     $gray-200;
+
+// Cards
+
+$card-spacer-y:                     1.25rem;
+$card-spacer-x:                     0;
 
 //Badges
 $badge-padding-y:                   .5em;
