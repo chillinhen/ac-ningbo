@@ -1,4 +1,5 @@
 jQuery(function ($) {
+  //alert('hallo');
     function scrollUp() {
       $('html, body').animate({ scrollTop: 0 }, 800);
     }
@@ -22,12 +23,12 @@ jQuery(function ($) {
     });
   
     //bs page grid
-    $(".row.cols-50-50").children('div').addClass('col-lg-6');
-    $(".row.cols-30-70").children('div:first-child()').addClass('col-lg-4').next('div').addClass('col-lg-8');
-    $(".row.cols-70-30").children('div:first-child()').addClass('col-lg-8').next('div').addClass('col-lg-4');
-    $(".row.cols-3x40").children('div').addClass('col-lg-4');
-    $(".row.cols-4x30").children('div').addClass('col-lg-3');
-    $(".row.cols-100").children('div').addClass('col-lg-12');
+    // $(".row.cols-50-50").children('div').addClass('col-lg-6');
+    // $(".row.cols-30-70").children('div:first-child()').addClass('col-lg-4').next('div').addClass('col-lg-8');
+    // $(".row.cols-70-30").children('div:first-child()').addClass('col-lg-8').next('div').addClass('col-lg-4');
+    // $(".row.cols-3x40").children('div').addClass('col-lg-4');
+    // $(".row.cols-4x30").children('div').addClass('col-lg-3');
+    // $(".row.cols-100").children('div').addClass('col-lg-12');
   
     // Bottom Widgets
     if ($(".sidebar-footer > *").length) {
@@ -47,35 +48,7 @@ jQuery(function ($) {
       $(".post-details").addClass("justify-content-end");
     }
   
-    if ($("body.category").is("[class*='bericht']")) {
-      $(".articles").addClass("my-5").addClass("category-list col-md-12");
-      // style list Elements
-      $(".category-list > article").each(function () {
-        $(this).addClass("row").addClass("my-5");
-        var img = $(this).children(".img-cnt");
-        if (img.length) {
-          img.addClass("col-md-2");
-          img.children('img').addClass("img-fluid");
-          img.siblings(".body").addClass("col-md-10");
-        } else {
-          $(this).children(".body").addClass("col-md-12");
-        }
-      });
-    } else {
-      $(".articles").addClass("my-5").addClass("card-columns");
-      //style cards
-      $(".card-columns > article").each(function () {
-        $(this).addClass("card").addClass("card-item");
-        $(this).find(".img-cnt > img").addClass("card-img-top");
-        $(this).find(".body").addClass("card-body");
-        $(this).find(".title").addClass("card-title");
-        $(this).find(".text").addClass("card-text");
-      });
-      /*
-  
-        $(this).children(".img-cnt").addClass("card-img-top");
-      }*/
-    }
+
   
     // set bs navbar
     if ($(window).width() > 991) {
@@ -156,6 +129,23 @@ jQuery(function ($) {
   
     /*** wpcf7-form tweaks ***/
     $('.wpcf7-form').find('br').remove();
+
+        //show send Box
+        if ($(".wpcf7-response-output.wpcf7-mail-sent-ok").length > 0) {
+
+          $(".wpcf7-response-output.wpcf7-mail-sent-ok").siblings().css('display', 'none');
+  
+          $(".wpcf7-response-output.wpcf7-mail-sent-ok").siblings('legend')
+                  .text('Anmeldung versendet')
+                  .css('display', 'block');
+  
+      }
+         // Close wpcf7 alerts
+          // add Icon
+          //$('.wpcf7-response-output').append('<i class="fas fa-times-circle"></i>');
+         $('.wpcf7-response-output').on('click', function(){
+          $(this).fadeOut();
+      });
   
     $('.lang-item').each(function () {
       $(this).children('a')
@@ -182,5 +172,8 @@ jQuery(function ($) {
   
     // set content images max-width
     $('main[role="main"] article p img').addClass('img-fluid');
+
+    // avoid collapse when image floating
+    
   });
   

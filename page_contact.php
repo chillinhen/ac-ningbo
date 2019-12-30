@@ -1,22 +1,22 @@
-<?php /* Template Name: Contact */ get_header(); ?>
+<?php /* Template Name: Kontakt */
+get_header(); ?>
 
 <!-- section -->
 
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
 	<!-- article -->
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		<div class="row">
-			<div class="col-sm-12">
+	<div class="row my-5">
+		<div class="col-12">
+			<article id="post-<?php the_ID(); ?>" <?php post_class('entry-content'); ?>>
 				<h1><?php the_title(); ?></h1>
-			</div>
+				<section class="content">
+					<?php the_content(); ?>
+				</section>
+				<?php edit_post_link(); ?>
+			</article>
 		</div>
-		<section class="content">
-			<?php the_content(); ?>
-		</section>
-		<?php edit_post_link(); ?>
-
-	</article>
+	</div>
 	<!-- /article -->
 
 <?php endwhile; ?>
@@ -35,5 +35,7 @@
 
 
 <!-- /section -->
+<?php #get_sidebar("footer");?>
+<!-- /section bootom -->
 </main>
 <?php get_footer(); ?>

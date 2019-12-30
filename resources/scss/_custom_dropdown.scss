@@ -1,0 +1,22 @@
+/*** customize ***/
+
+// The dropdown menu
+.dropdown-menu {
+  header &{
+      min-width: $dropdown-min-width;
+
+  }
+  min-width:auto;
+  font-size: inherit; // Redeclare because nesting can cause inheritance issues
+  color: $body-color;
+}
+
+
+// Links, buttons, and more within the dropdown menu
+//
+// `<button>`-specific styles are denoted with `// For <button>s`
+.dropdown-item {
+  #offMenu &{
+    width: inherit !important;
+  }
+}

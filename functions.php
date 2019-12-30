@@ -31,7 +31,7 @@ if (function_exists('add_theme_support'))
     add_image_size('large', 1024, '', true); // Large Thumbnail
     add_image_size('medium', 600, '', true); // Medium Thumbnail
     add_image_size('small', 315, '', true); // Small Thumbnail
-    add_image_size( 'favorite-small', 315, 140, true );//Favorite Thumbnail
+    add_image_size( 'favorite-small', 575, 325, true );//Favorite Thumbnail
     add_image_size('banner', 9999, 415, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
     // Add Support for Custom Backgrounds
@@ -64,6 +64,9 @@ if (function_exists('add_theme_support'))
 
     // Localisation Support
     load_theme_textdomain('ac-ningbo', get_template_directory() . '/languages');
+
+    //add editor styles	
+   // add_editor_style('editor-styles.css');
 }
 
 /*------------------------------------*\
@@ -153,10 +156,17 @@ function html5blank_header_scripts()
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/assets/js/custom_scripts.js', array('jquery', 'bootstrap'), '1.0.0', true); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
 
+        // custom vanilla scripts - concat later
+        wp_enqueue_script('dom_helper', get_template_directory_uri() . '/assets/js/lib/dom_helper.js', array(), '1.0.0', true); // 
+        wp_enqueue_script('scroll', get_template_directory_uri() . '/assets/js/scroll-to-top.js', array('dom_helper'), '1.0.0', true); // 
+        wp_enqueue_script('checkbox', get_template_directory_uri() . '/assets/js/custom-checkbox.js', array('dom_helper'), '1.0.0', true); // 
+        wp_enqueue_script('category', get_template_directory_uri() . '/assets/js/category-grids.js', array('dom_helper'), '1.0.0', true); // 
+
         // Cookie Bar
         wp_enqueue_script('cookie-bar', get_template_directory_uri() . '/assets/cookie-bar/cookiebar-latest.min.js?theme=white&tracking=1&thirdparty=1&refreshPage=1&showNoConsent=1&hideDetailsBtn=1&remember=30&privacyPage=https%3A%2F%2Faachen-ningbo.de%2Fde%2Fdatenschutzerklaerung%2F', array('jquery'), false, true);
     }
 }
+
 
 // Load HTML5 Blank conditional scripts
 function html5blank_conditional_scripts()
@@ -190,9 +200,17 @@ function html5blank_styles()
     wp_enqueue_style('ac-ningbo', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
 
     wp_enqueue_style('screen', get_stylesheet_directory_uri() . '/assets/css/screen.css', 'style', '1.0', 'all', array('fontawesome','ac-ningbo'));
-
+    //wp_enqueue_style( 'editor-style', get_template_directory_uri() . '/assets/css/editor-styles.css', array('ac-ningbo') );
     //wp_enqueue_style('print', get_stylesheet_directory_uri() . '/assets/css/print.css', 'style', '1.0', 'print', array('fontawesome','ac-ningbo'));
 }
+
+function sak_theme_add_editor_styles() {
+    global $post;
+    $post_type = get_post_type( $post->ID );
+    $editor_style = 'editor-style-' . $post_type . '.css';
+    add_editor_style( $editor_style );
+}
+//add_action( 'pre_get_posts', 'sak_theme_add_editor_styles' );
 
 // Register HTML5 Blank Navigation
 function register_html5_menu()
@@ -244,7 +262,7 @@ function add_slug_to_body_class($classes)
 // If Dynamic Sidebar Exists
 if (function_exists('register_sidebar'))
 {
-    // Define Sidebar Widget Area 1
+    // Define Footer Widget Area 1
     register_sidebar(array(
         'name' => __('Widget Area 1', 'ac-ningbo'),
         'description' => __('Description for this widget-area...', 'ac-ningbo'),
@@ -255,7 +273,7 @@ if (function_exists('register_sidebar'))
         'after_title' => '</h3>'
     ));
 
-    // Define Sidebar Widget Area 2
+    // Define Footer Widget Area 2
     register_sidebar(array(
         'name' => __('Widget Area 2', 'ac-ningbo'),
         'description' => __('Description for this widget-area...', 'ac-ningbo'),
@@ -265,6 +283,16 @@ if (function_exists('register_sidebar'))
         'before_title' => '<h3>',
         'after_title' => '</h3>'
     ));
+        // Define Sidebar Widget Area 1
+        register_sidebar(array(
+            'name' => __('Sidebar Widget Area 1', 'ac-ningbo'),
+            'description' => __('Description for this widget-area in sidebar...', 'ac-ningbo'),
+            'id' => 'sidebar-widget-area-1',
+            'before_widget' => '<div id="%1$s" class="%2$s">',
+            'after_widget' => '</div>',
+            'before_title' => '<h3>',
+            'after_title' => '</h3>'
+            ));
     // Define Sidebar Language
     register_sidebar(array(
         'name' => __('Language', 'ac-ningbo'),

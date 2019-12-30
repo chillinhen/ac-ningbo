@@ -1,0 +1,34 @@
+// @import '../temp/bourbon/_bourbon.scss';
+//delete later
+@import 'bootstrap/scss/_functions.scss';
+@import 'bootstrap/scss/_variables.scss';
+@import 'bootstrap/scss/_mixins.scss';
+// necessary bs
+
+// customization
+@import 'custom_vars';
+@import 'custom_mixins';
+@import 'custom_grid';
+
+@import 'custom_reboot';
+@import 'custom_globals';
+@import 'custom_type';
+@import 'custom_dropdown';
+@import 'custom_navbar';
+@import 'custom_card';
+@import 'custom_pagination';
+@import 'custom_list-group';
+@import 'custom_carousel';
+@import 'custom_media';
+@import 'custom_layout';
+
+// //to clean
+
+//@import '_myLayout';
+@import '_myForms';
+//@import '_gutenberg_elements.scss';
+@import '_ie_support';
+
+@import 'shame';
+
+@import 'bootstrap';

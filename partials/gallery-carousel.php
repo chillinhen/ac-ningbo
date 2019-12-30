@@ -19,7 +19,7 @@ if( $images ): ?>
               <figure class="d-block w-100">
               	<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
                 <?php if($image['caption']):?>
-                  <figcaption class="d-flex justify-content-end">
+                  <figcaption class="d-sm-flex justify-content-end">
                     <i class="fas fa-info-circle mt-1 mr-3 align-items-baseline"></i>
                     <span><?php echo $image['caption']; ?></span>
                   </figcaption>

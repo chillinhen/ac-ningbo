@@ -6,19 +6,23 @@
 
 	<!-- article -->
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		<div class="row">
+		<div class="row mt-5">
 			<div class="col-sm-12">
 				<h1><?php the_title(); ?></h1>
 			</div>
 		</div>
-		<section class="content">
-			<div class="row">
-				<div class="col-sm-8">
-					<?php the_content(); ?>
-				</div>
+		<div class="row">
+		
+			<div class="col-sm-8">
+			<section class="content">
+				<?php the_content(); ?>
+				</section>
+			</div>
+			<div class="col-sm-4">
 				<?php get_sidebar(); ?>
 			</div>
-		</section>
+	
+		</div>
 		<?php edit_post_link(); ?>
 
 	</article>

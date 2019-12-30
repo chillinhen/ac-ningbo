@@ -6,7 +6,7 @@ if( $posts ): ?>
 <div class="card-deck pb-5">
   <?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?>
     <?php setup_postdata($post); ?>
-    <div class="card related-post p-3" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <div class="card related-post" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
       <?php if ( has_post_thumbnail()) : // Check if thumbnail exists ?>
         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
           <?php the_post_thumbnail('favorite-small', array('class' => 'card-img-top'));?>
@@ -17,13 +17,13 @@ if( $posts ): ?>
         </a>
       <?php endif; ?>
       <div class="card-body">
-        <h4 class="card-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-        <div class="card-details d-flex">
+      <div class="card-details d-flex">
           <!-- post details -->
           <small class="category">
             <?php the_category(' | '); // Separated by commas ?>
           </small>
         </div>
+        <h4 class="card-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
       </div>
     </div>
   <?php endforeach; ?>

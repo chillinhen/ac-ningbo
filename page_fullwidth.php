@@ -6,23 +6,17 @@ get_header(); ?>
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
 	<!-- article -->
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		<div class="row">
-			<div class="col-sm-12">
+	<div class="row my-5">
+		<div class="col-12">
+			<article id="post-<?php the_ID(); ?>" <?php post_class('entry-content'); ?>>
 				<h1><?php the_title(); ?></h1>
-			</div>
-		</div>
-		<section class="content entry-content">
-			<div class="row">
-				<div class="col-sm-12">
+				<section class="content">
 					<?php the_content(); ?>
-				</div>
-
-			</div>
-		</section>
-		<?php edit_post_link(); ?>
-
-	</article>
+				</section>
+				<?php edit_post_link(); ?>
+			</article>
+		</div>
+	</div>
 	<!-- /article -->
 
 <?php endwhile; ?>

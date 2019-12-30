@@ -1,0 +1,112 @@
+.carousel {
+  position: relative;
+  &#bannerCarousel{
+    @include media-breakpoint-down(xs){
+      margin:-1em -1em .5em -1em;
+      figcaption,
+      .carousel-indicators{
+        display:none !important;
+      }
+    }
+  }
+}
+
+.carousel-item{
+  figure{
+    margin:0;
+    position: relative;
+    height:inherit;
+    @include media-breakpoint-down(sm){
+      @include elastic-scale(100%,50%);
+    }
+    
+    img{
+      max-width: none;
+      height: 100%;
+      width:auto;
+    }
+    figcaption{
+      position: absolute;
+      left:0;
+      right: 0;
+      bottom: -10%;
+      background: rgba($black, 0);
+      color:white;
+      padding: $grid-gutter-width/2;
+      font-size:$font-size-base;
+    }
+    &.hover:hover,  &.hover:focus{
+      cursor: pointer;
+      figcaption{
+        bottom:0;
+        transition: all 800ms ease;
+        @include transition(all, 800ms, ease);
+        background: rgba($black, 0.5);
+      }
+    }
+  }
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  display: inline-block;
+  background-image: none !important;
+  [class*="ti-"] {
+    #bannerCarousel &{
+      font-size: 2rem;
+    }
+  }
+}
+
+.carousel-indicators {
+  bottom: 1rem;
+  justify-content: flex-start !important;
+  @include media-breakpoint-down(md){
+    display: none;
+  }
+  &:hover{
+    + .carousel-inner .carousel-item figcaption{
+      bottom:0;
+      @include transition(all, 800ms, ease);
+      background: rgba($black,.5);
+    }
+  }
+  li {
+    position: relative;
+    flex: 0 1 auto;
+    width: $carousel-indicator-width;
+    height: $carousel-indicator-height;
+  }
+  #bannerCarousel & li{
+    width:5px;
+    height:5px;
+    border-radius: 50%;
+    margin-left: 5px;
+  }
+}
+
+//newsCarousel
+#newsCarousel {
+  padding: $grid-gutter-width $grid-gutter-width 50% $grid-gutter-width;
+  @include media-breakpoint-down(lg) {
+    padding-bottom: 15%;
+    margin-bottom: $grid-gutter-width;
+  }
+  
+
+  [class*="carousel-control"]{
+    top:$grid-gutter-width;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    i.fa{
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+  }
+  .carousel-control-prev{
+    right:1.5rem;
+    left:auto;
+  }
+}

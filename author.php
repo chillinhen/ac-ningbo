@@ -21,16 +21,16 @@
 		<?php rewind_posts(); while (have_posts()) : the_post(); ?>
 
 			<!-- article -->
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<article id="post-<?php the_ID(); ?>" <?php post_class('row my-5'); ?>>
 
 				<!-- post thumbnail -->
 				<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-						<?php the_post_thumbnail(array(120,120)); // Declare pixel size you need inside the array ?>
+					<a href="<?php the_permalink(); ?>" class="col-md-2" title="<?php the_title(); ?>">
+						<?php the_post_thumbnail(array(120,120), ['class' => 'img-fluid']); // Declare pixel size you need inside the array ?>
 					</a>
 				<?php endif; ?>
 				<!-- /post thumbnail -->
-
+				<div class="col-md-10">
 				<!-- post title -->
 				<h2>
 					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
@@ -44,11 +44,12 @@
 				<!-- /post details -->
 
 				<?php html5wp_excerpt('html5wp_index'); // Build your custom callback length in functions.php ?>
-
-				<br class="clear">
-
-				<?php edit_post_link(); ?>
-
+				</div>
+				<div class="w-100 mt-3 flex-wrap post-details d-flex flex-row-reverse justify-content-between">
+			<small class="date text-muted text-small"><?php the_time('d. F Y'); ?></small>
+			<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
+			<?php edit_post_link(); ?>
+		</div>
 			</article>
 			<!-- /article -->
 

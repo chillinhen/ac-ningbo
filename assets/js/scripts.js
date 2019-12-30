@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./ressources/index.js":
-/*!*****************************!*\
-  !*** ./ressources/index.js ***!
-  \*****************************/
+/***/ "./resources/index.js":
+/*!****************************!*\
+  !*** ./resources/index.js ***!
+  \****************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -97,10 +97,21 @@
 
 /***/ }),
 
-/***/ "./ressources/scss/screen.scss":
-/*!*************************************!*\
-  !*** ./ressources/scss/screen.scss ***!
-  \*************************************/
+/***/ "./resources/scss/editor-styles.scss":
+/*!*******************************************!*\
+  !*** ./resources/scss/editor-styles.scss ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "css/editor-styles.css";
+
+/***/ }),
+
+/***/ "./resources/scss/screen.scss":
+/*!************************************!*\
+  !*** ./resources/scss/screen.scss ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -109,14 +120,15 @@ module.exports = __webpack_require__.p + "css/screen.css";
 /***/ }),
 
 /***/ 0:
-/*!*****************************************************************!*\
-  !*** multi ./ressources/index.js ./ressources/scss/screen.scss ***!
-  \*****************************************************************/
+/*!***************************************************************************************************!*\
+  !*** multi ./resources/index.js ./resources/scss/screen.scss ./resources/scss/editor-styles.scss ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./ressources/index.js */"./ressources/index.js");
-module.exports = __webpack_require__(/*! ./ressources/scss/screen.scss */"./ressources/scss/screen.scss");
+__webpack_require__(/*! ./resources/index.js */"./resources/index.js");
+__webpack_require__(/*! ./resources/scss/screen.scss */"./resources/scss/screen.scss");
+module.exports = __webpack_require__(/*! ./resources/scss/editor-styles.scss */"./resources/scss/editor-styles.scss");
 
 
 /***/ })

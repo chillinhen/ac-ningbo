@@ -1,0 +1,113 @@
+.form-control::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  opacity: 0;
+}
+.form-control::-moz-placeholder { /* Firefox 19+ */
+  opacity: 0;
+}
+.form-control:-ms-input-placeholder { /* IE 10+ */
+  //opacity: 0;
+}
+.form-control:-moz-placeholder { /* Firefox 18- */
+  opacity: 0;
+}
+input::placeholder {
+opacity: 0;
+}
+.form-group, .custom-control{
+  @include media-breakpoint-up(lg){
+    display: flex;
+    align-items: flex-start;
+  }
+  margin-bottom:1rem;
+}
+.custom-control{
+  align-items: flex-start;
+}
+.form-group{
+  @include media-breakpoint-up(lg){
+  label{
+    flex-basis: 40%;
+
+    padding: $input-padding-y 1rem 0 0;
+
+    + span{
+      flex-basis:60%;
+    }
+  }
+  }
+  label{font-weight:600;}
+}
+
+.wpcf7-form-control-wrap {
+  &.acceptance .wpcf7-list-item {
+    margin: 0 0 0 -2.5rem;
+    position: relative;
+    display: block;
+    label{
+      padding:0 !important;
+      font-weight: normal !important;
+    }
+  }
+}
+.form-check-label{margin-left:1rem;}
+
+//Alerts 
+.wpcf7-response-output{
+  position: fixed;
+  z-index:9999;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,.5);
+  border:0 !important;
+  top:12vH;
+  left:5vW;
+  right:5vW;
+  padding:2rem 2rem 2rem 3rem !important;
+  margin:0;
+  font-size: large;
+  line-height: 1.4;
+  background-color: $info;
+  color:$white;
+  @include media-breakpoint-down(sm){
+    top:5vH;
+  }
+  @include media-breakpoint-only(sm){
+    left:10vW;
+    right:10vW;
+  }
+  @include media-breakpoint-up(md){
+    top:15vH;
+  }
+  @include media-breakpoint-up(xl){
+    left:20vW;
+    right:20vW;
+  }
+
+  &.wpcf7-mail-sent-ng, &.wpcf7-aborted {
+      background-color: $red;
+  }
+
+  &.wpcf7-mail-sent-ok {
+      background-color: $success;
+  }
+
+  &.wpcf7-spam-blocked {
+      background-color: adjust-hue($red, 15%);
+  }
+
+  &.wpcf7-validation-errors,
+  &.wpcf7-acceptance-missing {
+      background-color: $warning;
+      color:lighten($body-color, 100%);
+  }
+  &:hover{
+      cursor: pointer;
+  }
+  &:before {
+      @include icon-style("Font Awesome 5 Free", "\f057", 0, 1, 0, 2em);
+     //icon-style ($family,$cnt, $pd-ri, $op, $mg-le, $size)
+      display: inline;
+      float: right;
+      font-size: 3rem;
+      margin-top: -1rem;
+      margin-right: 0;
+  }
+}

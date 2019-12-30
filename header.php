@@ -15,9 +15,8 @@
         endif;
         ?>
 
-        <link href="//www.google-analytics.com" rel="dns-prefetch">
-        <link href="<?php echo get_template_directory_uri(); ?>/library/img/icons/favicon.ico" rel="shortcut icon">
-        <link href="<?php echo get_template_directory_uri(); ?>/library/img/icons/touch.png" rel="apple-touch-icon-precomposed">
+        <link href="<?php echo get_template_directory_uri(); ?>/assets/favicons/favicon.ico" rel="shortcut icon">
+
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,7 +41,7 @@
           <?php dynamic_sidebar('language'); ?>
         </nav>
         <!-- wrapper -->
-        <div class="wrapper container pb-5">
+        <div class="wrapper container p-3 px-md-5 pb-5">
             <header class="header clear" role="banner">
                 <a class="toggle-nav" title="Menu">
                 <span class="icon-bar"></span>
@@ -63,7 +62,7 @@
               <div class="col-lg-4 col-md-12"><?php get_template_part('partials/site', 'branding'); ?></div>
               <div class="col-lg-8">
                 <!-- nav -->
-      					<nav class="navbar navbar-expand-md" role="navigation">
+      					<nav class="navbar navbar-expand-md" role="navigation" id="mainNav">
                   <?php html5blank_nav(); ?>
                   <?php dynamic_sidebar('language'); ?>
       					</nav>

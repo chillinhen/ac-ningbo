@@ -213,11 +213,11 @@ function sak_add_customizer_css() {
   }
   body.page .post-edit-link,
   body.single .post-edit-link,
-  .dropdown-item:hover,
-  .dropdown-item:focus,
-  .dropdown-menu > .current-menu-item > a,
-  .dropdown-menu > .current-menu-ancestor > a,
-  .dropdown-menu > .current-menu-parent > a{
+  #mainNav .dropdown-item:hover,
+  #mainNav .dropdown-item:focus,
+  #mainNav .dropdown-menu > .current-menu-item > a,
+  #mainNav .dropdown-menu > .current-menu-ancestor > a,
+  #mainNav .dropdown-menu > .current-menu-parent > a{
     background-color: <?php echo $secondary_color; ?>;
     color:<?php echo $container_color; ?> !important;
   }
@@ -291,10 +291,10 @@ function sak_add_customizer_css() {
     color:<?php echo $footer_menu_color; ?>;
   }
   .scroll-to-top_cnt{
-    color:<?php echo $footer_menu_color; ?>;
+    color:<?php echo $primary_color; ?>;
   }
   .arrow-up{
-    fill:currentColor;
+    fill:<?php echo $primary_color; ?>;
   }
   #newsCarousel{
     background-color: <?php echo $newsbox_color; ?>;

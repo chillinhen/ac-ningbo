@@ -1,0 +1,82 @@
+/*** Images ***/
+/* Card Images ***/
+.img-cnt{
+    //@include elastic-scale(100%, 33%);
+}
+img{
+    &[class*="align"]{
+        margin-bottom: $grid-gutter-width;
+    }
+    &.alignleft{
+        float:left;
+        margin-right: $grid-gutter-width/2;
+    }
+    &.alignright{
+        float:right;
+        margin-left: $grid-gutter-width/2;
+    }
+}
+
+/*** Galleries ***/
+.wp-block-gallery{
+    @include media-breakpoint-down(xs){
+        display: block;
+        padding: 0 !important;
+        .blocks-gallery-item{
+            width:100%;
+        }
+    }
+    @include media-breakpoint-down(sm){
+        figure{
+            flex-direction: column !important;
+        }
+        figcaption{
+            background: transparent !important;
+            position: static !important;
+            color:$gray-700 !important;
+            padding-top:$grid-gutter-width/2 !important;
+        }
+    }
+    @include media-breakpoint-only(sm){
+        padding: 0 !important;
+        flex-flow: row wrap;
+        figure{
+            flex:0 1 auto;
+        }
+    }
+    @include media-breakpoint-up(sm){
+        .blocks-gallery-item{
+            flex-grow: 0;
+        }
+    }
+}
+/*------------------------------------------------
+Nivo Lightbox
+--------------------------------------------------*/
+.nivo-lightbox-overlay{
+    &.nivo-lightbox-open{
+        background:rgba( $black, .7 );
+    }
+}
+a[class*="nivo-lightbox"]{color:white;}
+.nivo-lightbox-nav, .nivo-lightbox-close{
+    display:block;
+    @include text-indent(-99999px, inline-block);
+    background: transparent url(../img/nivo-icons.png) no-repeat 0% 0%;
+    width:26px;
+    height:26px;
+}
+.nivo-lightbox-close{
+    top:10%;
+    right:10%;
+}
+.nivo-lightbox-nav{
+    &.nivo-lightbox-prev{
+        left:10%;
+        background-position: 0% 100%;
+    }
+    &.nivo-lightbox-next{
+        right:10%;
+        background-position: 0% 50%;
+    }
+}

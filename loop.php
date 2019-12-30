@@ -6,7 +6,7 @@
 
 		<?php if ( has_post_thumbnail()) : // Check if thumbnail exists ?>
 			<a class="img-cnt" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-				<?php the_post_thumbnail('thumbnail');?>
+				<?php the_post_thumbnail('favorite-small', ['class' => 'img-fluid']);?>
 			</a>
 		<?php endif; ?>
 
@@ -22,15 +22,16 @@
 			<div class="text">
 				<?php html5wp_excerpt(10); // Build your custom callback length in functions.php ?>
 				<?php #html5wp_excerpt('html5wp_index'); // Build your custom callback length in functions.php ?>
-				<hr>
-				<div class="post-details d-flex flex-row-reverse">
-					<!-- post details -->
-					<small class="date text-muted text-small"><?php the_time('d. F Y'); ?></small>
-					<?php edit_post_link(); ?>
-				</div>
-				<!-- /post details -->
+			</div>
 		</div>
-			<!-- /article -->
+		<!-- post details -->
+		<div class="w -100 mt-3 flex-wrap post-details d-flex flex-row-reverse justify-content-between">
+			<small class="date text-muted text-small"><?php the_time('d. F Y'); ?></small>
+			<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
+			<?php edit_post_link(); ?>
+		</div>
+		<!-- /post details -->
+		<!-- /article -->
 	</article>
 	<!-- /article -->
 

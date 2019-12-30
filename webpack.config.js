@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
     mode: 'development',
     ...defaultConfig,
-    entry: ['./ressources/index.js', './ressources/scss/screen.scss'],
+    entry: ['./resources/index.js', './resources/scss/screen.scss', './resources/scss/editor-styles.scss'],
     output: {
         path: path.resolve(__dirname, 'assets'),
         filename: 'js/scripts.js',
@@ -39,7 +39,12 @@ module.exports = {
             {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: [
-                    'file-loader',
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '../img/[name].[ext]',
+                        }
+                    },
                 ],
             }
         ]

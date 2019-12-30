@@ -1,8 +1,6 @@
 <?php get_header();
 
 ?>
-
-	<main role="main">
 	<!-- section -->
 	<section>
 
@@ -20,7 +18,7 @@
 			<?php the_content(); // Dynamic Content ?>
 			<!-- post details -->
 			<footer class="article-footer">
-				<div class="d-flex justify-content-between">
+				<div class="d-flex justify-content-between align-items-center">
 					<strong class="date mr-5"><?php the_time('d.m.Y'); ?></strong>
 					<div class="post-details text-muted">
 						<span class="tags">
@@ -64,7 +62,7 @@
 
 	</section>
 	<!-- /section -->
-	</main>
+
 
 <?php get_sidebar(); ?>
 
