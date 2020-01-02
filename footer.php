@@ -4,7 +4,7 @@
 
 <!-- footer -->
 <footer class="footer" role="contentinfo">
-  <div class="container px-0">
+  <div class="container px-0 mb-0">
     <nav class="navbar px-0">
       <?php wp_nav_menu(array('theme_location' => 'footer-menu', 'menu_class' => 'footer-menu navbar-nav', 'container' => '', 'fallback_cb' => 'my_menu')); ?>
       <div class="scroll-to-top_cnt mr-3">

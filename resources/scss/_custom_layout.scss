@@ -7,6 +7,7 @@
         margin-bottom:$grid-gutter-width;
     }
     body > & > .header{
+      position: relative;
         @include media-breakpoint-down(sm){
             // padding:0 !important;
             // margin-left:-$grid-gutter-width;

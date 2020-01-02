@@ -3,7 +3,10 @@ ul {
   #offMenu & {
     padding: 0;
     margin: 0;
-    text-transform: uppercase;
+    
+    li > a {
+      text-transform: uppercase;
+    }
 
     &,
     li {

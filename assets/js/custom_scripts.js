@@ -37,7 +37,7 @@ jQuery(function ($) {
   
     // set bs navbar
     if ($(window).width() > 991) {
-      console.log('larger than 992');
+      
       mainNav = $('header .navbar');
       //$('.navbar').css('display', 'block');
       mainNav.children('ul').addClass('navbar-nav justify-content-end level-1').children('li').addClass('nav-item').children('a').addClass('nav-link');
@@ -67,13 +67,13 @@ jQuery(function ($) {
       });
     }
   
-    /*** Off canvas ***/
-    $('.toggle-nav').on('touchstart click', function (e) {
-      $('#offMenu').toggleClass('open');
-      $(this).toggleClass('open');
-      e.preventDefault();
-      scrollUp();
-    });
+/*** Off canvas ***/
+$('.toggle-nav').on('touchstart click', function (e) {
+  $('#offMenu').toggleClass('open');
+  $(this).toggleClass('open');
+  e.preventDefault();
+  scrollUp();
+});
 
     var navButton = $('#offMenu .menu-item-has-children > a');
         $('#offMenu .menu-item-has-children').each(function() {

@@ -43,15 +43,17 @@
         <!-- wrapper -->
         <div class="wrapper container p-3 px-md-5 pb-5">
             <header class="header clear" role="banner">
-                <a class="toggle-nav" title="Menu">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+            <a class="toggle-nav" title="Menu">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
             </a>
             <?php if(is_front_page()) :
                   get_template_part('partials/gallery','carousel');
-                  else :
+                  elseif(is_category()) :
+                    null;
+                  elseif (is_single()) :
                     if (has_post_thumbnail()) :
                         get_template_part('partials/thumbnail','banner');
                       endif;
@@ -62,7 +64,7 @@
               <div class="col-lg-4 col-md-12"><?php get_template_part('partials/site', 'branding'); ?></div>
               <div class="col-lg-8">
                 <!-- nav -->
-      					<nav class="navbar navbar-expand-md" role="navigation" id="mainNav">
+      					<nav class="navbar navbar-expand-md" role="navigation" id="mainNav" style="display:none;">
                   <?php html5blank_nav(); ?>
                   <?php dynamic_sidebar('language'); ?>
       					</nav>
