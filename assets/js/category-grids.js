@@ -1,14 +1,19 @@
 "use strict";
 const bodyClass = $('body').classList;
 const articleList = $('.articles .article-list');
+
 const changeGrid = () => {
     if(proofClass('bericht')) {
         articleList.classList.add('category-list');
-
-    } else {
+    } 
+    
+    else {
         articleList.classList.add('card-columns')
     }
 }
+
+
+
 const styleElements = () => {
     $$(".category-list > article")
         .map(item => {
@@ -37,7 +42,11 @@ const styleElements = () => {
             // });
         });
 }
-const proofClass = cls => Array.from(bodyClass).some(item => 
-    item.includes(cls));
-changeGrid();
-styleElements();
+const proofClass = cls => Array.from(bodyClass).some(item => item.includes(cls));
+
+
+if (proofClass('archive')) {
+    changeGrid();
+    styleElements();
+}
+

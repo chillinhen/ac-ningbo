@@ -161,9 +161,11 @@ function html5blank_header_scripts()
         wp_enqueue_script('scroll', get_template_directory_uri() . '/assets/js/scroll-to-top.js', array('dom_helper'), '1.0.0', true); // 
         wp_enqueue_script('checkbox', get_template_directory_uri() . '/assets/js/custom-checkbox.js', array('dom_helper'), '1.0.0', true); // 
         wp_enqueue_script('category', get_template_directory_uri() . '/assets/js/category-grids.js', array('dom_helper'), '1.0.0', true); // 
+        wp_enqueue_script('menu', get_template_directory_uri() . '/assets/js/menu.js', array('dom_helper'), '1.0.0', true); // 
 
         // Cookie Bar
         wp_enqueue_script('cookie-bar', get_template_directory_uri() . '/assets/cookie-bar/cookiebar-latest.min.js?theme=white&tracking=1&thirdparty=1&refreshPage=1&showNoConsent=1&hideDetailsBtn=1&remember=30&privacyPage=https%3A%2F%2Faachen-ningbo.de%2Fde%2Fdatenschutzerklaerung%2F', array('jquery'), false, true);
+
     }
 }
 
