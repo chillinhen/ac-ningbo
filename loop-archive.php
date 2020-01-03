@@ -1,26 +1,29 @@
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-	<!-- article -->
+	<!-- only for archive articles -->
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<!-- post thumbnail -->
 
-		<?php if ( has_post_thumbnail()) : // Check if thumbnail exists ?>
-			<a class="img-cnt" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-				<?php the_post_thumbnail('favorite-small', ['class' => 'img-fluid']);?>
-			</a>
-		<?php endif; ?>
+		
 
-		<div class="body">
-			<!-- post title -->
-			<small class="category text-small">
-				<?php the_category(' | '); // Separated by commas ?>
-			</small>
-			<h2 class="title">
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-			</h2>
-			<!-- /post title -->
-			<div class="text">
-				<?php html5wp_excerpt(10); // Build your custom callback length in functions.php ?>
+		<div class="body row">
+			<div class="col-sm-12">
+				<!-- post title -->
+				<small class="category text-small">
+					<?php the_category(' | '); // Separated by commas ?>
+				</small>
+				<h2 class="title">
+					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+				</h2>
+				<!-- /post title -->
+			</div>
+			<?php if ( has_post_thumbnail()) : // Check if thumbnail exists ?>
+				<a class="img-cnt col-sm-4 col-md-12 col-lg-4" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+					<?php the_post_thumbnail('favorite-small', ['class' => 'img-fluid']);?>
+				</a>
+			<?php endif; ?>
+			<div class="text <?php echo has_post_thumbnail() ? 'col-sm-8 col-md-12 col-lg-8' : 'col-sm-12';?>">
+				<?php html5wp_excerpt(5); // Build your custom callback length in functions.php ?>
 				<?php #html5wp_excerpt('html5wp_index'); // Build your custom callback length in functions.php ?>
 			</div>
 		</div>

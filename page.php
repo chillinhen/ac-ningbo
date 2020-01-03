@@ -10,18 +10,11 @@
 			<div class="col-sm-12">
 				<h1><?php the_title(); ?></h1>
 			</div>
-		</div>
-		<div class="row">
-		
-			<div class="col-sm-8">
-			<section class="content">
-				<?php the_content(); ?>
+			<div class="col-sm-12">
+				<section class="content">
+					<?php the_content(); ?>
 				</section>
 			</div>
-			<div class="col-sm-4">
-				<?php get_sidebar(); ?>
-			</div>
-	
 		</div>
 		<?php edit_post_link(); ?>
 

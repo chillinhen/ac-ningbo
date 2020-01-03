@@ -162,3 +162,9 @@ transition: $prop $time $func;
         color:$col;
     }
 }
+
+@mixin category-style{
+    color:$text-muted;
+    font-size:$font-size-base-sm;
+    text-transform:uppercase;
+}

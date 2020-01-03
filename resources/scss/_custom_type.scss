@@ -69,9 +69,7 @@ h6,.h6 {
 
 a{
   .category > &{
-    color:$text-muted;
-    font-size:$font-size-base-sm;
-    text-transform:uppercase;
+    @include category-style;
   }
 }
 
@@ -124,6 +122,9 @@ small,
 .small {
   font-size: $small-font-size;
   font-weight: $font-weight-normal;
+  article .body &{
+    @include category-style;
+  }
 }
 
 mark,

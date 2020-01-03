@@ -1,9 +1,10 @@
 "use strict";
-const bodyClass = $('body').classList;
+const bodyClass = $('body');
 const articleList = $('.articles .article-list');
 
-const changeGrid = () => {
-    if(proofClass('bericht')) {
+/*** Change Layout by category */
+const changeCategoryGrid = () => {
+    if(proofClass(bodyClass, 'bericht')) {
         articleList.classList.add('category-list');
     } 
     
@@ -12,9 +13,7 @@ const changeGrid = () => {
     }
 }
 
-
-
-const styleElements = () => {
+const styleCatElements = () => {
     $$(".category-list > article")
         .map(item => {
             item.classList.add('row');
@@ -42,11 +41,27 @@ const styleElements = () => {
             // });
         });
 }
-const proofClass = cls => Array.from(bodyClass).some(item => item.includes(cls));
 
-
-if (proofClass('archive')) {
-    changeGrid();
-    styleElements();
+const proofPage = () => {
+    if (proofClass(bodyClass, 'archive')) {
+        changeCategoryGrid();
+        styleCatElements();
+    } else return;
 }
+proofPage();
 
+/** Change Layout by content */
+
+const proofLayout = () => {
+    const gbCols = $$('.has-2-columns');
+    gbCols.forEach(item => {
+        console.log(item.classList);
+        if (proofClass(item, 'sidebar-left')) {
+            console.log('foo');
+            item.children.forEach(elem => elem.classList.remove('wp-block-column'));
+            item.firstElementChild.classList.add('col-sm-8');
+            item.firstElementChild.nextElementSibling.classList.add('col-sm-4');
+        } else console.log('bar');
+    });
+}
+proofLayout();

@@ -6,7 +6,7 @@
 				<!-- section -->
 				<section class="content">
 				<h1><?php _e( 'Archives', 'ac-ningbo' ); ?></h1>
-				<?php get_template_part('loop'); ?>
+				<?php get_template_part('loop-archive'); ?>
 				</section>
 		<!-- /section -->
 			</div>
