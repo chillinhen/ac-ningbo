@@ -26,9 +26,13 @@
 		</div>
 		<!-- post details -->
 		<div class="w-100 mt-3 flex-wrap post-details d-flex flex-row-reverse justify-content-between">
-			<small class="date text-muted text-small"><?php the_time('d. F Y'); ?></small>
-			<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-			<?php edit_post_link(); ?>
+			<small class="date text-muted text-small"><i class="far fa-calendar-alt"></i> <?php the_time('d.m.Y'); ?></small>
+			<small class="author">
+				<i class="fas fa-user-edit" data-tooltip="<?php _e( 'Published by', 'ac-ningbo' ); ?>"></i> <?php the_author_posts_link(); ?>
+				<?php edit_post_link(); ?>
+				</small>
+			
+
 		</div>
 		<!-- /post details -->
 		<!-- /article -->

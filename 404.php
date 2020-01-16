@@ -1,7 +1,8 @@
 <?php get_header(); ?>
 
 		<!-- section -->
-
+		<div class="row my-5">
+			<div class="col-md-8">
 			<!-- article -->
 			<article id="post-404" style="text-align:center;">
 
@@ -13,7 +14,8 @@
 			</article>
 			<!-- /article -->
 
-		</section>
+		</div>
+		<?php get_sidebar();?>
 		<!-- /section -->
-	</main>
+	</div>
 <?php get_footer(); ?>

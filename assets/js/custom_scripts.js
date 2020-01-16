@@ -38,7 +38,7 @@ jQuery(function ($) {
     // set bs navbar
     if ($(window).width() > 991) {
       
-      mainNav = $('header .navbar');
+      var mainNav = $('header .navbar');
       //$('.navbar').css('display', 'block');
       mainNav.children('ul').addClass('navbar-nav justify-content-end level-1').children('li').addClass('nav-item').children('a').addClass('nav-link');
       mainNav.find('.sub-menu').addClass('dropdown-menu').children('li').children('a').addClass('dropdown-item');
@@ -158,7 +158,9 @@ $('.toggle-nav').on('touchstart click', function (e) {
     // set content images max-width
     $('main[role="main"] article p img').addClass('img-fluid');
 
-    // avoid collapse when image floating
+   // bind link to icon
+
+
     
   });
   

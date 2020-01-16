@@ -1,6 +1,7 @@
 "use strict";
 const bodyClass = $('body');
 const articleList = $('.articles .article-list');
+const gbCols = $$('.has-2-columns');
 
 /*** Change Layout by category */
 const changeCategoryGrid = () => {
@@ -50,18 +51,28 @@ const proofPage = () => {
 }
 proofPage();
 
-/** Change Layout by content */
-
+/** Change Layout by content **/
+/* Sidebar Layout */
 const proofLayout = () => {
-    const gbCols = $$('.has-2-columns');
-    gbCols.forEach(item => {
-        console.log(item.classList);
-        if (proofClass(item, 'sidebar-left')) {
-            console.log('foo');
-            item.children.forEach(elem => elem.classList.remove('wp-block-column'));
-            item.firstElementChild.classList.add('col-sm-8');
-            item.firstElementChild.nextElementSibling.classList.add('col-sm-4');
-        } else console.log('bar');
-    });
+    if(gbCols) {
+        gbCols.forEach(item => {
+            item.classList.add('row');
+            console.log(item.classList);
+            if (proofClass(item, 'sidebar-left')) {
+                item.children.forEach(elem => elem.classList.remove('wp-block-column'));
+                item.firstElementChild.classList.add('col-sm-8');
+                item.firstElementChild.nextElementSibling.classList.add('col-sm-4');
+                //if(proofClass(item, 'sidebar-right')) item.classList.add('flex-row-reverse');
+            } 
+            else if (proofClass(item, 'sidebar-right')) {
+                item.children.forEach(elem => elem.classList.remove('wp-block-column'));
+                item.firstElementChild.classList.add('col-sm-4');
+                item.firstElementChild.nextElementSibling.classList.add('col-sm-8');
+                //if(proofClass(item, 'sidebar-right')) item.classList.add('flex-row-reverse');
+            }
+            else console.log('bar');
+        });
+    } else return;
+
 }
 proofLayout();

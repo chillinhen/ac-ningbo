@@ -231,8 +231,8 @@ function sak_add_customizer_css() {
   a.btn,
   .block.highlight.bg-primary
   {
-    color: <?php echo $container_color; ?> !important;
-    background-color:<?php echo $primary_color; ?> !important;
+    color: <?php echo $container_color; ?>;
+    background-color:<?php echo $primary_color; ?>;
   }
   .block.highlight.bg-primary .btn{
     background-color:<?php echo $secondary_color; ?> !important;

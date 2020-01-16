@@ -50,6 +50,7 @@
   }
 }
 .post-edit-link {
+
   body.page &,
   body.single & {
     @extend .btn !optional;
@@ -68,14 +69,15 @@
       z-index: 999999;
     }
   }
-
-  body.category & {
-    color: $link-color;
-
-    span {
-      display: none;
-    }
+  .author > &:before{
+    content: " | ";
   }
+}
+.link-cnt{
+  color: $link-color;
+     span {
+  display: none;
+}
 }
 
 /***** Kommentare ****/

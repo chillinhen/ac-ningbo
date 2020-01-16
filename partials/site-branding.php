@@ -1,5 +1,5 @@
 <?php if (is_front_page()) : ?>
-  <h1 class="logo m-0">
+  <h1 class="logo">
 <?php else: ?>
   <div class="logo">
 <?php endif; ?>

@@ -6,6 +6,7 @@
 require ( 'inc/customizer.php' );
 // add ACF Theme Options and Fields
 require_once ('acf/acf-include.php');
+require_once ('acf/acf-blocks.php');
 // add Custom Posts
 //require_once ('inc/custom-posts.php');
 // Load any external files you have here
@@ -137,32 +138,24 @@ function html5blank_header_scripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
-    	wp_register_script('conditionizr', get_template_directory_uri() . '/assets/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0'); // Conditionizr
-        wp_enqueue_script('conditionizr'); // Enqueue it!
-
-        wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
-        wp_enqueue_script('modernizr'); // Enqueue it!
-
-        wp_register_script('popper', get_template_directory_uri() . '/assets/js/lib/popper.min.js', array(), '', true); // Popper
-        wp_enqueue_script('popper'); // Enqueue it!
-
-        wp_register_script('bootstrap', get_template_directory_uri() . '/assets/js/lib/bootstrap.min.js', array(), '4.1.3', true); // Bootstrap
-        wp_enqueue_script('bootstrap'); // Enqueue it!
+    	wp_enqueue_script('conditionizr', get_template_directory_uri() . '/assets/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0'); // Conditionizr
+        wp_enqueue_script('modernizr', get_template_directory_uri() . '/assets/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
+        wp_enqueue_script('popper', get_template_directory_uri() . '/assets/js/lib/popper.min.js', array(), '', true); // Popper
+        wp_enqueue_script('bootstrap', get_template_directory_uri() . '/assets/js/lib/bootstrap.min.js', array(), '4.1.3', true); // Bootstrap
 
         // lightbox
-       wp_register_script('nivo-lightbox', get_stylesheet_directory_uri() . '/assets/js/nivo-lightbox.min.js', array('jquery'), '', true);
-       wp_enqueue_script('nivo-lightbox');
+       wp_enqueue_script('nivo-lightbox', get_stylesheet_directory_uri() . '/assets/js/nivo-lightbox.min.js', array('jquery'), '', true);
 
-        wp_register_script('html5blankscripts', get_template_directory_uri() . '/assets/js/custom_scripts.js', array('jquery', 'bootstrap'), '1.0.0', true); // Custom scripts
-        wp_enqueue_script('html5blankscripts'); // Enqueue it!
+        wp_enqueue_script('html5blankscripts', get_template_directory_uri() . '/assets/js/custom_scripts.js', array('jquery', 'bootstrap'), '20200116', true); // Custom scripts
 
         // custom vanilla scripts - concat later
-        wp_enqueue_script('dom_helper', get_template_directory_uri() . '/assets/js/lib/dom_helper.js', array(), '1.0.0', true);
-        wp_enqueue_script('acnb-lib', get_template_directory_uri() . '/assets/js/lib/acnb-lib.js', array('dom_helper'), '1.0.0', true);  
-        wp_enqueue_script('scroll', get_template_directory_uri() . '/assets/js/scroll-to-top.js', array('dom_helper', 'acnb-lib'), '1.0.0', true);  
-        wp_enqueue_script('checkbox', get_template_directory_uri() . '/assets/js/custom-checkbox.js', array('dom_helper', 'acnb-lib'), '1.0.0', true); 
-        wp_enqueue_script('grids', get_template_directory_uri() . '/assets/js/grids.js', array('dom_helper', 'acnb-lib'), '1.0.0', true); 
-        wp_enqueue_script('menu', get_template_directory_uri() . '/assets/js/menu.js', array('dom_helper', 'acnb-lib'), '1.0.0', true);
+        wp_enqueue_script('dom_helper', get_template_directory_uri() . '/assets/js/lib/dom_helper.js', array(), '20200116', true);
+        wp_enqueue_script('acnb-lib', get_template_directory_uri() . '/assets/js/lib/acnb-lib.js', array('dom_helper'), '20200116', true);  
+        wp_enqueue_script('scroll', get_template_directory_uri() . '/assets/js/scroll-to-top.js', array('dom_helper', 'acnb-lib'), '20200116', true);  
+        wp_enqueue_script('checkbox', get_template_directory_uri() . '/assets/js/custom-checkbox.js', array('dom_helper', 'acnb-lib'), '20200116', true); 
+        wp_enqueue_script('grids', get_template_directory_uri() . '/assets/js/grids.js', array('dom_helper', 'acnb-lib'), '20200116', true); 
+        wp_enqueue_script('menu', get_template_directory_uri() . '/assets/js/menu.js', array('dom_helper', 'acnb-lib'), '20200116', true);
+        wp_enqueue_script('affix-menu', get_template_directory_uri() . '/assets/js/affix-menu.js', array('dom_helper', 'acnb-lib'), '20200116', true);
 
         // Cookie Bar
         wp_enqueue_script('cookie-bar', get_template_directory_uri() . '/assets/cookie-bar/cookiebar-latest.min.js?theme=white&tracking=1&thirdparty=1&refreshPage=1&showNoConsent=1&hideDetailsBtn=1&remember=30&privacyPage=https%3A%2F%2Faachen-ningbo.de%2Fde%2Fdatenschutzerklaerung%2F', array('jquery'), false, true);
@@ -175,7 +168,7 @@ function html5blank_header_scripts()
 function html5blank_conditional_scripts()
 {
     if (is_page('pagenamehere')) {
-        wp_register_script('scriptname', get_template_directory_uri() . '/assets/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)
+        wp_enqueue_script('scriptname', get_template_directory_uri() . '/assets/js/scriptname.js', array('jquery'), '20200116'); // Conditional script(s)
         wp_enqueue_script('scriptname'); // Enqueue it!
     }
 }
@@ -453,25 +446,7 @@ function html5blankcomments($comment, $args, $depth)
 	<?php endif; ?>
 <?php }
 
-//Register acf-gb block
-add_action('acf/init', 'my_acf_init');
-function my_acf_init() {
-	
-	// check function exists
-	if( function_exists('acf_register_block') ) {
-		
-		// register a testimonial block
-		acf_register_block(array(
-			'name'				=> 'downloadlist',
-			'title'				=> __('Download List'),
-			'description'		=> __('A custom download list.'),
-			'render_callback'	=> 'my_acf_block_render_callback',
-			'category'			=> 'formatting',
-			'icon'				=> 'admin-comment',
-			'keywords'			=> array( 'list', 'downloads' ),
-		));
-	}
-}
+
 function my_acf_block_render_callback( $block ) {
 	
 	// convert name ("acf/testimonial") into path friendly slug ("testimonial")

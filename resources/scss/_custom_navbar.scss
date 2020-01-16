@@ -202,12 +202,13 @@ li[class*="menu"] {
   margin: 0;
   ul {
     margin: 0;
-    padding: .5em 0;
+    padding: 0;
   }
   .lang-item {
     list-style: none;
-    display: inline-block;
-    border-right: 1px solid currentColor;
+    display: block;
+    padding: .75em 0;
+    border-bottom: 1px solid currentColor;
     &:last-child {
       border: 0;
     }
@@ -219,7 +220,7 @@ li[class*="menu"] {
     }
     a{
       letter-spacing: .05em;
-      padding: 0 1em;
+      padding: 1em;
       margin: 0;
 
       &:hover {

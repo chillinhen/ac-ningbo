@@ -3,7 +3,7 @@
 $posts = get_field('favorite-posts');
 
 if( $posts ): ?>
-<div class="card-deck pb-5">
+<div class="card-deck">
   <?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?>
     <?php setup_postdata($post); ?>
     <div class="card related-post" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -30,3 +30,4 @@ if( $posts ): ?>
 </div>
 <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
 <?php endif; ?>
+<?php get_template_part('partials/buttons'); ?>

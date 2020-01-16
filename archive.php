@@ -1,12 +1,17 @@
 <?php get_header(); ?>
 
-	<main role="main">
 	<div class="row my-5">
 			<div class="col-md-8">
 				<!-- section -->
 				<section class="content">
 				<h1><?php _e( 'Archives', 'ac-ningbo' ); ?></h1>
-				<?php get_template_part('loop-archive'); ?>
+				<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+					<?php get_template_part('loop-archive'); ?>
+					<?php endwhile; ?>
+					<?php else: ?>
+					<?php get_template_part('loop-404'); ?>
+
+				<?php endif; ?>
 				</section>
 		<!-- /section -->
 			</div>
@@ -20,7 +25,6 @@
 		<?php edit_post_link(); ?>
 		
 		</div>
-	</main>
 
 <?php get_sidebar(); ?>
 

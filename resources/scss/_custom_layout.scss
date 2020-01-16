@@ -23,6 +23,10 @@
             padding: $grid-gutter-width 0 $grid-gutter-width/2 0;
             border-bottom:1px solid $border-color;
             .header-image{margin-bottom:-2em;}
+            .header-observer{
+              margin: 0;
+              border-top: 1px solid white;
+            }
         }
     }
     //Sticky Footer
@@ -37,11 +41,26 @@
     }
   }
 
-  .main-navigation{
+  .main-navigation {
+    background-color: $white;
+    height: auto;
+    padding: 0;
     @include media-breakpoint-up(md){
-        margin-top: -$grid-gutter-width/2;
-    }
+      margin-top: -$grid-gutter-width/2;
   }
+    @include media-breakpoint-up(lg) {
+        &.is-sticky {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            z-index: 1020;
+            margin-top: 0;
+            height: 90px;
+            transition: all 400ms ease-in-out;
+        }
+    }
+}
   article.post{
     h1:before, h2:before,
     &:after{
