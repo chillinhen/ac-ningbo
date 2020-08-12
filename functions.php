@@ -143,19 +143,20 @@ function html5blank_header_scripts()
         wp_enqueue_script('popper', get_template_directory_uri() . '/assets/js/lib/popper.min.js', array(), '', true); // Popper
         wp_enqueue_script('bootstrap', get_template_directory_uri() . '/assets/js/lib/bootstrap.min.js', array(), '4.1.3', true); // Bootstrap
 
-        // lightbox
-       wp_enqueue_script('nivo-lightbox', get_stylesheet_directory_uri() . '/assets/js/nivo-lightbox.min.js', array('jquery'), '', true);
+        // vanilla libraries
+       wp_enqueue_script('glightbox', get_stylesheet_directory_uri() . '/assets/js/lib/glightbox.min.js', array(), '2.0.5', true);
 
-        wp_enqueue_script('html5blankscripts', get_template_directory_uri() . '/assets/js/custom_scripts.js', array('jquery', 'bootstrap'), '20200116', true); // Custom scripts
+        wp_enqueue_script('html5blankscripts', get_template_directory_uri() . '/assets/js/custom_scripts.js', array('jquery', 'bootstrap'), '20200304', true); // Custom scripts
 
         // custom vanilla scripts - concat later
-        wp_enqueue_script('dom_helper', get_template_directory_uri() . '/assets/js/lib/dom_helper.js', array(), '20200116', true);
-        wp_enqueue_script('acnb-lib', get_template_directory_uri() . '/assets/js/lib/acnb-lib.js', array('dom_helper'), '20200116', true);  
-        wp_enqueue_script('scroll', get_template_directory_uri() . '/assets/js/scroll-to-top.js', array('dom_helper', 'acnb-lib'), '20200116', true);  
-        wp_enqueue_script('checkbox', get_template_directory_uri() . '/assets/js/custom-checkbox.js', array('dom_helper', 'acnb-lib'), '20200116', true); 
-        wp_enqueue_script('grids', get_template_directory_uri() . '/assets/js/grids.js', array('dom_helper', 'acnb-lib'), '20200116', true); 
-        wp_enqueue_script('menu', get_template_directory_uri() . '/assets/js/menu.js', array('dom_helper', 'acnb-lib'), '20200116', true);
-        wp_enqueue_script('affix-menu', get_template_directory_uri() . '/assets/js/affix-menu.js', array('dom_helper', 'acnb-lib'), '20200116', true);
+        wp_enqueue_script('dom_helper', get_template_directory_uri() . '/assets/js/lib/dom_helper.js', array(), '20200304', true);
+        wp_enqueue_script('acnb-lib', get_template_directory_uri() . '/assets/js/lib/acnb-lib.js', array('dom_helper'), '20200304', true);  
+        wp_enqueue_script('scroll', get_template_directory_uri() . '/assets/js/scroll-to-top.js', array('dom_helper', 'acnb-lib'), '20200304', true);  
+        wp_enqueue_script('checkbox', get_template_directory_uri() . '/assets/js/custom-checkbox.js', array('dom_helper', 'acnb-lib'), '20200304', true); 
+        wp_enqueue_script('grids', get_template_directory_uri() . '/assets/js/grids.js', array('dom_helper', 'acnb-lib'), '20200304', true); 
+        wp_enqueue_script('menu', get_template_directory_uri() . '/assets/js/menu.js', array('dom_helper', 'acnb-lib'), '20200304', true);
+        wp_enqueue_script('affix-menu', get_template_directory_uri() . '/assets/js/affix-menu.js', array('dom_helper', 'acnb-lib'), '20200304', true);
+        wp_enqueue_script('lightbox', get_template_directory_uri() . '/assets/js/lightbox.js', array('dom_helper', 'acnb-lib'), '20200304', true);
 
         // Cookie Bar
         wp_enqueue_script('cookie-bar', get_template_directory_uri() . '/assets/cookie-bar/cookiebar-latest.min.js?theme=white&tracking=1&thirdparty=1&refreshPage=1&showNoConsent=1&hideDetailsBtn=1&remember=30&privacyPage=https%3A%2F%2Faachen-ningbo.de%2Fde%2Fdatenschutzerklaerung%2F', array('jquery'), false, true);
@@ -168,7 +169,7 @@ function html5blank_header_scripts()
 function html5blank_conditional_scripts()
 {
     if (is_page('pagenamehere')) {
-        wp_enqueue_script('scriptname', get_template_directory_uri() . '/assets/js/scriptname.js', array('jquery'), '20200116'); // Conditional script(s)
+        wp_enqueue_script('scriptname', get_template_directory_uri() . '/assets/js/scriptname.js', array('jquery'), '20200304'); // Conditional script(s)
         wp_enqueue_script('scriptname'); // Enqueue it!
     }
 }
@@ -191,7 +192,7 @@ function html5blank_styles()
     wp_enqueue_style('themify', get_template_directory_uri() . '/assets/css/themify-icons.css', array(), '5.0.10', 'all');
 
     //lightbox
-    //wp_enqueue_style('nivo-lightbox', get_stylesheet_directory_uri() . '/assets/css/nivo-lightbox.css', 'style', '1.0', 'all', array());
+    wp_enqueue_style('glightbox', get_stylesheet_directory_uri() . '/assets/css/glightbox.min.css',  array(), '2.0.5', 'all');
 
     wp_enqueue_style('ac-ningbo', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
 
@@ -456,6 +457,15 @@ function my_acf_block_render_callback( $block ) {
 	if( file_exists( get_theme_file_path("/template-parts/block/content-{$slug}.php") ) ) {
 		include( get_theme_file_path("/template-parts/block/content-{$slug}.php") );
 	}
+}
+
+/**
+* Removes or edits the 'Protected:' part from posts titles
+*/
+
+add_filter( 'protected_title_format', 'remove_protected_text' );
+function remove_protected_text() {
+return __('%s');
 }
 
 /*------------------------------------*\
